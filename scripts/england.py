@@ -35,7 +35,7 @@ if response.status_code == 200:
     df = pd.DataFrame(team_data)
     
 
-    df.to_csv("data/leagues/premier_league_standings.csv", index=False)
+    df.to_csv("initial_data/leagues/premier_league_standings.csv", index=False)
 else:
     print(f"Error! Status Code: {response.status_code}")
     print(response.text)

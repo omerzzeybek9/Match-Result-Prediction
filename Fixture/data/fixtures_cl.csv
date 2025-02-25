@@ -1,0 +1,190 @@
+Matchday,Date,Home Team,Away Team,Home Score,Away Score
+1,2024-09-17T16:45:00Z,BSC Young Boys,Aston Villa FC,0.0,3.0
+1,2024-09-17T16:45:00Z,Juventus FC,PSV,3.0,1.0
+1,2024-09-17T19:00:00Z,Sporting Clube de Portugal,Lille OSC,2.0,0.0
+1,2024-09-17T19:00:00Z,FC Bayern München,GNK Dinamo Zagreb,9.0,2.0
+1,2024-09-17T19:00:00Z,Real Madrid CF,VfB Stuttgart,3.0,1.0
+1,2024-09-17T19:00:00Z,AC Milan,Liverpool FC,1.0,3.0
+1,2024-09-18T16:45:00Z,Bologna FC 1909,FK Shakhtar Donetsk,0.0,0.0
+1,2024-09-18T16:45:00Z,AC Sparta Praha,FC Red Bull Salzburg,3.0,0.0
+1,2024-09-18T19:00:00Z,Manchester City FC,FC Internazionale Milano,0.0,0.0
+1,2024-09-18T19:00:00Z,Paris Saint-Germain FC,Girona FC,1.0,0.0
+1,2024-09-18T19:00:00Z,Club Brugge KV,Borussia Dortmund,0.0,3.0
+1,2024-09-18T19:00:00Z,Celtic FC,ŠK Slovan Bratislava,5.0,1.0
+1,2024-09-19T16:45:00Z,Feyenoord Rotterdam,Bayer 04 Leverkusen,0.0,4.0
+1,2024-09-19T16:45:00Z,FK Crvena Zvezda,Sport Lisboa e Benfica,1.0,2.0
+1,2024-09-19T19:00:00Z,AS Monaco FC,FC Barcelona,2.0,1.0
+1,2024-09-19T19:00:00Z,Stade Brestois 29,SK Sturm Graz,2.0,1.0
+1,2024-09-19T19:00:00Z,Atalanta BC,Arsenal FC,0.0,0.0
+1,2024-09-19T19:00:00Z,Club Atlético de Madrid,RB Leipzig,2.0,1.0
+2,2024-10-01T16:45:00Z,VfB Stuttgart,AC Sparta Praha,1.0,1.0
+2,2024-10-01T16:45:00Z,FC Red Bull Salzburg,Stade Brestois 29,0.0,4.0
+2,2024-10-01T19:00:00Z,ŠK Slovan Bratislava,Manchester City FC,0.0,4.0
+2,2024-10-01T19:00:00Z,Borussia Dortmund,Celtic FC,7.0,1.0
+2,2024-10-01T19:00:00Z,FC Barcelona,BSC Young Boys,5.0,0.0
+2,2024-10-01T19:00:00Z,FC Internazionale Milano,FK Crvena Zvezda,4.0,0.0
+2,2024-10-01T19:00:00Z,Bayer 04 Leverkusen,AC Milan,1.0,0.0
+2,2024-10-01T19:00:00Z,Arsenal FC,Paris Saint-Germain FC,2.0,0.0
+2,2024-10-01T19:00:00Z,PSV,Sporting Clube de Portugal,1.0,1.0
+2,2024-10-02T16:45:00Z,Girona FC,Feyenoord Rotterdam,2.0,3.0
+2,2024-10-02T16:45:00Z,FK Shakhtar Donetsk,Atalanta BC,0.0,3.0
+2,2024-10-02T19:00:00Z,Aston Villa FC,FC Bayern München,1.0,0.0
+2,2024-10-02T19:00:00Z,SK Sturm Graz,Club Brugge KV,0.0,1.0
+2,2024-10-02T19:00:00Z,Liverpool FC,Bologna FC 1909,2.0,0.0
+2,2024-10-02T19:00:00Z,RB Leipzig,Juventus FC,2.0,3.0
+2,2024-10-02T19:00:00Z,Sport Lisboa e Benfica,Club Atlético de Madrid,4.0,0.0
+2,2024-10-02T19:00:00Z,GNK Dinamo Zagreb,AS Monaco FC,2.0,2.0
+2,2024-10-02T19:00:00Z,Lille OSC,Real Madrid CF,1.0,0.0
+3,2024-10-22T16:45:00Z,AS Monaco FC,FK Crvena Zvezda,5.0,1.0
+3,2024-10-22T16:45:00Z,AC Milan,Club Brugge KV,3.0,1.0
+3,2024-10-22T19:00:00Z,Aston Villa FC,Bologna FC 1909,2.0,0.0
+3,2024-10-22T19:00:00Z,Girona FC,ŠK Slovan Bratislava,2.0,0.0
+3,2024-10-22T19:00:00Z,SK Sturm Graz,Sporting Clube de Portugal,0.0,2.0
+3,2024-10-22T19:00:00Z,Paris Saint-Germain FC,PSV,1.0,1.0
+3,2024-10-22T19:00:00Z,Real Madrid CF,Borussia Dortmund,5.0,2.0
+3,2024-10-22T19:00:00Z,Arsenal FC,FK Shakhtar Donetsk,1.0,0.0
+3,2024-10-22T19:00:00Z,Juventus FC,VfB Stuttgart,0.0,1.0
+3,2024-10-23T16:45:00Z,Stade Brestois 29,Bayer 04 Leverkusen,1.0,1.0
+3,2024-10-23T16:45:00Z,Atalanta BC,Celtic FC,0.0,0.0
+3,2024-10-23T19:00:00Z,BSC Young Boys,FC Internazionale Milano,0.0,1.0
+3,2024-10-23T19:00:00Z,FC Barcelona,FC Bayern München,4.0,1.0
+3,2024-10-23T19:00:00Z,Manchester City FC,AC Sparta Praha,5.0,0.0
+3,2024-10-23T19:00:00Z,RB Leipzig,Liverpool FC,0.0,1.0
+3,2024-10-23T19:00:00Z,Club Atlético de Madrid,Lille OSC,1.0,3.0
+3,2024-10-23T19:00:00Z,Sport Lisboa e Benfica,Feyenoord Rotterdam,1.0,3.0
+3,2024-10-23T19:00:00Z,FC Red Bull Salzburg,GNK Dinamo Zagreb,0.0,2.0
+4,2024-11-05T17:45:00Z,ŠK Slovan Bratislava,GNK Dinamo Zagreb,1.0,4.0
+4,2024-11-05T17:45:00Z,PSV,Girona FC,4.0,0.0
+4,2024-11-05T20:00:00Z,Sporting Clube de Portugal,Manchester City FC,4.0,1.0
+4,2024-11-05T20:00:00Z,Bologna FC 1909,AS Monaco FC,0.0,1.0
+4,2024-11-05T20:00:00Z,Borussia Dortmund,SK Sturm Graz,1.0,0.0
+4,2024-11-05T20:00:00Z,Liverpool FC,Bayer 04 Leverkusen,4.0,0.0
+4,2024-11-05T20:00:00Z,Real Madrid CF,AC Milan,1.0,3.0
+4,2024-11-05T20:00:00Z,Celtic FC,RB Leipzig,3.0,1.0
+4,2024-11-05T20:00:00Z,Lille OSC,Juventus FC,1.0,1.0
+4,2024-11-06T17:45:00Z,Club Brugge KV,Aston Villa FC,1.0,0.0
+4,2024-11-06T17:45:00Z,FK Shakhtar Donetsk,BSC Young Boys,2.0,1.0
+4,2024-11-06T20:00:00Z,AC Sparta Praha,Stade Brestois 29,1.0,2.0
+4,2024-11-06T20:00:00Z,VfB Stuttgart,Atalanta BC,0.0,2.0
+4,2024-11-06T20:00:00Z,FC Internazionale Milano,Arsenal FC,1.0,0.0
+4,2024-11-06T20:00:00Z,Paris Saint-Germain FC,Club Atlético de Madrid,1.0,2.0
+4,2024-11-06T20:00:00Z,Feyenoord Rotterdam,FC Red Bull Salzburg,1.0,3.0
+4,2024-11-06T20:00:00Z,FK Crvena Zvezda,FC Barcelona,2.0,5.0
+4,2024-11-06T20:15:00Z,FC Bayern München,Sport Lisboa e Benfica,1.0,0.0
+5,2024-11-26T17:45:00Z,ŠK Slovan Bratislava,AC Milan,2.0,3.0
+5,2024-11-26T17:45:00Z,AC Sparta Praha,Club Atlético de Madrid,0.0,6.0
+5,2024-11-26T20:00:00Z,Sporting Clube de Portugal,Arsenal FC,1.0,5.0
+5,2024-11-26T20:00:00Z,BSC Young Boys,Atalanta BC,1.0,6.0
+5,2024-11-26T20:00:00Z,FC Bayern München,Paris Saint-Germain FC,1.0,0.0
+5,2024-11-26T20:00:00Z,FC Barcelona,Stade Brestois 29,3.0,0.0
+5,2024-11-26T20:00:00Z,FC Internazionale Milano,RB Leipzig,1.0,0.0
+5,2024-11-26T20:00:00Z,Manchester City FC,Feyenoord Rotterdam,3.0,3.0
+5,2024-11-26T20:00:00Z,Bayer 04 Leverkusen,FC Red Bull Salzburg,5.0,0.0
+5,2024-11-27T17:45:00Z,SK Sturm Graz,Girona FC,1.0,0.0
+5,2024-11-27T17:45:00Z,FK Crvena Zvezda,VfB Stuttgart,5.0,1.0
+5,2024-11-27T20:00:00Z,AS Monaco FC,Sport Lisboa e Benfica,2.0,3.0
+5,2024-11-27T20:00:00Z,Aston Villa FC,Juventus FC,0.0,0.0
+5,2024-11-27T20:00:00Z,Bologna FC 1909,Lille OSC,1.0,2.0
+5,2024-11-27T20:00:00Z,Liverpool FC,Real Madrid CF,2.0,0.0
+5,2024-11-27T20:00:00Z,Celtic FC,Club Brugge KV,1.0,1.0
+5,2024-11-27T20:00:00Z,GNK Dinamo Zagreb,Borussia Dortmund,0.0,3.0
+5,2024-11-27T20:00:00Z,PSV,FK Shakhtar Donetsk,3.0,2.0
+6,2024-12-10T17:45:00Z,Girona FC,Liverpool FC,0.0,1.0
+6,2024-12-10T17:45:00Z,GNK Dinamo Zagreb,Celtic FC,0.0,0.0
+6,2024-12-10T20:00:00Z,Stade Brestois 29,PSV,1.0,0.0
+6,2024-12-10T20:00:00Z,RB Leipzig,Aston Villa FC,2.0,3.0
+6,2024-12-10T20:00:00Z,Atalanta BC,Real Madrid CF,2.0,3.0
+6,2024-12-10T20:00:00Z,Bayer 04 Leverkusen,FC Internazionale Milano,1.0,0.0
+6,2024-12-10T20:00:00Z,Club Brugge KV,Sporting Clube de Portugal,2.0,1.0
+6,2024-12-10T20:00:00Z,FK Shakhtar Donetsk,FC Bayern München,1.0,5.0
+6,2024-12-10T20:00:00Z,FC Red Bull Salzburg,Paris Saint-Germain FC,0.0,3.0
+6,2024-12-11T17:45:00Z,Club Atlético de Madrid,ŠK Slovan Bratislava,3.0,1.0
+6,2024-12-11T17:45:00Z,Lille OSC,SK Sturm Graz,3.0,2.0
+6,2024-12-11T20:00:00Z,VfB Stuttgart,BSC Young Boys,5.0,1.0
+6,2024-12-11T20:00:00Z,Borussia Dortmund,FC Barcelona,2.0,3.0
+6,2024-12-11T20:00:00Z,AC Milan,FK Crvena Zvezda,2.0,1.0
+6,2024-12-11T20:00:00Z,Sport Lisboa e Benfica,Bologna FC 1909,0.0,0.0
+6,2024-12-11T20:00:00Z,Arsenal FC,AS Monaco FC,3.0,0.0
+6,2024-12-11T20:00:00Z,Juventus FC,Manchester City FC,2.0,0.0
+6,2024-12-11T20:00:00Z,Feyenoord Rotterdam,AC Sparta Praha,4.0,2.0
+7,2025-01-21T17:45:00Z,AS Monaco FC,Aston Villa FC,1.0,0.0
+7,2025-01-21T17:45:00Z,Atalanta BC,SK Sturm Graz,5.0,0.0
+7,2025-01-21T20:00:00Z,Bologna FC 1909,Borussia Dortmund,2.0,1.0
+7,2025-01-21T20:00:00Z,ŠK Slovan Bratislava,VfB Stuttgart,1.0,3.0
+7,2025-01-21T20:00:00Z,Liverpool FC,Lille OSC,2.0,1.0
+7,2025-01-21T20:00:00Z,Club Atlético de Madrid,Bayer 04 Leverkusen,2.0,1.0
+7,2025-01-21T20:00:00Z,Sport Lisboa e Benfica,FC Barcelona,4.0,5.0
+7,2025-01-21T20:00:00Z,Club Brugge KV,Juventus FC,0.0,0.0
+7,2025-01-21T20:00:00Z,FK Crvena Zvezda,PSV,2.0,3.0
+7,2025-01-22T17:45:00Z,RB Leipzig,Sporting Clube de Portugal,2.0,1.0
+7,2025-01-22T17:45:00Z,FK Shakhtar Donetsk,Stade Brestois 29,2.0,0.0
+7,2025-01-22T20:00:00Z,AC Sparta Praha,FC Internazionale Milano,0.0,1.0
+7,2025-01-22T20:00:00Z,Paris Saint-Germain FC,Manchester City FC,4.0,2.0
+7,2025-01-22T20:00:00Z,Real Madrid CF,FC Red Bull Salzburg,5.0,1.0
+7,2025-01-22T20:00:00Z,AC Milan,Girona FC,1.0,0.0
+7,2025-01-22T20:00:00Z,Arsenal FC,GNK Dinamo Zagreb,3.0,0.0
+7,2025-01-22T20:00:00Z,Celtic FC,BSC Young Boys,1.0,0.0
+7,2025-01-22T20:00:00Z,Feyenoord Rotterdam,FC Bayern München,3.0,0.0
+8,2025-01-29T20:00:00Z,Sporting Clube de Portugal,Bologna FC 1909,1.0,1.0
+8,2025-01-29T20:00:00Z,BSC Young Boys,FK Crvena Zvezda,0.0,1.0
+8,2025-01-29T20:00:00Z,Aston Villa FC,Celtic FC,4.0,2.0
+8,2025-01-29T20:00:00Z,Girona FC,Arsenal FC,1.0,2.0
+8,2025-01-29T20:00:00Z,Stade Brestois 29,Real Madrid CF,0.0,3.0
+8,2025-01-29T20:00:00Z,SK Sturm Graz,RB Leipzig,1.0,0.0
+8,2025-01-29T20:00:00Z,VfB Stuttgart,Paris Saint-Germain FC,1.0,4.0
+8,2025-01-29T20:00:00Z,FC Bayern München,ŠK Slovan Bratislava,3.0,1.0
+8,2025-01-29T20:00:00Z,Borussia Dortmund,FK Shakhtar Donetsk,3.0,1.0
+8,2025-01-29T20:00:00Z,FC Barcelona,Atalanta BC,2.0,2.0
+8,2025-01-29T20:00:00Z,FC Internazionale Milano,AS Monaco FC,3.0,0.0
+8,2025-01-29T20:00:00Z,Manchester City FC,Club Brugge KV,3.0,1.0
+8,2025-01-29T20:00:00Z,Bayer 04 Leverkusen,AC Sparta Praha,2.0,0.0
+8,2025-01-29T20:00:00Z,Juventus FC,Sport Lisboa e Benfica,0.0,2.0
+8,2025-01-29T20:00:00Z,GNK Dinamo Zagreb,AC Milan,2.0,1.0
+8,2025-01-29T20:00:00Z,Lille OSC,Feyenoord Rotterdam,6.0,1.0
+8,2025-01-29T20:00:00Z,PSV,Liverpool FC,3.0,2.0
+8,2025-01-29T20:00:00Z,FC Red Bull Salzburg,Club Atlético de Madrid,1.0,4.0
+1,2025-02-11T17:45:00Z,Stade Brestois 29,Paris Saint-Germain FC,0.0,3.0
+1,2025-02-11T20:00:00Z,Manchester City FC,Real Madrid CF,2.0,3.0
+1,2025-02-11T20:00:00Z,Juventus FC,PSV,2.0,1.0
+1,2025-02-11T20:00:00Z,Sporting Clube de Portugal,Borussia Dortmund,0.0,3.0
+1,2025-02-12T17:45:00Z,Club Brugge KV,Atalanta BC,2.0,1.0
+1,2025-02-12T20:00:00Z,AS Monaco FC,Sport Lisboa e Benfica,0.0,1.0
+1,2025-02-12T20:00:00Z,Celtic FC,FC Bayern München,1.0,2.0
+1,2025-02-12T20:00:00Z,Feyenoord Rotterdam,AC Milan,1.0,0.0
+2,2025-02-18T17:45:00Z,AC Milan,Feyenoord Rotterdam,1.0,1.0
+2,2025-02-18T20:00:00Z,Sport Lisboa e Benfica,AS Monaco FC,3.0,3.0
+2,2025-02-18T20:00:00Z,FC Bayern München,Celtic FC,1.0,1.0
+2,2025-02-18T20:00:00Z,Atalanta BC,Club Brugge KV,1.0,3.0
+2,2025-02-19T17:45:00Z,Borussia Dortmund,Sporting Clube de Portugal,0.0,0.0
+2,2025-02-19T20:00:00Z,Paris Saint-Germain FC,Stade Brestois 29,7.0,0.0
+2,2025-02-19T20:00:00Z,Real Madrid CF,Manchester City FC,3.0,1.0
+2,2025-02-19T20:00:00Z,PSV,Juventus FC,3.0,1.0
+1,2025-03-04T17:45:00Z,Club Brugge KV,Aston Villa FC,,
+1,2025-03-04T20:00:00Z,Real Madrid CF,Club Atlético de Madrid,,
+1,2025-03-04T20:00:00Z,PSV,Arsenal FC,,
+1,2025-03-04T20:00:00Z,Borussia Dortmund,Lille OSC,,
+1,2025-03-05T17:45:00Z,Feyenoord Rotterdam,FC Internazionale Milano,,
+1,2025-03-05T20:00:00Z,Paris Saint-Germain FC,Liverpool FC,,
+1,2025-03-05T20:00:00Z,FC Bayern München,Bayer 04 Leverkusen,,
+1,2025-03-05T20:00:00Z,Sport Lisboa e Benfica,FC Barcelona,,
+2,2025-03-11T17:45:00Z,FC Barcelona,Sport Lisboa e Benfica,,
+2,2025-03-11T20:00:00Z,Liverpool FC,Paris Saint-Germain FC,,
+2,2025-03-11T20:00:00Z,FC Internazionale Milano,Feyenoord Rotterdam,,
+2,2025-03-11T20:00:00Z,Bayer 04 Leverkusen,FC Bayern München,,
+2,2025-03-12T17:45:00Z,Lille OSC,Borussia Dortmund,,
+2,2025-03-12T20:00:00Z,Aston Villa FC,Club Brugge KV,,
+2,2025-03-12T20:00:00Z,Club Atlético de Madrid,Real Madrid CF,,
+2,2025-03-12T20:00:00Z,Arsenal FC,PSV,,
+1,2025-04-08T00:00:00Z,,,,
+1,2025-04-08T00:00:00Z,,,,
+1,2025-04-09T00:00:00Z,,,,
+1,2025-04-09T00:00:00Z,,,,
+2,2025-04-15T00:00:00Z,,,,
+2,2025-04-15T00:00:00Z,,,,
+2,2025-04-16T00:00:00Z,,,,
+2,2025-04-16T00:00:00Z,,,,
+1,2025-04-29T00:00:00Z,,,,
+1,2025-04-30T00:00:00Z,,,,
+2,2025-05-06T00:00:00Z,,,,
+2,2025-05-07T00:00:00Z,,,,
+0,2025-05-31T19:00:00Z,,,,

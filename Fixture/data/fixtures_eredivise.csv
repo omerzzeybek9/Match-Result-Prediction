@@ -1,0 +1,307 @@
+Matchday,Date,Home Team,Away Team,Home Score,Away Score
+1,2024-08-09T18:00:00Z,FC Groningen,NAC Breda,4.0,1.0
+1,2024-08-10T14:30:00Z,Feyenoord Rotterdam,Willem II Tilburg,1.0,1.0
+1,2024-08-10T16:45:00Z,NEC,FC Twente '65,1.0,2.0
+1,2024-08-10T18:00:00Z,Almere City FC,AZ,0.0,1.0
+1,2024-08-10T19:00:00Z,PSV,RKC Waalwijk,5.0,1.0
+1,2024-08-11T10:15:00Z,Sparta Rotterdam,Heracles Almelo,0.0,0.0
+1,2024-08-11T12:30:00Z,FC Utrecht,PEC Zwolle,1.0,0.0
+1,2024-08-11T12:30:00Z,Go Ahead Eagles,Fortuna Sittard,0.0,2.0
+1,2024-08-11T14:45:00Z,AFC Ajax,SC Heerenveen,1.0,0.0
+2,2024-08-16T18:00:00Z,Fortuna Sittard,Almere City FC,3.0,0.0
+2,2024-08-17T14:30:00Z,SC Heerenveen,FC Utrecht,1.0,1.0
+2,2024-08-17T16:45:00Z,FC Twente '65,Sparta Rotterdam,1.0,1.0
+2,2024-08-17T18:00:00Z,AZ,NEC,1.0,0.0
+2,2024-08-17T19:00:00Z,RKC Waalwijk,FC Groningen,1.0,2.0
+2,2024-08-18T10:15:00Z,Heracles Almelo,PSV,1.0,3.0
+2,2024-08-18T12:30:00Z,PEC Zwolle,Feyenoord Rotterdam,1.0,5.0
+2,2024-08-18T12:30:00Z,Willem II Tilburg,Go Ahead Eagles,2.0,0.0
+2,2024-08-18T14:45:00Z,NAC Breda,AFC Ajax,2.0,1.0
+3,2024-08-24T16:45:00Z,NEC,PEC Zwolle,1.0,0.0
+3,2024-08-24T18:00:00Z,Almere City FC,PSV,1.0,7.0
+3,2024-08-24T19:00:00Z,NAC Breda,FC Utrecht,1.0,2.0
+3,2024-08-25T10:15:00Z,FC Groningen,AZ,0.0,0.0
+3,2024-08-25T12:30:00Z,Heracles Almelo,Willem II Tilburg,1.0,1.0
+3,2024-08-25T12:30:00Z,Sparta Rotterdam,Feyenoord Rotterdam,1.0,1.0
+3,2024-08-25T14:45:00Z,Go Ahead Eagles,RKC Waalwijk,2.0,0.0
+4,2024-08-30T18:00:00Z,RKC Waalwijk,AZ,0.0,3.0
+4,2024-08-31T14:30:00Z,Almere City FC,FC Groningen,1.0,1.0
+4,2024-08-31T16:45:00Z,Fortuna Sittard,NEC,0.0,3.0
+4,2024-08-31T18:00:00Z,SC Heerenveen,NAC Breda,4.0,0.0
+4,2024-08-31T19:00:00Z,Willem II Tilburg,Sparta Rotterdam,1.0,2.0
+4,2024-09-01T10:15:00Z,FC Utrecht,FC Twente '65,2.0,1.0
+4,2024-09-01T12:30:00Z,PEC Zwolle,Heracles Almelo,3.0,0.0
+4,2024-09-01T14:45:00Z,PSV,Go Ahead Eagles,3.0,0.0
+5,2024-09-14T14:30:00Z,FC Twente '65,PEC Zwolle,1.0,1.0
+5,2024-09-14T14:30:00Z,PSV,NEC,2.0,0.0
+5,2024-09-14T16:45:00Z,FC Groningen,Feyenoord Rotterdam,2.0,2.0
+5,2024-09-14T18:00:00Z,NAC Breda,Fortuna Sittard,1.0,0.0
+5,2024-09-14T19:00:00Z,AZ,SC Heerenveen,9.0,1.0
+5,2024-09-15T10:15:00Z,Sparta Rotterdam,Go Ahead Eagles,1.0,2.0
+5,2024-09-15T12:30:00Z,Willem II Tilburg,RKC Waalwijk,3.0,0.0
+5,2024-09-15T14:45:00Z,Heracles Almelo,Almere City FC,0.0,0.0
+3,2024-09-17T18:00:00Z,FC Twente '65,SC Heerenveen,2.0,0.0
+3,2024-09-18T18:00:00Z,AFC Ajax,Fortuna Sittard,5.0,0.0
+6,2024-09-20T18:00:00Z,PEC Zwolle,AZ,1.0,2.0
+6,2024-09-21T14:30:00Z,FC Utrecht,Willem II Tilburg,3.0,2.0
+6,2024-09-21T16:45:00Z,RKC Waalwijk,Sparta Rotterdam,1.0,2.0
+6,2024-09-21T18:00:00Z,Go Ahead Eagles,AFC Ajax,1.0,1.0
+6,2024-09-21T19:00:00Z,NEC,Heracles Almelo,1.0,2.0
+6,2024-09-22T10:15:00Z,SC Heerenveen,FC Groningen,2.0,1.0
+6,2024-09-22T12:30:00Z,Almere City FC,FC Twente '65,0.0,5.0
+6,2024-09-22T12:30:00Z,Feyenoord Rotterdam,NAC Breda,2.0,0.0
+6,2024-09-22T14:45:00Z,Fortuna Sittard,PSV,1.0,3.0
+7,2024-09-27T18:00:00Z,Heracles Almelo,SC Heerenveen,2.0,1.0
+7,2024-09-28T14:30:00Z,Willem II Tilburg,PSV,0.0,2.0
+7,2024-09-28T16:45:00Z,NEC,Feyenoord Rotterdam,1.0,1.0
+7,2024-09-28T19:00:00Z,Sparta Rotterdam,Fortuna Sittard,1.0,1.0
+7,2024-09-29T10:15:00Z,PEC Zwolle,Almere City FC,1.0,0.0
+7,2024-09-29T12:30:00Z,FC Twente '65,NAC Breda,1.0,0.0
+7,2024-09-29T12:30:00Z,FC Groningen,Go Ahead Eagles,0.0,1.0
+7,2024-09-29T14:45:00Z,RKC Waalwijk,AFC Ajax,0.0,2.0
+7,2024-09-29T18:00:00Z,AZ,FC Utrecht,1.0,2.0
+8,2024-10-04T18:00:00Z,Almere City FC,Willem II Tilburg,0.0,1.0
+8,2024-10-05T16:45:00Z,NAC Breda,NEC,1.0,0.0
+8,2024-10-05T18:00:00Z,PSV,Sparta Rotterdam,2.0,1.0
+8,2024-10-05T19:00:00Z,FC Utrecht,RKC Waalwijk,3.0,2.0
+8,2024-10-06T10:15:00Z,Go Ahead Eagles,Heracles Almelo,4.0,1.0
+8,2024-10-06T12:30:00Z,SC Heerenveen,PEC Zwolle,1.0,1.0
+8,2024-10-06T12:30:00Z,Feyenoord Rotterdam,FC Twente '65,2.0,1.0
+8,2024-10-06T14:45:00Z,AFC Ajax,FC Groningen,3.0,1.0
+8,2024-10-06T18:00:00Z,Fortuna Sittard,AZ,1.0,0.0
+9,2024-10-19T14:30:00Z,Sparta Rotterdam,Almere City FC,2.0,2.0
+9,2024-10-19T16:45:00Z,AZ,PSV,1.0,2.0
+9,2024-10-19T18:00:00Z,NEC,SC Heerenveen,3.0,0.0
+9,2024-10-19T18:00:00Z,RKC Waalwijk,FC Twente '65,2.0,2.0
+9,2024-10-19T19:00:00Z,Go Ahead Eagles,Feyenoord Rotterdam,1.0,5.0
+9,2024-10-20T10:15:00Z,Willem II Tilburg,Fortuna Sittard,0.0,0.0
+9,2024-10-20T12:30:00Z,FC Groningen,FC Utrecht,0.0,1.0
+9,2024-10-20T12:30:00Z,Heracles Almelo,AFC Ajax,3.0,4.0
+9,2024-10-20T14:45:00Z,PEC Zwolle,NAC Breda,1.0,2.0
+10,2024-10-25T18:00:00Z,Almere City FC,NEC,1.0,0.0
+10,2024-10-26T14:30:00Z,Fortuna Sittard,FC Groningen,1.0,0.0
+10,2024-10-26T16:45:00Z,PSV,PEC Zwolle,6.0,0.0
+10,2024-10-26T18:00:00Z,NAC Breda,RKC Waalwijk,4.0,1.0
+10,2024-10-26T19:00:00Z,SC Heerenveen,Sparta Rotterdam,2.0,0.0
+10,2024-10-27T11:15:00Z,FC Utrecht,Feyenoord Rotterdam,0.0,2.0
+10,2024-10-27T13:30:00Z,FC Twente '65,Heracles Almelo,5.0,0.0
+10,2024-10-27T15:45:00Z,AFC Ajax,Willem II Tilburg,1.0,0.0
+10,2024-10-27T19:00:00Z,AZ,Go Ahead Eagles,2.0,2.0
+4,2024-10-30T17:00:00Z,Feyenoord Rotterdam,AFC Ajax,0.0,2.0
+11,2024-11-02T15:30:00Z,Willem II Tilburg,FC Twente '65,0.0,1.0
+11,2024-11-02T17:45:00Z,Heracles Almelo,NAC Breda,2.0,0.0
+11,2024-11-02T17:45:00Z,AFC Ajax,PSV,3.0,2.0
+11,2024-11-02T20:00:00Z,Feyenoord Rotterdam,AZ,3.0,2.0
+11,2024-11-02T20:00:00Z,Fortuna Sittard,SC Heerenveen,3.0,0.0
+11,2024-11-03T11:15:00Z,Go Ahead Eagles,PEC Zwolle,2.0,2.0
+11,2024-11-03T13:30:00Z,NEC,FC Groningen,6.0,0.0
+11,2024-11-03T13:30:00Z,Sparta Rotterdam,FC Utrecht,1.0,4.0
+11,2024-11-03T15:45:00Z,RKC Waalwijk,Almere City FC,2.0,0.0
+12,2024-11-08T19:00:00Z,FC Utrecht,Heracles Almelo,1.0,0.0
+12,2024-11-09T15:30:00Z,FC Groningen,Sparta Rotterdam,1.0,0.0
+12,2024-11-09T17:45:00Z,PEC Zwolle,Fortuna Sittard,3.0,1.0
+12,2024-11-09T19:00:00Z,NAC Breda,PSV,0.0,3.0
+12,2024-11-09T20:00:00Z,RKC Waalwijk,NEC,0.0,3.0
+12,2024-11-10T11:15:00Z,Almere City FC,Feyenoord Rotterdam,1.0,4.0
+12,2024-11-10T13:30:00Z,SC Heerenveen,Go Ahead Eagles,1.0,0.0
+12,2024-11-10T13:30:00Z,FC Twente '65,AFC Ajax,2.0,2.0
+12,2024-11-10T15:45:00Z,AZ,Willem II Tilburg,1.0,2.0
+13,2024-11-23T15:30:00Z,Go Ahead Eagles,Almere City FC,3.0,0.0
+13,2024-11-23T17:45:00Z,Feyenoord Rotterdam,SC Heerenveen,3.0,0.0
+13,2024-11-23T17:45:00Z,Heracles Almelo,RKC Waalwijk,2.0,2.0
+13,2024-11-23T20:00:00Z,PSV,FC Groningen,5.0,0.0
+13,2024-11-23T20:00:00Z,Fortuna Sittard,FC Twente '65,1.0,2.0
+13,2024-11-24T11:15:00Z,NEC,FC Utrecht,1.0,2.0
+13,2024-11-24T13:30:00Z,Sparta Rotterdam,AZ,1.0,2.0
+13,2024-11-24T13:30:00Z,Willem II Tilburg,NAC Breda,2.0,2.0
+13,2024-11-24T15:45:00Z,AFC Ajax,PEC Zwolle,2.0,0.0
+14,2024-11-29T19:00:00Z,SC Heerenveen,RKC Waalwijk,1.0,1.0
+14,2024-11-30T15:30:00Z,NAC Breda,Almere City FC,1.0,0.0
+14,2024-11-30T17:45:00Z,FC Groningen,Willem II Tilburg,2.0,0.0
+14,2024-11-30T19:00:00Z,Feyenoord Rotterdam,Fortuna Sittard,1.0,1.0
+14,2024-11-30T20:00:00Z,PEC Zwolle,Sparta Rotterdam,1.0,0.0
+14,2024-12-01T11:15:00Z,FC Utrecht,PSV,2.0,5.0
+14,2024-12-01T13:30:00Z,AZ,Heracles Almelo,1.0,0.0
+14,2024-12-01T13:30:00Z,FC Twente '65,Go Ahead Eagles,3.0,2.0
+14,2024-12-01T15:45:00Z,NEC,AFC Ajax,1.0,2.0
+5,2024-12-04T19:00:00Z,AFC Ajax,FC Utrecht,2.0,2.0
+15,2024-12-06T19:00:00Z,PSV,FC Twente '65,6.0,1.0
+15,2024-12-07T15:30:00Z,Go Ahead Eagles,NEC,5.0,0.0
+15,2024-12-07T17:45:00Z,Sparta Rotterdam,NAC Breda,0.0,2.0
+15,2024-12-07T19:00:00Z,RKC Waalwijk,Feyenoord Rotterdam,2.0,3.0
+15,2024-12-07T20:00:00Z,Heracles Almelo,Fortuna Sittard,2.0,2.0
+15,2024-12-08T11:15:00Z,FC Groningen,PEC Zwolle,0.0,0.0
+15,2024-12-08T13:30:00Z,AZ,AFC Ajax,2.0,1.0
+15,2024-12-08T13:30:00Z,Willem II Tilburg,SC Heerenveen,1.0,2.0
+15,2024-12-08T15:45:00Z,Almere City FC,FC Utrecht,1.0,3.0
+16,2024-12-13T19:00:00Z,PEC Zwolle,Willem II Tilburg,0.0,1.0
+16,2024-12-14T17:45:00Z,SC Heerenveen,PSV,1.0,0.0
+16,2024-12-14T19:00:00Z,Fortuna Sittard,RKC Waalwijk,3.0,2.0
+16,2024-12-14T20:00:00Z,Feyenoord Rotterdam,Heracles Almelo,5.0,2.0
+16,2024-12-15T11:15:00Z,FC Utrecht,Go Ahead Eagles,3.0,3.0
+16,2024-12-15T13:30:00Z,NEC,Sparta Rotterdam,1.0,1.0
+16,2024-12-15T13:30:00Z,FC Twente '65,FC Groningen,2.0,0.0
+16,2024-12-15T15:45:00Z,AFC Ajax,Almere City FC,3.0,0.0
+16,2024-12-15T19:00:00Z,NAC Breda,AZ,1.0,2.0
+17,2024-12-20T19:00:00Z,RKC Waalwijk,PEC Zwolle,1.0,1.0
+17,2024-12-21T15:30:00Z,Go Ahead Eagles,NAC Breda,2.0,1.0
+17,2024-12-21T17:45:00Z,Almere City FC,SC Heerenveen,3.0,0.0
+17,2024-12-21T19:00:00Z,AZ,FC Twente '65,1.0,0.0
+17,2024-12-22T11:15:00Z,Sparta Rotterdam,AFC Ajax,0.0,2.0
+17,2024-12-22T13:30:00Z,FC Utrecht,Fortuna Sittard,2.0,5.0
+17,2024-12-22T13:30:00Z,PSV,Feyenoord Rotterdam,3.0,0.0
+17,2024-12-22T15:45:00Z,Willem II Tilburg,NEC,4.0,1.0
+18,2025-01-10T19:00:00Z,Fortuna Sittard,Go Ahead Eagles,0.0,3.0
+18,2025-01-11T15:30:00Z,Heracles Almelo,Sparta Rotterdam,1.0,1.0
+18,2025-01-11T17:45:00Z,AFC Ajax,RKC Waalwijk,2.0,1.0
+18,2025-01-11T19:00:00Z,PEC Zwolle,NEC,0.0,1.0
+18,2025-01-11T20:00:00Z,PSV,AZ,2.0,2.0
+18,2025-01-12T11:15:00Z,FC Twente '65,Willem II Tilburg,6.0,2.0
+18,2025-01-12T13:30:00Z,FC Groningen,Almere City FC,0.0,0.0
+18,2025-01-12T13:30:00Z,Feyenoord Rotterdam,FC Utrecht,1.0,2.0
+18,2025-01-12T15:45:00Z,NAC Breda,SC Heerenveen,2.0,4.0
+19,2025-01-18T15:30:00Z,PEC Zwolle,PSV,3.0,1.0
+19,2025-01-18T17:45:00Z,FC Utrecht,AZ,0.0,0.0
+19,2025-01-18T19:00:00Z,Willem II Tilburg,Feyenoord Rotterdam,1.0,1.0
+19,2025-01-18T20:00:00Z,Go Ahead Eagles,FC Groningen,2.0,1.0
+19,2025-01-19T11:15:00Z,NAC Breda,FC Twente '65,2.0,1.0
+19,2025-01-19T13:30:00Z,Almere City FC,Heracles Almelo,0.0,2.0
+19,2025-01-19T13:30:00Z,SC Heerenveen,AFC Ajax,0.0,2.0
+19,2025-01-19T15:45:00Z,NEC,Fortuna Sittard,4.0,1.0
+19,2025-01-19T19:00:00Z,Sparta Rotterdam,RKC Waalwijk,1.0,1.0
+20,2025-01-24T19:00:00Z,Heracles Almelo,FC Utrecht,1.0,1.0
+20,2025-01-25T17:45:00Z,PSV,NAC Breda,3.0,2.0
+20,2025-01-25T20:15:00Z,FC Groningen,SC Heerenveen,1.0,0.0
+20,2025-01-26T11:15:00Z,Fortuna Sittard,PEC Zwolle,1.0,4.0
+20,2025-01-26T13:30:00Z,RKC Waalwijk,Willem II Tilburg,2.0,0.0
+20,2025-01-26T15:45:00Z,AZ,Sparta Rotterdam,1.0,2.0
+17,2025-01-28T19:00:00Z,Heracles Almelo,FC Groningen,1.0,1.0
+21,2025-01-31T19:00:00Z,NAC Breda,Heracles Almelo,1.0,1.0
+21,2025-02-01T17:45:00Z,PEC Zwolle,FC Utrecht,3.0,3.0
+21,2025-02-01T19:00:00Z,SC Heerenveen,Fortuna Sittard,2.0,2.0
+21,2025-02-01T20:00:00Z,NEC,PSV,3.0,3.0
+21,2025-02-02T11:15:00Z,Almere City FC,RKC Waalwijk,1.0,4.0
+21,2025-02-02T13:30:00Z,AFC Ajax,Feyenoord Rotterdam,2.0,1.0
+21,2025-02-02T13:30:00Z,Go Ahead Eagles,FC Twente '65,2.0,2.0
+21,2025-02-02T15:45:00Z,Sparta Rotterdam,FC Groningen,1.0,0.0
+21,2025-02-02T19:00:00Z,Willem II Tilburg,AZ,0.0,2.0
+22,2025-02-08T15:30:00Z,Heracles Almelo,Go Ahead Eagles,4.0,2.0
+22,2025-02-08T17:45:00Z,PSV,Willem II Tilburg,1.0,1.0
+22,2025-02-08T19:00:00Z,FC Groningen,NEC,2.0,1.0
+22,2025-02-08T20:00:00Z,Feyenoord Rotterdam,Sparta Rotterdam,3.0,0.0
+22,2025-02-09T11:15:00Z,FC Utrecht,Almere City FC,0.0,1.0
+22,2025-02-09T13:30:00Z,Fortuna Sittard,AFC Ajax,0.0,2.0
+22,2025-02-09T13:30:00Z,RKC Waalwijk,NAC Breda,5.0,0.0
+22,2025-02-09T15:45:00Z,AZ,PEC Zwolle,2.0,0.0
+22,2025-02-09T15:45:00Z,SC Heerenveen,FC Twente '65,3.0,3.0
+23,2025-02-14T19:00:00Z,Go Ahead Eagles,Sparta Rotterdam,1.0,0.0
+23,2025-02-15T15:30:00Z,PSV,FC Utrecht,2.0,2.0
+23,2025-02-15T17:45:00Z,NAC Breda,Feyenoord Rotterdam,0.0,0.0
+23,2025-02-15T20:00:00Z,Willem II Tilburg,FC Groningen,1.0,3.0
+23,2025-02-16T11:15:00Z,NEC,Almere City FC,2.0,2.0
+23,2025-02-16T13:30:00Z,PEC Zwolle,SC Heerenveen,1.0,1.0
+23,2025-02-16T13:30:00Z,FC Twente '65,RKC Waalwijk,2.0,0.0
+23,2025-02-16T15:45:00Z,AFC Ajax,Heracles Almelo,4.0,0.0
+20,2025-02-22T19:00:00Z,Feyenoord Rotterdam,Almere City FC,2.0,1.0
+20,2025-02-23T13:30:00Z,AFC Ajax,Go Ahead Eagles,2.0,0.0
+20,2025-02-23T13:30:00Z,FC Twente '65,NEC,2.0,0.0
+23,2025-02-23T15:45:00Z,AZ,Fortuna Sittard,1.0,0.0
+24,2025-02-28T19:00:00Z,RKC Waalwijk,Fortuna Sittard,,
+24,2025-03-01T15:30:00Z,FC Utrecht,NAC Breda,,
+24,2025-03-01T17:45:00Z,Go Ahead Eagles,PSV,,
+24,2025-03-01T19:00:00Z,FC Groningen,FC Twente '65,,
+24,2025-03-01T20:00:00Z,Feyenoord Rotterdam,NEC,,
+24,2025-03-02T11:15:00Z,SC Heerenveen,AZ,,
+24,2025-03-02T13:30:00Z,Almere City FC,AFC Ajax,,
+24,2025-03-02T13:30:00Z,Heracles Almelo,PEC Zwolle,,
+24,2025-03-02T15:45:00Z,Sparta Rotterdam,Willem II Tilburg,,
+25,2025-03-07T19:00:00Z,NAC Breda,Sparta Rotterdam,,
+25,2025-03-08T15:30:00Z,Fortuna Sittard,Heracles Almelo,,
+25,2025-03-08T17:45:00Z,Feyenoord Rotterdam,FC Groningen,,
+25,2025-03-08T20:00:00Z,PSV,SC Heerenveen,,
+25,2025-03-09T11:15:00Z,Willem II Tilburg,FC Utrecht,,
+25,2025-03-09T13:30:00Z,NEC,Go Ahead Eagles,,
+25,2025-03-09T13:30:00Z,PEC Zwolle,AFC Ajax,,
+25,2025-03-09T15:45:00Z,AZ,RKC Waalwijk,,
+25,2025-03-09T19:00:00Z,FC Twente '65,Almere City FC,,
+26,2025-03-14T19:00:00Z,Almere City FC,NAC Breda,,
+26,2025-03-15T15:30:00Z,FC Utrecht,NEC,,
+26,2025-03-15T17:45:00Z,Sparta Rotterdam,PEC Zwolle,,
+26,2025-03-15T19:00:00Z,RKC Waalwijk,PSV,,
+26,2025-03-15T20:00:00Z,SC Heerenveen,Heracles Almelo,,
+26,2025-03-16T11:15:00Z,Go Ahead Eagles,Willem II Tilburg,,
+26,2025-03-16T13:30:00Z,FC Groningen,Fortuna Sittard,,
+26,2025-03-16T13:30:00Z,FC Twente '65,Feyenoord Rotterdam,,
+26,2025-03-16T15:45:00Z,AFC Ajax,AZ,,
+27,2025-03-29T15:30:00Z,NAC Breda,FC Groningen,,
+27,2025-03-29T17:45:00Z,Fortuna Sittard,Sparta Rotterdam,,
+27,2025-03-29T17:45:00Z,Willem II Tilburg,Almere City FC,,
+27,2025-03-29T20:00:00Z,NEC,AZ,,
+27,2025-03-29T20:00:00Z,PEC Zwolle,RKC Waalwijk,,
+27,2025-03-30T10:15:00Z,FC Utrecht,SC Heerenveen,,
+27,2025-03-30T12:30:00Z,Heracles Almelo,FC Twente '65,,
+27,2025-03-30T12:30:00Z,PSV,AFC Ajax,,
+27,2025-03-30T14:45:00Z,Feyenoord Rotterdam,Go Ahead Eagles,,
+28,2025-04-04T18:00:00Z,SC Heerenveen,Willem II Tilburg,,
+28,2025-04-05T14:30:00Z,AZ,Feyenoord Rotterdam,,
+28,2025-04-05T16:45:00Z,FC Twente '65,Fortuna Sittard,,
+28,2025-04-05T18:00:00Z,FC Groningen,PSV,,
+28,2025-04-05T19:00:00Z,Almere City FC,PEC Zwolle,,
+28,2025-04-06T10:15:00Z,RKC Waalwijk,Heracles Almelo,,
+28,2025-04-06T12:30:00Z,Go Ahead Eagles,FC Utrecht,,
+28,2025-04-06T12:30:00Z,Sparta Rotterdam,NEC,,
+28,2025-04-06T14:45:00Z,AFC Ajax,NAC Breda,,
+29,2025-04-11T18:00:00Z,NEC,RKC Waalwijk,,
+29,2025-04-12T14:30:00Z,Fortuna Sittard,Feyenoord Rotterdam,,
+29,2025-04-12T16:45:00Z,Sparta Rotterdam,SC Heerenveen,,
+29,2025-04-12T18:00:00Z,PSV,Almere City FC,,
+29,2025-04-12T19:00:00Z,NAC Breda,Go Ahead Eagles,,
+29,2025-04-13T10:15:00Z,FC Utrecht,FC Groningen,,
+29,2025-04-13T12:30:00Z,Heracles Almelo,AZ,,
+29,2025-04-13T12:30:00Z,PEC Zwolle,FC Twente '65,,
+29,2025-04-13T14:45:00Z,Willem II Tilburg,AFC Ajax,,
+30,2025-04-23T18:00:00Z,FC Groningen,Heracles Almelo,,
+30,2025-04-24T16:45:00Z,AZ,NAC Breda,,
+30,2025-04-24T19:00:00Z,FC Twente '65,PSV,,
+30,2025-04-25T16:45:00Z,RKC Waalwijk,FC Utrecht,,
+30,2025-04-25T19:00:00Z,Feyenoord Rotterdam,PEC Zwolle,,
+30,2025-04-27T10:15:00Z,Fortuna Sittard,Willem II Tilburg,,
+30,2025-04-27T12:30:00Z,AFC Ajax,Sparta Rotterdam,,
+30,2025-04-27T12:30:00Z,SC Heerenveen,NEC,,
+30,2025-04-27T14:45:00Z,Almere City FC,Go Ahead Eagles,,
+31,2025-05-03T14:30:00Z,NEC,Willem II Tilburg,,
+31,2025-05-03T16:45:00Z,Heracles Almelo,Feyenoord Rotterdam,,
+31,2025-05-03T18:00:00Z,FC Groningen,RKC Waalwijk,,
+31,2025-05-03T19:00:00Z,PSV,Fortuna Sittard,,
+31,2025-05-04T00:00:00Z,FC Utrecht,AFC Ajax,,
+31,2025-05-04T10:15:00Z,NAC Breda,PEC Zwolle,,
+31,2025-05-04T12:30:00Z,Go Ahead Eagles,AZ,,
+31,2025-05-04T12:30:00Z,Sparta Rotterdam,FC Twente '65,,
+31,2025-05-05T12:30:00Z,SC Heerenveen,Almere City FC,,
+32,2025-05-09T18:00:00Z,Willem II Tilburg,Heracles Almelo,,
+32,2025-05-10T14:30:00Z,RKC Waalwijk,SC Heerenveen,,
+32,2025-05-10T16:45:00Z,Fortuna Sittard,NAC Breda,,
+32,2025-05-10T19:00:00Z,Almere City FC,Sparta Rotterdam,,
+32,2025-05-11T10:15:00Z,PEC Zwolle,Go Ahead Eagles,,
+32,2025-05-11T12:30:00Z,Feyenoord Rotterdam,PSV,,
+32,2025-05-11T12:30:00Z,FC Twente '65,FC Utrecht,,
+32,2025-05-11T14:45:00Z,AFC Ajax,NEC,,
+32,2025-05-11T14:45:00Z,AZ,FC Groningen,,
+33,2025-05-14T18:00:00Z,Almere City FC,Fortuna Sittard,,
+33,2025-05-14T18:00:00Z,FC Groningen,AFC Ajax,,
+33,2025-05-14T18:00:00Z,FC Utrecht,Sparta Rotterdam,,
+33,2025-05-14T18:00:00Z,Feyenoord Rotterdam,RKC Waalwijk,,
+33,2025-05-14T18:00:00Z,Go Ahead Eagles,SC Heerenveen,,
+33,2025-05-14T18:00:00Z,NEC,NAC Breda,,
+33,2025-05-14T18:00:00Z,PSV,Heracles Almelo,,
+33,2025-05-14T18:00:00Z,FC Twente '65,AZ,,
+33,2025-05-14T18:00:00Z,Willem II Tilburg,PEC Zwolle,,
+34,2025-05-18T12:30:00Z,AFC Ajax,FC Twente '65,,
+34,2025-05-18T12:30:00Z,AZ,Almere City FC,,
+34,2025-05-18T12:30:00Z,Fortuna Sittard,FC Utrecht,,
+34,2025-05-18T12:30:00Z,Heracles Almelo,NEC,,
+34,2025-05-18T12:30:00Z,NAC Breda,Willem II Tilburg,,
+34,2025-05-18T12:30:00Z,PEC Zwolle,FC Groningen,,
+34,2025-05-18T12:30:00Z,RKC Waalwijk,Go Ahead Eagles,,
+34,2025-05-18T12:30:00Z,SC Heerenveen,Feyenoord Rotterdam,,
+34,2025-05-18T12:30:00Z,Sparta Rotterdam,PSV,,

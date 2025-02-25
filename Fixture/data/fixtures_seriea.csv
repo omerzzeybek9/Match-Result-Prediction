@@ -1,0 +1,381 @@
+Matchday,Date,Home Team,Away Team,Home Score,Away Score
+1,2024-08-17T16:30:00Z,Genoa CFC,FC Internazionale Milano,2.0,2.0
+1,2024-08-17T16:30:00Z,Parma Calcio 1913,ACF Fiorentina,1.0,1.0
+1,2024-08-17T18:45:00Z,Empoli FC,AC Monza,0.0,0.0
+1,2024-08-17T18:45:00Z,AC Milan,Torino FC,2.0,2.0
+1,2024-08-18T16:30:00Z,Bologna FC 1909,Udinese Calcio,1.0,1.0
+1,2024-08-18T16:30:00Z,Hellas Verona FC,SSC Napoli,3.0,0.0
+1,2024-08-18T18:45:00Z,Cagliari Calcio,AS Roma,0.0,0.0
+1,2024-08-18T18:45:00Z,SS Lazio,Venezia FC,3.0,1.0
+1,2024-08-19T16:30:00Z,US Lecce,Atalanta BC,0.0,4.0
+1,2024-08-19T18:45:00Z,Juventus FC,Como 1907,3.0,0.0
+2,2024-08-24T16:30:00Z,Parma Calcio 1913,AC Milan,2.0,1.0
+2,2024-08-24T16:30:00Z,Udinese Calcio,SS Lazio,2.0,1.0
+2,2024-08-24T18:45:00Z,FC Internazionale Milano,US Lecce,2.0,0.0
+2,2024-08-24T18:45:00Z,AC Monza,Genoa CFC,0.0,1.0
+2,2024-08-25T16:30:00Z,ACF Fiorentina,Venezia FC,0.0,0.0
+2,2024-08-25T16:30:00Z,Torino FC,Atalanta BC,2.0,1.0
+2,2024-08-25T18:45:00Z,SSC Napoli,Bologna FC 1909,3.0,0.0
+2,2024-08-25T18:45:00Z,AS Roma,Empoli FC,1.0,2.0
+2,2024-08-26T16:30:00Z,Cagliari Calcio,Como 1907,1.0,1.0
+2,2024-08-26T18:45:00Z,Hellas Verona FC,Juventus FC,0.0,3.0
+3,2024-08-30T16:30:00Z,Venezia FC,Torino FC,0.0,1.0
+3,2024-08-30T18:45:00Z,FC Internazionale Milano,Atalanta BC,4.0,0.0
+3,2024-08-31T16:30:00Z,Bologna FC 1909,Empoli FC,1.0,1.0
+3,2024-08-31T16:30:00Z,US Lecce,Cagliari Calcio,1.0,0.0
+3,2024-08-31T18:45:00Z,SS Lazio,AC Milan,2.0,2.0
+3,2024-08-31T18:45:00Z,SSC Napoli,Parma Calcio 1913,2.0,1.0
+3,2024-09-01T16:30:00Z,ACF Fiorentina,AC Monza,2.0,2.0
+3,2024-09-01T16:30:00Z,Genoa CFC,Hellas Verona FC,0.0,2.0
+3,2024-09-01T18:45:00Z,Juventus FC,AS Roma,0.0,0.0
+3,2024-09-01T18:45:00Z,Udinese Calcio,Como 1907,1.0,0.0
+4,2024-09-14T13:00:00Z,Como 1907,Bologna FC 1909,2.0,2.0
+4,2024-09-14T16:00:00Z,Empoli FC,Juventus FC,0.0,0.0
+4,2024-09-14T18:45:00Z,AC Milan,Venezia FC,4.0,0.0
+4,2024-09-15T10:30:00Z,Genoa CFC,AS Roma,1.0,1.0
+4,2024-09-15T13:00:00Z,Atalanta BC,ACF Fiorentina,3.0,2.0
+4,2024-09-15T13:00:00Z,Torino FC,US Lecce,0.0,0.0
+4,2024-09-15T16:00:00Z,Cagliari Calcio,SSC Napoli,0.0,4.0
+4,2024-09-15T18:45:00Z,AC Monza,FC Internazionale Milano,1.0,1.0
+4,2024-09-16T16:30:00Z,Parma Calcio 1913,Udinese Calcio,2.0,3.0
+4,2024-09-16T18:45:00Z,SS Lazio,Hellas Verona FC,2.0,1.0
+5,2024-09-20T16:30:00Z,Cagliari Calcio,Empoli FC,0.0,2.0
+5,2024-09-20T18:45:00Z,Hellas Verona FC,Torino FC,2.0,3.0
+5,2024-09-21T13:00:00Z,Venezia FC,Genoa CFC,2.0,0.0
+5,2024-09-21T16:00:00Z,Juventus FC,SSC Napoli,0.0,0.0
+5,2024-09-21T18:45:00Z,US Lecce,Parma Calcio 1913,2.0,2.0
+5,2024-09-22T10:30:00Z,ACF Fiorentina,SS Lazio,2.0,1.0
+5,2024-09-22T13:00:00Z,AC Monza,Bologna FC 1909,1.0,2.0
+5,2024-09-22T16:00:00Z,AS Roma,Udinese Calcio,3.0,0.0
+5,2024-09-22T18:45:00Z,FC Internazionale Milano,AC Milan,1.0,2.0
+5,2024-09-24T18:45:00Z,Atalanta BC,Como 1907,2.0,3.0
+6,2024-09-27T18:45:00Z,AC Milan,US Lecce,3.0,0.0
+6,2024-09-28T13:00:00Z,Udinese Calcio,FC Internazionale Milano,2.0,3.0
+6,2024-09-28T16:00:00Z,Genoa CFC,Juventus FC,0.0,3.0
+6,2024-09-28T18:45:00Z,Bologna FC 1909,Atalanta BC,1.0,1.0
+6,2024-09-29T10:30:00Z,Torino FC,SS Lazio,2.0,3.0
+6,2024-09-29T13:00:00Z,Como 1907,Hellas Verona FC,3.0,2.0
+6,2024-09-29T13:00:00Z,AS Roma,Venezia FC,2.0,1.0
+6,2024-09-29T16:00:00Z,Empoli FC,ACF Fiorentina,0.0,0.0
+6,2024-09-29T18:45:00Z,SSC Napoli,AC Monza,2.0,0.0
+6,2024-09-30T18:45:00Z,Parma Calcio 1913,Cagliari Calcio,2.0,3.0
+7,2024-10-04T16:30:00Z,SSC Napoli,Como 1907,3.0,1.0
+7,2024-10-04T18:45:00Z,Hellas Verona FC,Venezia FC,2.0,1.0
+7,2024-10-05T13:00:00Z,Udinese Calcio,US Lecce,1.0,0.0
+7,2024-10-05T16:00:00Z,Atalanta BC,Genoa CFC,5.0,1.0
+7,2024-10-05T18:45:00Z,FC Internazionale Milano,Torino FC,3.0,2.0
+7,2024-10-06T10:30:00Z,Juventus FC,Cagliari Calcio,1.0,1.0
+7,2024-10-06T13:00:00Z,Bologna FC 1909,Parma Calcio 1913,0.0,0.0
+7,2024-10-06T13:00:00Z,SS Lazio,Empoli FC,2.0,1.0
+7,2024-10-06T16:00:00Z,AC Monza,AS Roma,1.0,1.0
+7,2024-10-06T18:45:00Z,ACF Fiorentina,AC Milan,2.0,1.0
+8,2024-10-19T13:00:00Z,Como 1907,Parma Calcio 1913,1.0,1.0
+8,2024-10-19T13:00:00Z,Genoa CFC,Bologna FC 1909,2.0,2.0
+8,2024-10-19T16:00:00Z,AC Milan,Udinese Calcio,1.0,0.0
+8,2024-10-19T18:45:00Z,Juventus FC,SS Lazio,1.0,0.0
+8,2024-10-20T10:30:00Z,Empoli FC,SSC Napoli,0.0,1.0
+8,2024-10-20T13:00:00Z,US Lecce,ACF Fiorentina,0.0,6.0
+8,2024-10-20T13:00:00Z,Venezia FC,Atalanta BC,0.0,2.0
+8,2024-10-20T16:00:00Z,Cagliari Calcio,Torino FC,3.0,2.0
+8,2024-10-20T18:45:00Z,AS Roma,FC Internazionale Milano,0.0,1.0
+8,2024-10-21T18:45:00Z,Hellas Verona FC,AC Monza,0.0,3.0
+9,2024-10-25T16:30:00Z,Udinese Calcio,Cagliari Calcio,2.0,0.0
+9,2024-10-25T18:45:00Z,Torino FC,Como 1907,1.0,0.0
+9,2024-10-26T13:00:00Z,SSC Napoli,US Lecce,1.0,0.0
+9,2024-10-26T18:45:00Z,Atalanta BC,Hellas Verona FC,6.0,1.0
+9,2024-10-27T11:30:00Z,Parma Calcio 1913,Empoli FC,1.0,1.0
+9,2024-10-27T14:00:00Z,SS Lazio,Genoa CFC,3.0,0.0
+9,2024-10-27T14:00:00Z,AC Monza,Venezia FC,2.0,2.0
+9,2024-10-27T17:00:00Z,FC Internazionale Milano,Juventus FC,4.0,4.0
+9,2024-10-27T19:45:00Z,ACF Fiorentina,AS Roma,5.0,1.0
+10,2024-10-29T17:30:00Z,Cagliari Calcio,Bologna FC 1909,0.0,2.0
+10,2024-10-29T17:30:00Z,US Lecce,Hellas Verona FC,1.0,0.0
+10,2024-10-29T19:45:00Z,AC Milan,SSC Napoli,0.0,2.0
+10,2024-10-30T17:30:00Z,Empoli FC,FC Internazionale Milano,0.0,3.0
+10,2024-10-30T17:30:00Z,Venezia FC,Udinese Calcio,3.0,2.0
+10,2024-10-30T19:45:00Z,Atalanta BC,AC Monza,2.0,0.0
+10,2024-10-30T19:45:00Z,Juventus FC,Parma Calcio 1913,2.0,2.0
+10,2024-10-31T17:30:00Z,Genoa CFC,ACF Fiorentina,0.0,1.0
+10,2024-10-31T19:45:00Z,Como 1907,SS Lazio,1.0,5.0
+10,2024-10-31T19:45:00Z,AS Roma,Torino FC,1.0,0.0
+11,2024-11-02T14:00:00Z,Bologna FC 1909,US Lecce,1.0,0.0
+11,2024-11-02T17:00:00Z,Udinese Calcio,Juventus FC,0.0,2.0
+11,2024-11-02T19:45:00Z,AC Monza,AC Milan,0.0,1.0
+11,2024-11-03T11:30:00Z,SSC Napoli,Atalanta BC,0.0,3.0
+11,2024-11-03T14:00:00Z,Torino FC,ACF Fiorentina,0.0,1.0
+11,2024-11-03T17:00:00Z,Hellas Verona FC,AS Roma,3.0,2.0
+11,2024-11-03T19:45:00Z,FC Internazionale Milano,Venezia FC,1.0,0.0
+11,2024-11-04T17:30:00Z,Empoli FC,Como 1907,1.0,0.0
+11,2024-11-04T17:30:00Z,Parma Calcio 1913,Genoa CFC,0.0,1.0
+11,2024-11-04T19:45:00Z,SS Lazio,Cagliari Calcio,2.0,1.0
+12,2024-11-07T19:45:00Z,Genoa CFC,Como 1907,1.0,1.0
+12,2024-11-08T19:45:00Z,US Lecce,Empoli FC,1.0,1.0
+12,2024-11-09T14:00:00Z,Venezia FC,Parma Calcio 1913,1.0,2.0
+12,2024-11-09T17:00:00Z,Cagliari Calcio,AC Milan,3.0,3.0
+12,2024-11-09T19:45:00Z,Juventus FC,Torino FC,2.0,0.0
+12,2024-11-10T11:30:00Z,Atalanta BC,Udinese Calcio,2.0,1.0
+12,2024-11-10T14:00:00Z,ACF Fiorentina,Hellas Verona FC,3.0,1.0
+12,2024-11-10T14:00:00Z,AS Roma,Bologna FC 1909,2.0,3.0
+12,2024-11-10T17:00:00Z,AC Monza,SS Lazio,0.0,1.0
+12,2024-11-10T19:45:00Z,FC Internazionale Milano,SSC Napoli,1.0,1.0
+13,2024-11-23T14:00:00Z,Hellas Verona FC,FC Internazionale Milano,0.0,5.0
+13,2024-11-23T17:00:00Z,AC Milan,Juventus FC,0.0,0.0
+13,2024-11-23T19:45:00Z,Parma Calcio 1913,Atalanta BC,1.0,3.0
+13,2024-11-24T11:30:00Z,Genoa CFC,Cagliari Calcio,2.0,2.0
+13,2024-11-24T14:00:00Z,Como 1907,ACF Fiorentina,0.0,2.0
+13,2024-11-24T14:00:00Z,Torino FC,AC Monza,1.0,1.0
+13,2024-11-24T17:00:00Z,SSC Napoli,AS Roma,1.0,0.0
+13,2024-11-24T19:45:00Z,SS Lazio,Bologna FC 1909,3.0,0.0
+13,2024-11-25T17:30:00Z,Empoli FC,Udinese Calcio,1.0,1.0
+13,2024-11-25T19:45:00Z,Venezia FC,US Lecce,0.0,1.0
+14,2024-11-29T19:45:00Z,Cagliari Calcio,Hellas Verona FC,1.0,0.0
+14,2024-11-30T14:00:00Z,Como 1907,AC Monza,1.0,1.0
+14,2024-11-30T17:00:00Z,AC Milan,Empoli FC,3.0,0.0
+14,2024-11-30T19:45:00Z,Bologna FC 1909,Venezia FC,3.0,0.0
+14,2024-12-01T11:30:00Z,Udinese Calcio,Genoa CFC,0.0,2.0
+14,2024-12-01T14:00:00Z,Parma Calcio 1913,SS Lazio,3.0,1.0
+14,2024-12-01T14:00:00Z,Torino FC,SSC Napoli,0.0,1.0
+14,2024-12-01T19:45:00Z,US Lecce,Juventus FC,1.0,1.0
+14,2024-12-02T19:45:00Z,AS Roma,Atalanta BC,0.0,2.0
+15,2024-12-06T17:30:00Z,FC Internazionale Milano,Parma Calcio 1913,3.0,1.0
+15,2024-12-06T19:45:00Z,Atalanta BC,AC Milan,2.0,1.0
+15,2024-12-07T14:00:00Z,Genoa CFC,Torino FC,0.0,0.0
+15,2024-12-07T17:00:00Z,Juventus FC,Bologna FC 1909,2.0,2.0
+15,2024-12-07T19:45:00Z,AS Roma,US Lecce,4.0,1.0
+15,2024-12-08T11:30:00Z,ACF Fiorentina,Cagliari Calcio,1.0,0.0
+15,2024-12-08T14:00:00Z,Hellas Verona FC,Empoli FC,1.0,4.0
+15,2024-12-08T17:00:00Z,Venezia FC,Como 1907,2.0,2.0
+15,2024-12-08T19:45:00Z,SSC Napoli,SS Lazio,0.0,1.0
+15,2024-12-09T19:45:00Z,AC Monza,Udinese Calcio,1.0,2.0
+16,2024-12-13T19:45:00Z,Empoli FC,Torino FC,0.0,1.0
+16,2024-12-14T14:00:00Z,Cagliari Calcio,Atalanta BC,0.0,1.0
+16,2024-12-14T17:00:00Z,Udinese Calcio,SSC Napoli,1.0,3.0
+16,2024-12-14T19:45:00Z,Juventus FC,Venezia FC,2.0,2.0
+16,2024-12-15T11:30:00Z,US Lecce,AC Monza,2.0,1.0
+16,2024-12-15T14:00:00Z,Bologna FC 1909,ACF Fiorentina,1.0,0.0
+16,2024-12-15T14:00:00Z,Parma Calcio 1913,Hellas Verona FC,2.0,3.0
+16,2024-12-15T17:00:00Z,Como 1907,AS Roma,2.0,0.0
+16,2024-12-15T19:45:00Z,AC Milan,Genoa CFC,0.0,0.0
+16,2024-12-16T19:45:00Z,SS Lazio,FC Internazionale Milano,0.0,6.0
+17,2024-12-20T19:45:00Z,Hellas Verona FC,AC Milan,0.0,1.0
+17,2024-12-21T14:00:00Z,Torino FC,Bologna FC 1909,0.0,2.0
+17,2024-12-21T17:00:00Z,Genoa CFC,SSC Napoli,1.0,2.0
+17,2024-12-21T19:45:00Z,US Lecce,SS Lazio,1.0,2.0
+17,2024-12-22T11:30:00Z,AS Roma,Parma Calcio 1913,5.0,0.0
+17,2024-12-22T14:00:00Z,Venezia FC,Cagliari Calcio,2.0,1.0
+17,2024-12-22T17:00:00Z,Atalanta BC,Empoli FC,3.0,2.0
+17,2024-12-22T19:45:00Z,AC Monza,Juventus FC,1.0,2.0
+17,2024-12-23T17:30:00Z,ACF Fiorentina,Udinese Calcio,1.0,2.0
+17,2024-12-23T19:45:00Z,FC Internazionale Milano,Como 1907,2.0,0.0
+18,2024-12-28T14:00:00Z,Empoli FC,Genoa CFC,1.0,2.0
+18,2024-12-28T14:00:00Z,Parma Calcio 1913,AC Monza,2.0,1.0
+18,2024-12-28T17:00:00Z,Cagliari Calcio,FC Internazionale Milano,0.0,3.0
+18,2024-12-28T19:45:00Z,SS Lazio,Atalanta BC,1.0,1.0
+18,2024-12-29T11:30:00Z,Udinese Calcio,Torino FC,2.0,2.0
+18,2024-12-29T14:00:00Z,SSC Napoli,Venezia FC,1.0,0.0
+18,2024-12-29T17:00:00Z,Juventus FC,ACF Fiorentina,2.0,2.0
+18,2024-12-29T19:45:00Z,AC Milan,AS Roma,1.0,1.0
+18,2024-12-30T17:30:00Z,Como 1907,US Lecce,2.0,0.0
+18,2024-12-30T19:45:00Z,Bologna FC 1909,Hellas Verona FC,2.0,3.0
+19,2025-01-04T14:00:00Z,Venezia FC,Empoli FC,1.0,1.0
+19,2025-01-04T17:00:00Z,ACF Fiorentina,SSC Napoli,0.0,3.0
+19,2025-01-04T19:45:00Z,Hellas Verona FC,Udinese Calcio,0.0,0.0
+19,2025-01-05T11:30:00Z,AC Monza,Cagliari Calcio,1.0,2.0
+19,2025-01-05T14:00:00Z,US Lecce,Genoa CFC,0.0,0.0
+19,2025-01-05T17:00:00Z,Torino FC,Parma Calcio 1913,0.0,0.0
+19,2025-01-05T19:45:00Z,AS Roma,SS Lazio,2.0,0.0
+20,2025-01-10T19:45:00Z,SS Lazio,Como 1907,1.0,1.0
+20,2025-01-11T14:00:00Z,Empoli FC,US Lecce,1.0,3.0
+20,2025-01-11T14:00:00Z,Udinese Calcio,Atalanta BC,0.0,0.0
+20,2025-01-11T17:00:00Z,Torino FC,Juventus FC,1.0,1.0
+20,2025-01-11T19:45:00Z,AC Milan,Cagliari Calcio,1.0,1.0
+20,2025-01-12T11:30:00Z,Genoa CFC,Parma Calcio 1913,1.0,0.0
+20,2025-01-12T14:00:00Z,Venezia FC,FC Internazionale Milano,0.0,1.0
+20,2025-01-12T17:00:00Z,Bologna FC 1909,AS Roma,2.0,2.0
+20,2025-01-12T19:45:00Z,SSC Napoli,Hellas Verona FC,2.0,0.0
+20,2025-01-13T19:45:00Z,AC Monza,ACF Fiorentina,2.0,1.0
+19,2025-01-14T17:30:00Z,Como 1907,AC Milan,1.0,2.0
+19,2025-01-14T19:45:00Z,Atalanta BC,Juventus FC,1.0,1.0
+19,2025-01-15T19:45:00Z,FC Internazionale Milano,Bologna FC 1909,2.0,2.0
+21,2025-01-17T19:45:00Z,AS Roma,Genoa CFC,3.0,1.0
+21,2025-01-18T14:00:00Z,Bologna FC 1909,AC Monza,3.0,1.0
+21,2025-01-18T17:00:00Z,Juventus FC,AC Milan,2.0,0.0
+21,2025-01-18T19:45:00Z,Atalanta BC,SSC Napoli,2.0,3.0
+21,2025-01-19T11:30:00Z,ACF Fiorentina,Torino FC,1.0,1.0
+21,2025-01-19T14:00:00Z,Cagliari Calcio,US Lecce,4.0,1.0
+21,2025-01-19T14:00:00Z,Parma Calcio 1913,Venezia FC,1.0,1.0
+21,2025-01-19T17:00:00Z,Hellas Verona FC,SS Lazio,0.0,3.0
+21,2025-01-19T19:45:00Z,FC Internazionale Milano,Empoli FC,3.0,1.0
+21,2025-01-20T19:45:00Z,Como 1907,Udinese Calcio,4.0,1.0
+22,2025-01-24T19:45:00Z,Torino FC,Cagliari Calcio,2.0,0.0
+22,2025-01-25T14:00:00Z,Como 1907,Atalanta BC,1.0,2.0
+22,2025-01-25T17:00:00Z,SSC Napoli,Juventus FC,2.0,1.0
+22,2025-01-25T19:45:00Z,Empoli FC,Bologna FC 1909,1.0,1.0
+22,2025-01-26T11:30:00Z,AC Milan,Parma Calcio 1913,3.0,2.0
+22,2025-01-26T14:00:00Z,Udinese Calcio,AS Roma,1.0,2.0
+22,2025-01-26T17:00:00Z,US Lecce,FC Internazionale Milano,0.0,4.0
+22,2025-01-26T19:45:00Z,SS Lazio,ACF Fiorentina,1.0,2.0
+22,2025-01-27T17:30:00Z,Venezia FC,Hellas Verona FC,1.0,1.0
+22,2025-01-27T19:45:00Z,Genoa CFC,AC Monza,2.0,0.0
+23,2025-01-31T19:45:00Z,Parma Calcio 1913,US Lecce,1.0,3.0
+23,2025-02-01T14:00:00Z,AC Monza,Hellas Verona FC,0.0,1.0
+23,2025-02-01T14:00:00Z,Udinese Calcio,Venezia FC,3.0,2.0
+23,2025-02-01T17:00:00Z,Atalanta BC,Torino FC,1.0,1.0
+23,2025-02-01T19:45:00Z,Bologna FC 1909,Como 1907,2.0,0.0
+23,2025-02-02T11:30:00Z,Juventus FC,Empoli FC,4.0,1.0
+23,2025-02-02T14:00:00Z,ACF Fiorentina,Genoa CFC,2.0,1.0
+23,2025-02-02T17:00:00Z,AC Milan,FC Internazionale Milano,1.0,1.0
+23,2025-02-02T19:45:00Z,AS Roma,SSC Napoli,1.0,1.0
+23,2025-02-03T19:45:00Z,Cagliari Calcio,SS Lazio,1.0,2.0
+14,2025-02-06T19:45:00Z,ACF Fiorentina,FC Internazionale Milano,3.0,0.0
+24,2025-02-07T19:45:00Z,Como 1907,Juventus FC,1.0,2.0
+24,2025-02-08T14:00:00Z,Hellas Verona FC,Atalanta BC,0.0,5.0
+24,2025-02-08T17:00:00Z,Empoli FC,AC Milan,0.0,2.0
+24,2025-02-08T19:45:00Z,Torino FC,Genoa CFC,1.0,1.0
+24,2025-02-09T11:30:00Z,Venezia FC,AS Roma,0.0,1.0
+24,2025-02-09T14:00:00Z,Cagliari Calcio,Parma Calcio 1913,2.0,1.0
+24,2025-02-09T14:00:00Z,SS Lazio,AC Monza,5.0,1.0
+24,2025-02-09T17:00:00Z,US Lecce,Bologna FC 1909,0.0,0.0
+24,2025-02-09T19:45:00Z,SSC Napoli,Udinese Calcio,1.0,1.0
+24,2025-02-10T19:45:00Z,FC Internazionale Milano,ACF Fiorentina,2.0,1.0
+25,2025-02-14T19:45:00Z,Bologna FC 1909,Torino FC,3.0,2.0
+25,2025-02-15T14:00:00Z,Atalanta BC,Cagliari Calcio,0.0,0.0
+25,2025-02-15T17:00:00Z,SS Lazio,SSC Napoli,2.0,2.0
+25,2025-02-15T19:45:00Z,AC Milan,Hellas Verona FC,1.0,0.0
+25,2025-02-16T11:30:00Z,ACF Fiorentina,Como 1907,0.0,2.0
+25,2025-02-16T14:00:00Z,AC Monza,US Lecce,0.0,0.0
+25,2025-02-16T14:00:00Z,Udinese Calcio,Empoli FC,3.0,0.0
+25,2025-02-16T17:00:00Z,Parma Calcio 1913,AS Roma,0.0,1.0
+25,2025-02-16T19:45:00Z,Juventus FC,FC Internazionale Milano,1.0,0.0
+25,2025-02-17T19:45:00Z,Genoa CFC,Venezia FC,2.0,0.0
+26,2025-02-21T19:45:00Z,US Lecce,Udinese Calcio,0.0,1.0
+26,2025-02-22T14:00:00Z,Parma Calcio 1913,Bologna FC 1909,2.0,0.0
+26,2025-02-22T14:00:00Z,Venezia FC,SS Lazio,0.0,0.0
+26,2025-02-22T17:00:00Z,Torino FC,AC Milan,2.0,1.0
+26,2025-02-22T19:45:00Z,FC Internazionale Milano,Genoa CFC,1.0,0.0
+26,2025-02-23T11:30:00Z,Como 1907,SSC Napoli,2.0,1.0
+26,2025-02-23T14:00:00Z,Hellas Verona FC,ACF Fiorentina,1.0,0.0
+26,2025-02-23T17:00:00Z,Empoli FC,Atalanta BC,0.0,5.0
+26,2025-02-23T19:45:00Z,Cagliari Calcio,Juventus FC,0.0,1.0
+26,2025-02-24T19:45:00Z,AS Roma,AC Monza,4.0,0.0
+9,2025-02-27T19:45:00Z,Bologna FC 1909,AC Milan,,
+27,2025-02-28T19:45:00Z,ACF Fiorentina,US Lecce,,
+27,2025-03-01T14:00:00Z,Atalanta BC,Venezia FC,,
+27,2025-03-01T17:00:00Z,SSC Napoli,FC Internazionale Milano,,
+27,2025-03-01T19:45:00Z,Udinese Calcio,Parma Calcio 1913,,
+27,2025-03-02T11:30:00Z,AC Monza,Torino FC,,
+27,2025-03-02T14:00:00Z,Bologna FC 1909,Cagliari Calcio,,
+27,2025-03-02T14:00:00Z,Genoa CFC,Empoli FC,,
+27,2025-03-02T17:00:00Z,AS Roma,Como 1907,,
+27,2025-03-02T19:45:00Z,AC Milan,SS Lazio,,
+27,2025-03-03T19:45:00Z,Juventus FC,Hellas Verona FC,,
+28,2025-03-07T19:45:00Z,Cagliari Calcio,Genoa CFC,,
+28,2025-03-08T14:00:00Z,Como 1907,Venezia FC,,
+28,2025-03-08T14:00:00Z,Parma Calcio 1913,Torino FC,,
+28,2025-03-08T17:00:00Z,US Lecce,AC Milan,,
+28,2025-03-08T19:45:00Z,FC Internazionale Milano,AC Monza,,
+28,2025-03-09T11:30:00Z,Hellas Verona FC,Bologna FC 1909,,
+28,2025-03-09T14:00:00Z,SSC Napoli,ACF Fiorentina,,
+28,2025-03-09T17:00:00Z,Empoli FC,AS Roma,,
+28,2025-03-09T19:45:00Z,Juventus FC,Atalanta BC,,
+28,2025-03-10T19:45:00Z,SS Lazio,Udinese Calcio,,
+29,2025-03-14T19:45:00Z,Genoa CFC,US Lecce,,
+29,2025-03-15T14:00:00Z,AC Monza,Parma Calcio 1913,,
+29,2025-03-15T14:00:00Z,Udinese Calcio,Hellas Verona FC,,
+29,2025-03-15T17:00:00Z,AC Milan,Como 1907,,
+29,2025-03-15T19:45:00Z,Torino FC,Empoli FC,,
+29,2025-03-16T11:30:00Z,Venezia FC,SSC Napoli,,
+29,2025-03-16T14:00:00Z,Bologna FC 1909,SS Lazio,,
+29,2025-03-16T14:00:00Z,AS Roma,Cagliari Calcio,,
+29,2025-03-16T17:00:00Z,ACF Fiorentina,Juventus FC,,
+29,2025-03-16T19:45:00Z,Atalanta BC,FC Internazionale Milano,,
+30,2025-03-30T00:00:00Z,Cagliari Calcio,AC Monza,,
+30,2025-03-30T00:00:00Z,Como 1907,Empoli FC,,
+30,2025-03-30T00:00:00Z,ACF Fiorentina,Atalanta BC,,
+30,2025-03-30T00:00:00Z,Hellas Verona FC,Parma Calcio 1913,,
+30,2025-03-30T00:00:00Z,FC Internazionale Milano,Udinese Calcio,,
+30,2025-03-30T00:00:00Z,Juventus FC,Genoa CFC,,
+30,2025-03-30T00:00:00Z,SS Lazio,Torino FC,,
+30,2025-03-30T00:00:00Z,US Lecce,AS Roma,,
+30,2025-03-30T00:00:00Z,SSC Napoli,AC Milan,,
+30,2025-03-30T00:00:00Z,Venezia FC,Bologna FC 1909,,
+31,2025-04-06T00:00:00Z,Atalanta BC,SS Lazio,,
+31,2025-04-06T00:00:00Z,Bologna FC 1909,SSC Napoli,,
+31,2025-04-06T00:00:00Z,Empoli FC,Cagliari Calcio,,
+31,2025-04-06T00:00:00Z,Genoa CFC,Udinese Calcio,,
+31,2025-04-06T00:00:00Z,US Lecce,Venezia FC,,
+31,2025-04-06T00:00:00Z,AC Milan,ACF Fiorentina,,
+31,2025-04-06T00:00:00Z,AC Monza,Como 1907,,
+31,2025-04-06T00:00:00Z,Parma Calcio 1913,FC Internazionale Milano,,
+31,2025-04-06T00:00:00Z,AS Roma,Juventus FC,,
+31,2025-04-06T00:00:00Z,Torino FC,Hellas Verona FC,,
+32,2025-04-13T00:00:00Z,Atalanta BC,Bologna FC 1909,,
+32,2025-04-13T00:00:00Z,Como 1907,Torino FC,,
+32,2025-04-13T00:00:00Z,ACF Fiorentina,Parma Calcio 1913,,
+32,2025-04-13T00:00:00Z,Hellas Verona FC,Genoa CFC,,
+32,2025-04-13T00:00:00Z,FC Internazionale Milano,Cagliari Calcio,,
+32,2025-04-13T00:00:00Z,Juventus FC,US Lecce,,
+32,2025-04-13T00:00:00Z,SS Lazio,AS Roma,,
+32,2025-04-13T00:00:00Z,SSC Napoli,Empoli FC,,
+32,2025-04-13T00:00:00Z,Udinese Calcio,AC Milan,,
+32,2025-04-13T00:00:00Z,Venezia FC,AC Monza,,
+33,2025-04-20T00:00:00Z,Bologna FC 1909,FC Internazionale Milano,,
+33,2025-04-20T00:00:00Z,Cagliari Calcio,ACF Fiorentina,,
+33,2025-04-20T00:00:00Z,Empoli FC,Venezia FC,,
+33,2025-04-20T00:00:00Z,Genoa CFC,SS Lazio,,
+33,2025-04-20T00:00:00Z,US Lecce,Como 1907,,
+33,2025-04-20T00:00:00Z,AC Milan,Atalanta BC,,
+33,2025-04-20T00:00:00Z,AC Monza,SSC Napoli,,
+33,2025-04-20T00:00:00Z,Parma Calcio 1913,Juventus FC,,
+33,2025-04-20T00:00:00Z,AS Roma,Hellas Verona FC,,
+33,2025-04-20T00:00:00Z,Torino FC,Udinese Calcio,,
+34,2025-04-27T00:00:00Z,Atalanta BC,US Lecce,,
+34,2025-04-27T00:00:00Z,Como 1907,Genoa CFC,,
+34,2025-04-27T00:00:00Z,ACF Fiorentina,Empoli FC,,
+34,2025-04-27T00:00:00Z,Hellas Verona FC,Cagliari Calcio,,
+34,2025-04-27T00:00:00Z,FC Internazionale Milano,AS Roma,,
+34,2025-04-27T00:00:00Z,Juventus FC,AC Monza,,
+34,2025-04-27T00:00:00Z,SS Lazio,Parma Calcio 1913,,
+34,2025-04-27T00:00:00Z,SSC Napoli,Torino FC,,
+34,2025-04-27T00:00:00Z,Udinese Calcio,Bologna FC 1909,,
+34,2025-04-27T00:00:00Z,Venezia FC,AC Milan,,
+35,2025-05-04T00:00:00Z,Bologna FC 1909,Juventus FC,,
+35,2025-05-04T00:00:00Z,Cagliari Calcio,Udinese Calcio,,
+35,2025-05-04T00:00:00Z,Empoli FC,SS Lazio,,
+35,2025-05-04T00:00:00Z,Genoa CFC,AC Milan,,
+35,2025-05-04T00:00:00Z,FC Internazionale Milano,Hellas Verona FC,,
+35,2025-05-04T00:00:00Z,US Lecce,SSC Napoli,,
+35,2025-05-04T00:00:00Z,AC Monza,Atalanta BC,,
+35,2025-05-04T00:00:00Z,Parma Calcio 1913,Como 1907,,
+35,2025-05-04T00:00:00Z,AS Roma,ACF Fiorentina,,
+35,2025-05-04T00:00:00Z,Torino FC,Venezia FC,,
+36,2025-05-11T00:00:00Z,Atalanta BC,AS Roma,,
+36,2025-05-11T00:00:00Z,Como 1907,Cagliari Calcio,,
+36,2025-05-11T00:00:00Z,Empoli FC,Parma Calcio 1913,,
+36,2025-05-11T00:00:00Z,Hellas Verona FC,US Lecce,,
+36,2025-05-11T00:00:00Z,SS Lazio,Juventus FC,,
+36,2025-05-11T00:00:00Z,AC Milan,Bologna FC 1909,,
+36,2025-05-11T00:00:00Z,SSC Napoli,Genoa CFC,,
+36,2025-05-11T00:00:00Z,Torino FC,FC Internazionale Milano,,
+36,2025-05-11T00:00:00Z,Udinese Calcio,AC Monza,,
+36,2025-05-11T00:00:00Z,Venezia FC,ACF Fiorentina,,
+37,2025-05-18T00:00:00Z,Cagliari Calcio,Venezia FC,,
+37,2025-05-18T00:00:00Z,ACF Fiorentina,Bologna FC 1909,,
+37,2025-05-18T00:00:00Z,Genoa CFC,Atalanta BC,,
+37,2025-05-18T00:00:00Z,Hellas Verona FC,Como 1907,,
+37,2025-05-18T00:00:00Z,FC Internazionale Milano,SS Lazio,,
+37,2025-05-18T00:00:00Z,Juventus FC,Udinese Calcio,,
+37,2025-05-18T00:00:00Z,US Lecce,Torino FC,,
+37,2025-05-18T00:00:00Z,AC Monza,Empoli FC,,
+37,2025-05-18T00:00:00Z,Parma Calcio 1913,SSC Napoli,,
+37,2025-05-18T00:00:00Z,AS Roma,AC Milan,,
+38,2025-05-25T00:00:00Z,Atalanta BC,Parma Calcio 1913,,
+38,2025-05-25T00:00:00Z,Bologna FC 1909,Genoa CFC,,
+38,2025-05-25T00:00:00Z,Como 1907,FC Internazionale Milano,,
+38,2025-05-25T00:00:00Z,Empoli FC,Hellas Verona FC,,
+38,2025-05-25T00:00:00Z,SS Lazio,US Lecce,,
+38,2025-05-25T00:00:00Z,AC Milan,AC Monza,,
+38,2025-05-25T00:00:00Z,SSC Napoli,Cagliari Calcio,,
+38,2025-05-25T00:00:00Z,Torino FC,AS Roma,,
+38,2025-05-25T00:00:00Z,Udinese Calcio,ACF Fiorentina,,
+38,2025-05-25T00:00:00Z,Venezia FC,Juventus FC,,

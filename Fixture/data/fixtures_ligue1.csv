@@ -1,0 +1,307 @@
+Matchday,Date,Home Team,Away Team,Home Score,Away Score
+1,2024-08-16T18:45:00Z,Le Havre AC,Paris Saint-Germain FC,1.0,4.0
+1,2024-08-17T15:00:00Z,Stade Brestois 29,Olympique de Marseille,1.0,5.0
+1,2024-08-17T17:00:00Z,Stade de Reims,Lille OSC,0.0,2.0
+1,2024-08-17T19:00:00Z,AS Monaco FC,AS Saint-Étienne,1.0,0.0
+1,2024-08-18T13:00:00Z,AJ Auxerre,OGC Nice,2.0,1.0
+1,2024-08-18T15:00:00Z,Montpellier HSC,RC Strasbourg Alsace,1.0,1.0
+1,2024-08-18T15:00:00Z,Toulouse FC,FC Nantes,0.0,0.0
+1,2024-08-18T15:00:00Z,Angers SCO,Racing Club de Lens,0.0,1.0
+1,2024-08-18T18:45:00Z,Stade Rennais FC 1901,Olympique Lyonnais,3.0,0.0
+2,2024-08-23T18:45:00Z,Paris Saint-Germain FC,Montpellier HSC,6.0,0.0
+2,2024-08-24T15:00:00Z,Olympique Lyonnais,AS Monaco FC,0.0,2.0
+2,2024-08-24T17:00:00Z,Lille OSC,Angers SCO,2.0,0.0
+2,2024-08-24T19:00:00Z,AS Saint-Étienne,Le Havre AC,0.0,2.0
+2,2024-08-25T13:00:00Z,Racing Club de Lens,Stade Brestois 29,2.0,0.0
+2,2024-08-25T15:00:00Z,RC Strasbourg Alsace,Stade Rennais FC 1901,3.0,1.0
+2,2024-08-25T15:00:00Z,FC Nantes,AJ Auxerre,2.0,0.0
+2,2024-08-25T15:00:00Z,OGC Nice,Toulouse FC,1.0,1.0
+2,2024-08-25T18:45:00Z,Olympique de Marseille,Stade de Reims,2.0,2.0
+3,2024-08-30T18:45:00Z,Olympique Lyonnais,RC Strasbourg Alsace,4.0,3.0
+3,2024-08-31T15:00:00Z,Stade Brestois 29,AS Saint-Étienne,4.0,0.0
+3,2024-08-31T17:00:00Z,Montpellier HSC,FC Nantes,1.0,3.0
+3,2024-08-31T19:00:00Z,Toulouse FC,Olympique de Marseille,1.0,3.0
+3,2024-09-01T13:00:00Z,AS Monaco FC,Racing Club de Lens,1.0,1.0
+3,2024-09-01T15:00:00Z,Angers SCO,OGC Nice,1.0,4.0
+3,2024-09-01T15:00:00Z,Le Havre AC,AJ Auxerre,3.0,1.0
+3,2024-09-01T15:00:00Z,Stade de Reims,Stade Rennais FC 1901,2.0,1.0
+3,2024-09-01T18:45:00Z,Lille OSC,Paris Saint-Germain FC,1.0,3.0
+4,2024-09-13T18:45:00Z,AS Saint-Étienne,Lille OSC,1.0,0.0
+4,2024-09-14T15:00:00Z,Olympique de Marseille,OGC Nice,2.0,0.0
+4,2024-09-14T17:00:00Z,AJ Auxerre,AS Monaco FC,0.0,3.0
+4,2024-09-14T19:00:00Z,Paris Saint-Germain FC,Stade Brestois 29,3.0,1.0
+4,2024-09-15T13:00:00Z,Stade Rennais FC 1901,Montpellier HSC,3.0,0.0
+4,2024-09-15T15:00:00Z,FC Nantes,Stade de Reims,1.0,2.0
+4,2024-09-15T15:00:00Z,Toulouse FC,Le Havre AC,2.0,0.0
+4,2024-09-15T15:00:00Z,RC Strasbourg Alsace,Angers SCO,1.0,1.0
+4,2024-09-15T18:45:00Z,Racing Club de Lens,Olympique Lyonnais,0.0,0.0
+5,2024-09-20T18:45:00Z,OGC Nice,AS Saint-Étienne,8.0,0.0
+5,2024-09-21T15:00:00Z,Lille OSC,RC Strasbourg Alsace,3.0,3.0
+5,2024-09-21T17:00:00Z,Stade Rennais FC 1901,Racing Club de Lens,1.0,1.0
+5,2024-09-21T19:00:00Z,Stade de Reims,Paris Saint-Germain FC,1.0,1.0
+5,2024-09-22T13:00:00Z,AS Monaco FC,Le Havre AC,3.0,1.0
+5,2024-09-22T15:00:00Z,Stade Brestois 29,Toulouse FC,2.0,0.0
+5,2024-09-22T15:00:00Z,Angers SCO,FC Nantes,1.0,1.0
+5,2024-09-22T15:00:00Z,Montpellier HSC,AJ Auxerre,3.0,2.0
+5,2024-09-22T18:45:00Z,Olympique Lyonnais,Olympique de Marseille,2.0,3.0
+6,2024-09-27T17:00:00Z,AJ Auxerre,Stade Brestois 29,3.0,0.0
+6,2024-09-27T19:00:00Z,Paris Saint-Germain FC,Stade Rennais FC 1901,3.0,1.0
+6,2024-09-28T15:00:00Z,Racing Club de Lens,OGC Nice,0.0,0.0
+6,2024-09-28T17:00:00Z,Le Havre AC,Lille OSC,0.0,3.0
+6,2024-09-28T19:00:00Z,AS Monaco FC,Montpellier HSC,2.0,1.0
+6,2024-09-29T13:00:00Z,Toulouse FC,Olympique Lyonnais,1.0,2.0
+6,2024-09-29T15:00:00Z,FC Nantes,AS Saint-Étienne,2.0,2.0
+6,2024-09-29T15:00:00Z,Angers SCO,Stade de Reims,1.0,3.0
+6,2024-09-29T18:45:00Z,RC Strasbourg Alsace,Olympique de Marseille,1.0,0.0
+7,2024-10-04T18:45:00Z,Olympique de Marseille,Angers SCO,1.0,1.0
+7,2024-10-05T15:00:00Z,AS Saint-Étienne,AJ Auxerre,3.0,1.0
+7,2024-10-05T17:00:00Z,Lille OSC,Toulouse FC,2.0,1.0
+7,2024-10-05T19:00:00Z,Stade Rennais FC 1901,AS Monaco FC,1.0,2.0
+7,2024-10-06T13:00:00Z,Olympique Lyonnais,FC Nantes,2.0,0.0
+7,2024-10-06T15:00:00Z,Stade Brestois 29,Le Havre AC,2.0,0.0
+7,2024-10-06T15:00:00Z,RC Strasbourg Alsace,Racing Club de Lens,2.0,2.0
+7,2024-10-06T15:00:00Z,Stade de Reims,Montpellier HSC,4.0,2.0
+7,2024-10-06T18:45:00Z,OGC Nice,Paris Saint-Germain FC,1.0,1.0
+8,2024-10-18T18:45:00Z,AS Monaco FC,Lille OSC,0.0,0.0
+8,2024-10-19T15:00:00Z,Stade Brestois 29,Stade Rennais FC 1901,1.0,1.0
+8,2024-10-19T17:00:00Z,AS Saint-Étienne,Racing Club de Lens,0.0,2.0
+8,2024-10-19T19:00:00Z,Paris Saint-Germain FC,RC Strasbourg Alsace,4.0,2.0
+8,2024-10-20T13:00:00Z,Le Havre AC,Olympique Lyonnais,0.0,4.0
+8,2024-10-20T15:00:00Z,AJ Auxerre,Stade de Reims,2.0,1.0
+8,2024-10-20T15:00:00Z,Toulouse FC,Angers SCO,1.0,1.0
+8,2024-10-20T15:00:00Z,FC Nantes,OGC Nice,1.0,1.0
+8,2024-10-20T18:45:00Z,Montpellier HSC,Olympique de Marseille,0.0,5.0
+9,2024-10-25T18:45:00Z,Stade Rennais FC 1901,Le Havre AC,1.0,0.0
+9,2024-10-26T15:00:00Z,Angers SCO,AS Saint-Étienne,4.0,2.0
+9,2024-10-26T17:00:00Z,Stade de Reims,Stade Brestois 29,1.0,2.0
+9,2024-10-26T19:00:00Z,Racing Club de Lens,Lille OSC,0.0,2.0
+9,2024-10-27T14:00:00Z,Olympique Lyonnais,AJ Auxerre,2.0,2.0
+9,2024-10-27T16:00:00Z,OGC Nice,AS Monaco FC,2.0,1.0
+9,2024-10-27T16:00:00Z,Montpellier HSC,Toulouse FC,0.0,3.0
+9,2024-10-27T16:00:00Z,RC Strasbourg Alsace,FC Nantes,3.0,1.0
+9,2024-10-27T19:45:00Z,Olympique de Marseille,Paris Saint-Germain FC,0.0,3.0
+10,2024-11-01T18:00:00Z,AS Monaco FC,Angers SCO,0.0,1.0
+10,2024-11-01T20:00:00Z,Lille OSC,Olympique Lyonnais,1.0,1.0
+10,2024-11-02T16:00:00Z,Paris Saint-Germain FC,Racing Club de Lens,1.0,0.0
+10,2024-11-02T18:00:00Z,Stade Brestois 29,OGC Nice,0.0,1.0
+10,2024-11-02T20:00:00Z,AS Saint-Étienne,RC Strasbourg Alsace,2.0,0.0
+10,2024-11-03T14:00:00Z,Toulouse FC,Stade de Reims,1.0,0.0
+10,2024-11-03T16:00:00Z,AJ Auxerre,Stade Rennais FC 1901,4.0,0.0
+10,2024-11-03T16:00:00Z,Le Havre AC,Montpellier HSC,1.0,0.0
+10,2024-11-03T19:45:00Z,FC Nantes,Olympique de Marseille,1.0,2.0
+11,2024-11-08T19:45:00Z,Olympique de Marseille,AJ Auxerre,1.0,3.0
+11,2024-11-09T16:00:00Z,RC Strasbourg Alsace,AS Monaco FC,1.0,3.0
+11,2024-11-09T18:00:00Z,Racing Club de Lens,FC Nantes,3.0,2.0
+11,2024-11-09T20:00:00Z,Angers SCO,Paris Saint-Germain FC,2.0,4.0
+11,2024-11-10T14:00:00Z,OGC Nice,Lille OSC,2.0,2.0
+11,2024-11-10T16:00:00Z,Montpellier HSC,Stade Brestois 29,3.0,1.0
+11,2024-11-10T16:00:00Z,Le Havre AC,Stade de Reims,0.0,3.0
+11,2024-11-10T16:00:00Z,Stade Rennais FC 1901,Toulouse FC,0.0,2.0
+11,2024-11-10T19:45:00Z,Olympique Lyonnais,AS Saint-Étienne,1.0,0.0
+12,2024-11-22T18:00:00Z,AS Monaco FC,Stade Brestois 29,3.0,2.0
+12,2024-11-22T20:00:00Z,Paris Saint-Germain FC,Toulouse FC,3.0,0.0
+12,2024-11-23T16:00:00Z,Racing Club de Lens,Olympique de Marseille,1.0,3.0
+12,2024-11-23T18:00:00Z,AS Saint-Étienne,Montpellier HSC,1.0,0.0
+12,2024-11-23T20:00:00Z,Stade de Reims,Olympique Lyonnais,1.0,1.0
+12,2024-11-24T14:00:00Z,Lille OSC,Stade Rennais FC 1901,1.0,0.0
+12,2024-11-24T16:00:00Z,FC Nantes,Le Havre AC,0.0,2.0
+12,2024-11-24T16:00:00Z,AJ Auxerre,Angers SCO,1.0,0.0
+12,2024-11-24T19:45:00Z,OGC Nice,RC Strasbourg Alsace,2.0,1.0
+13,2024-11-29T19:45:00Z,Stade de Reims,Racing Club de Lens,0.0,2.0
+13,2024-11-30T16:00:00Z,Stade Rennais FC 1901,AS Saint-Étienne,5.0,0.0
+13,2024-11-30T18:00:00Z,Stade Brestois 29,RC Strasbourg Alsace,3.0,1.0
+13,2024-11-30T20:00:00Z,Paris Saint-Germain FC,FC Nantes,1.0,1.0
+13,2024-12-01T14:00:00Z,Montpellier HSC,Lille OSC,2.0,2.0
+13,2024-12-01T16:00:00Z,Le Havre AC,Angers SCO,0.0,1.0
+13,2024-12-01T16:00:00Z,Toulouse FC,AJ Auxerre,2.0,0.0
+13,2024-12-01T16:00:00Z,Olympique Lyonnais,OGC Nice,4.0,1.0
+13,2024-12-01T19:45:00Z,Olympique de Marseille,AS Monaco FC,2.0,1.0
+14,2024-12-06T18:00:00Z,Lille OSC,Stade Brestois 29,3.0,1.0
+14,2024-12-06T20:00:00Z,AJ Auxerre,Paris Saint-Germain FC,0.0,0.0
+14,2024-12-07T16:00:00Z,AS Monaco FC,Toulouse FC,2.0,0.0
+14,2024-12-07T18:00:00Z,OGC Nice,Le Havre AC,2.0,1.0
+14,2024-12-07T20:00:00Z,Angers SCO,Olympique Lyonnais,0.0,3.0
+14,2024-12-08T14:00:00Z,Racing Club de Lens,Montpellier HSC,2.0,0.0
+14,2024-12-08T16:00:00Z,RC Strasbourg Alsace,Stade de Reims,0.0,0.0
+14,2024-12-08T16:00:00Z,FC Nantes,Stade Rennais FC 1901,1.0,0.0
+14,2024-12-08T19:45:00Z,AS Saint-Étienne,Olympique de Marseille,0.0,2.0
+15,2024-12-13T19:45:00Z,Toulouse FC,AS Saint-Étienne,2.0,1.0
+15,2024-12-14T16:00:00Z,Olympique de Marseille,Lille OSC,1.0,1.0
+15,2024-12-14T18:00:00Z,AJ Auxerre,Racing Club de Lens,2.0,2.0
+15,2024-12-14T20:00:00Z,Stade de Reims,AS Monaco FC,0.0,0.0
+15,2024-12-15T14:00:00Z,Montpellier HSC,OGC Nice,2.0,2.0
+15,2024-12-15T16:00:00Z,Stade Rennais FC 1901,Angers SCO,2.0,0.0
+15,2024-12-15T16:00:00Z,Le Havre AC,RC Strasbourg Alsace,0.0,3.0
+15,2024-12-15T16:00:00Z,Stade Brestois 29,FC Nantes,4.0,1.0
+15,2024-12-15T19:45:00Z,Paris Saint-Germain FC,Olympique Lyonnais,3.0,1.0
+16,2024-12-18T20:00:00Z,AS Monaco FC,Paris Saint-Germain FC,2.0,4.0
+16,2025-01-03T20:00:00Z,OGC Nice,Stade Rennais FC 1901,3.0,2.0
+16,2025-01-04T16:00:00Z,AS Saint-Étienne,Stade de Reims,3.0,1.0
+16,2025-01-04T18:00:00Z,Lille OSC,FC Nantes,1.0,1.0
+16,2025-01-04T20:00:00Z,Olympique Lyonnais,Montpellier HSC,1.0,0.0
+16,2025-01-05T14:00:00Z,Racing Club de Lens,Toulouse FC,0.0,1.0
+16,2025-01-05T14:00:00Z,Angers SCO,Stade Brestois 29,2.0,0.0
+16,2025-01-05T14:00:00Z,RC Strasbourg Alsace,AJ Auxerre,3.0,1.0
+16,2025-01-05T19:45:00Z,Olympique de Marseille,Le Havre AC,5.0,1.0
+17,2025-01-10T18:00:00Z,FC Nantes,AS Monaco FC,2.0,2.0
+17,2025-01-10T20:05:00Z,AJ Auxerre,Lille OSC,0.0,0.0
+17,2025-01-11T16:00:00Z,Stade Brestois 29,Olympique Lyonnais,2.0,1.0
+17,2025-01-11T18:00:00Z,Stade de Reims,OGC Nice,2.0,4.0
+17,2025-01-11T20:05:00Z,Stade Rennais FC 1901,Olympique de Marseille,1.0,2.0
+17,2025-01-12T14:00:00Z,Le Havre AC,Racing Club de Lens,1.0,2.0
+17,2025-01-12T16:15:00Z,Toulouse FC,RC Strasbourg Alsace,1.0,2.0
+17,2025-01-12T16:15:00Z,Montpellier HSC,Angers SCO,1.0,3.0
+17,2025-01-12T19:45:00Z,Paris Saint-Germain FC,AS Saint-Étienne,2.0,1.0
+18,2025-01-17T18:00:00Z,Montpellier HSC,AS Monaco FC,2.0,1.0
+18,2025-01-17T20:05:00Z,Lille OSC,OGC Nice,2.0,1.0
+18,2025-01-18T16:00:00Z,Racing Club de Lens,Paris Saint-Germain FC,1.0,2.0
+18,2025-01-18T18:00:00Z,Stade Rennais FC 1901,Stade Brestois 29,1.0,2.0
+18,2025-01-18T20:05:00Z,Olympique Lyonnais,Toulouse FC,0.0,0.0
+18,2025-01-19T14:00:00Z,AS Saint-Étienne,FC Nantes,1.0,1.0
+18,2025-01-19T16:15:00Z,Stade de Reims,Le Havre AC,1.0,1.0
+18,2025-01-19T16:15:00Z,Angers SCO,AJ Auxerre,2.0,0.0
+18,2025-01-19T19:45:00Z,Olympique de Marseille,RC Strasbourg Alsace,1.0,1.0
+19,2025-01-24T19:45:00Z,AJ Auxerre,AS Saint-Étienne,1.0,1.0
+19,2025-01-25T16:00:00Z,AS Monaco FC,Stade Rennais FC 1901,3.0,2.0
+19,2025-01-25T18:00:00Z,RC Strasbourg Alsace,Lille OSC,2.0,1.0
+19,2025-01-25T20:05:00Z,Paris Saint-Germain FC,Stade de Reims,1.0,1.0
+19,2025-01-26T14:00:00Z,Le Havre AC,Stade Brestois 29,0.0,1.0
+19,2025-01-26T16:15:00Z,FC Nantes,Olympique Lyonnais,1.0,1.0
+19,2025-01-26T16:15:00Z,Toulouse FC,Montpellier HSC,1.0,2.0
+19,2025-01-26T16:15:00Z,Racing Club de Lens,Angers SCO,1.0,0.0
+19,2025-01-26T19:45:00Z,OGC Nice,Olympique de Marseille,2.0,0.0
+20,2025-01-31T19:45:00Z,Montpellier HSC,Racing Club de Lens,0.0,2.0
+20,2025-02-01T16:00:00Z,Stade Brestois 29,Paris Saint-Germain FC,2.0,5.0
+20,2025-02-01T18:00:00Z,AS Monaco FC,AJ Auxerre,4.0,2.0
+20,2025-02-01T20:05:00Z,Lille OSC,AS Saint-Étienne,4.0,1.0
+20,2025-02-02T14:00:00Z,Toulouse FC,OGC Nice,1.0,1.0
+20,2025-02-02T16:15:00Z,Stade de Reims,FC Nantes,1.0,2.0
+20,2025-02-02T16:15:00Z,Angers SCO,Le Havre AC,1.0,1.0
+20,2025-02-02T16:15:00Z,Stade Rennais FC 1901,RC Strasbourg Alsace,1.0,0.0
+20,2025-02-02T19:45:00Z,Olympique de Marseille,Olympique Lyonnais,3.0,2.0
+21,2025-02-07T18:00:00Z,FC Nantes,Stade Brestois 29,0.0,2.0
+21,2025-02-07T20:05:00Z,Paris Saint-Germain FC,AS Monaco FC,4.0,1.0
+21,2025-02-08T16:00:00Z,OGC Nice,Racing Club de Lens,2.0,0.0
+21,2025-02-08T18:00:00Z,Lille OSC,Le Havre AC,1.0,2.0
+21,2025-02-08T20:05:00Z,AS Saint-Étienne,Stade Rennais FC 1901,0.0,2.0
+21,2025-02-09T14:00:00Z,Olympique Lyonnais,Stade de Reims,4.0,0.0
+21,2025-02-09T16:15:00Z,AJ Auxerre,Toulouse FC,2.0,2.0
+21,2025-02-09T16:15:00Z,RC Strasbourg Alsace,Montpellier HSC,2.0,0.0
+21,2025-02-09T19:45:00Z,Angers SCO,Olympique de Marseille,0.0,2.0
+22,2025-02-14T19:45:00Z,Stade Brestois 29,AJ Auxerre,2.0,2.0
+22,2025-02-15T16:00:00Z,Olympique de Marseille,AS Saint-Étienne,5.0,1.0
+22,2025-02-15T18:00:00Z,AS Monaco FC,FC Nantes,7.0,1.0
+22,2025-02-15T20:05:00Z,Toulouse FC,Paris Saint-Germain FC,0.0,1.0
+22,2025-02-16T14:00:00Z,Montpellier HSC,Olympique Lyonnais,1.0,4.0
+22,2025-02-16T16:15:00Z,Racing Club de Lens,RC Strasbourg Alsace,0.0,2.0
+22,2025-02-16T16:15:00Z,Stade de Reims,Angers SCO,0.0,1.0
+22,2025-02-16T16:15:00Z,Le Havre AC,OGC Nice,1.0,3.0
+22,2025-02-16T19:45:00Z,Stade Rennais FC 1901,Lille OSC,0.0,2.0
+23,2025-02-23T00:00:00Z,Stade Rennais FC 1901,Stade de Reims,1.0,0.0
+23,2025-02-23T00:00:00Z,Le Havre AC,Toulouse FC,1.0,4.0
+23,2025-02-23T00:00:00Z,Lille OSC,AS Monaco FC,2.0,1.0
+23,2025-02-23T00:00:00Z,RC Strasbourg Alsace,Stade Brestois 29,0.0,0.0
+23,2025-02-23T00:00:00Z,FC Nantes,Racing Club de Lens,3.0,1.0
+23,2025-02-23T00:00:00Z,AS Saint-Étienne,Angers SCO,3.0,3.0
+23,2025-02-23T00:00:00Z,AJ Auxerre,Olympique de Marseille,3.0,0.0
+23,2025-02-23T00:00:00Z,OGC Nice,Montpellier HSC,2.0,0.0
+23,2025-02-23T00:00:00Z,Olympique Lyonnais,Paris Saint-Germain FC,2.0,3.0
+24,2025-03-02T00:00:00Z,Paris Saint-Germain FC,Lille OSC,,
+24,2025-03-02T00:00:00Z,Olympique de Marseille,FC Nantes,,
+24,2025-03-02T00:00:00Z,Olympique Lyonnais,Stade Brestois 29,,
+24,2025-03-02T00:00:00Z,Montpellier HSC,Stade Rennais FC 1901,,
+24,2025-03-02T00:00:00Z,AS Saint-Étienne,OGC Nice,,
+24,2025-03-02T00:00:00Z,Racing Club de Lens,Le Havre AC,,
+24,2025-03-02T00:00:00Z,AJ Auxerre,RC Strasbourg Alsace,,
+24,2025-03-02T00:00:00Z,AS Monaco FC,Stade de Reims,,
+24,2025-03-02T00:00:00Z,Angers SCO,Toulouse FC,,
+25,2025-03-09T00:00:00Z,Le Havre AC,AS Saint-Étienne,,
+25,2025-03-09T00:00:00Z,Stade de Reims,AJ Auxerre,,
+25,2025-03-09T00:00:00Z,FC Nantes,RC Strasbourg Alsace,,
+25,2025-03-09T00:00:00Z,Toulouse FC,AS Monaco FC,,
+25,2025-03-09T00:00:00Z,OGC Nice,Olympique Lyonnais,,
+25,2025-03-09T00:00:00Z,Stade Brestois 29,Angers SCO,,
+25,2025-03-09T00:00:00Z,Lille OSC,Montpellier HSC,,
+25,2025-03-09T00:00:00Z,Stade Rennais FC 1901,Paris Saint-Germain FC,,
+25,2025-03-09T00:00:00Z,Olympique de Marseille,Racing Club de Lens,,
+26,2025-03-16T00:00:00Z,Paris Saint-Germain FC,Olympique de Marseille,,
+26,2025-03-16T00:00:00Z,OGC Nice,AJ Auxerre,,
+26,2025-03-16T00:00:00Z,Montpellier HSC,AS Saint-Étienne,,
+26,2025-03-16T00:00:00Z,Stade Brestois 29,Stade de Reims,,
+26,2025-03-16T00:00:00Z,Olympique Lyonnais,Le Havre AC,,
+26,2025-03-16T00:00:00Z,Racing Club de Lens,Stade Rennais FC 1901,,
+26,2025-03-16T00:00:00Z,RC Strasbourg Alsace,Toulouse FC,,
+26,2025-03-16T00:00:00Z,FC Nantes,Lille OSC,,
+26,2025-03-16T00:00:00Z,Angers SCO,AS Monaco FC,,
+27,2025-03-30T00:00:00Z,Angers SCO,Stade Rennais FC 1901,,
+27,2025-03-30T00:00:00Z,AJ Auxerre,Montpellier HSC,,
+27,2025-03-30T00:00:00Z,Le Havre AC,FC Nantes,,
+27,2025-03-30T00:00:00Z,RC Strasbourg Alsace,Olympique Lyonnais,,
+27,2025-03-30T00:00:00Z,Toulouse FC,Stade Brestois 29,,
+27,2025-03-30T00:00:00Z,AS Saint-Étienne,Paris Saint-Germain FC,,
+27,2025-03-30T00:00:00Z,Stade de Reims,Olympique de Marseille,,
+27,2025-03-30T00:00:00Z,Lille OSC,Racing Club de Lens,,
+27,2025-03-30T00:00:00Z,AS Monaco FC,OGC Nice,,
+28,2025-04-06T00:00:00Z,Olympique de Marseille,Toulouse FC,,
+28,2025-04-06T00:00:00Z,OGC Nice,FC Nantes,,
+28,2025-04-06T00:00:00Z,Stade Brestois 29,AS Monaco FC,,
+28,2025-04-06T00:00:00Z,Montpellier HSC,Le Havre AC,,
+28,2025-04-06T00:00:00Z,Olympique Lyonnais,Lille OSC,,
+28,2025-04-06T00:00:00Z,Racing Club de Lens,AS Saint-Étienne,,
+28,2025-04-06T00:00:00Z,Paris Saint-Germain FC,Angers SCO,,
+28,2025-04-06T00:00:00Z,Stade de Reims,RC Strasbourg Alsace,,
+28,2025-04-06T00:00:00Z,Stade Rennais FC 1901,AJ Auxerre,,
+29,2025-04-13T00:00:00Z,Toulouse FC,Lille OSC,,
+29,2025-04-13T00:00:00Z,Le Havre AC,Stade Rennais FC 1901,,
+29,2025-04-13T00:00:00Z,AJ Auxerre,Olympique Lyonnais,,
+29,2025-04-13T00:00:00Z,FC Nantes,Paris Saint-Germain FC,,
+29,2025-04-13T00:00:00Z,RC Strasbourg Alsace,OGC Nice,,
+29,2025-04-13T00:00:00Z,AS Saint-Étienne,Stade Brestois 29,,
+29,2025-04-13T00:00:00Z,Angers SCO,Montpellier HSC,,
+29,2025-04-13T00:00:00Z,Racing Club de Lens,Stade de Reims,,
+29,2025-04-13T00:00:00Z,AS Monaco FC,Olympique de Marseille,,
+30,2025-04-20T00:00:00Z,AS Saint-Étienne,Olympique Lyonnais,,
+30,2025-04-20T00:00:00Z,OGC Nice,Angers SCO,,
+30,2025-04-20T00:00:00Z,Stade Brestois 29,Racing Club de Lens,,
+30,2025-04-20T00:00:00Z,Lille OSC,AJ Auxerre,,
+30,2025-04-20T00:00:00Z,Paris Saint-Germain FC,Le Havre AC,,
+30,2025-04-20T00:00:00Z,Olympique de Marseille,Montpellier HSC,,
+30,2025-04-20T00:00:00Z,Stade de Reims,Toulouse FC,,
+30,2025-04-20T00:00:00Z,AS Monaco FC,RC Strasbourg Alsace,,
+30,2025-04-20T00:00:00Z,Stade Rennais FC 1901,FC Nantes,,
+31,2025-04-27T00:00:00Z,Le Havre AC,AS Monaco FC,,
+31,2025-04-27T00:00:00Z,RC Strasbourg Alsace,AS Saint-Étienne,,
+31,2025-04-27T00:00:00Z,FC Nantes,Toulouse FC,,
+31,2025-04-27T00:00:00Z,Montpellier HSC,Stade de Reims,,
+31,2025-04-27T00:00:00Z,Racing Club de Lens,AJ Auxerre,,
+31,2025-04-27T00:00:00Z,Angers SCO,Lille OSC,,
+31,2025-04-27T00:00:00Z,Paris Saint-Germain FC,OGC Nice,,
+31,2025-04-27T00:00:00Z,Olympique de Marseille,Stade Brestois 29,,
+31,2025-04-27T00:00:00Z,Olympique Lyonnais,Stade Rennais FC 1901,,
+32,2025-05-04T00:00:00Z,Olympique Lyonnais,Racing Club de Lens,,
+32,2025-05-04T00:00:00Z,Lille OSC,Olympique de Marseille,,
+32,2025-05-04T00:00:00Z,OGC Nice,Stade de Reims,,
+32,2025-05-04T00:00:00Z,Stade Brestois 29,Montpellier HSC,,
+32,2025-05-04T00:00:00Z,AS Saint-Étienne,AS Monaco FC,,
+32,2025-05-04T00:00:00Z,FC Nantes,Angers SCO,,
+32,2025-05-04T00:00:00Z,Toulouse FC,Stade Rennais FC 1901,,
+32,2025-05-04T00:00:00Z,RC Strasbourg Alsace,Paris Saint-Germain FC,,
+32,2025-05-04T00:00:00Z,AJ Auxerre,Le Havre AC,,
+33,2025-05-11T00:00:00Z,Stade de Reims,AS Saint-Étienne,,
+33,2025-05-11T00:00:00Z,AJ Auxerre,FC Nantes,,
+33,2025-05-11T00:00:00Z,Angers SCO,RC Strasbourg Alsace,,
+33,2025-05-11T00:00:00Z,Le Havre AC,Olympique de Marseille,,
+33,2025-05-11T00:00:00Z,Stade Rennais FC 1901,OGC Nice,,
+33,2025-05-11T00:00:00Z,Montpellier HSC,Paris Saint-Germain FC,,
+33,2025-05-11T00:00:00Z,Toulouse FC,Racing Club de Lens,,
+33,2025-05-11T00:00:00Z,Stade Brestois 29,Lille OSC,,
+33,2025-05-11T00:00:00Z,AS Monaco FC,Olympique Lyonnais,,
+34,2025-05-18T00:00:00Z,Olympique de Marseille,Stade Rennais FC 1901,,
+34,2025-05-18T00:00:00Z,Olympique Lyonnais,Angers SCO,,
+34,2025-05-18T00:00:00Z,OGC Nice,Stade Brestois 29,,
+34,2025-05-18T00:00:00Z,AS Saint-Étienne,Toulouse FC,,
+34,2025-05-18T00:00:00Z,Lille OSC,Stade de Reims,,
+34,2025-05-18T00:00:00Z,RC Strasbourg Alsace,Le Havre AC,,
+34,2025-05-18T00:00:00Z,FC Nantes,Montpellier HSC,,
+34,2025-05-18T00:00:00Z,Racing Club de Lens,AS Monaco FC,,
+34,2025-05-18T00:00:00Z,Paris Saint-Germain FC,AJ Auxerre,,

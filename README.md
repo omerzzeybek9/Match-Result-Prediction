@@ -74,10 +74,15 @@ In this project, the RandomForestRegressor model is used to predict match scores
 The datasets include past match results and team statistics for each league. These data are used to make predictions by analyzing the relationships between match results and home/away teams.
 
 # Development
-If you want to contribute to the project, you can follow these steps:
-- Fork the repository.
-- Add new features or fix bugs.
-- Submit your changes as a pull request.
+This project is still under development and can be further enhanced in several ways:
+
+- Model Improvement: Experiment with different machine learning models (e.g., GradientBoosting, XGBoost) to improve prediction accuracy.
+- Feature Engineering: Incorporate additional features such as player statistics, team form, or home/away conditions.
+- User Interface: Enhance the Streamlit interface with more advanced features like team selection from a dropdown or match history visualization.
+- Real-Time Data: Integrate real-time data updates to keep the models current with the latest match results and team statistics.
+- Cross-League Model: Develop a unified model that can handle multiple leagues for broader predictions.
+
+Feel free to fork the repository, add new features, and submit a pull request to contribute!
 
 # License
 This project is licensed under the MIT License.

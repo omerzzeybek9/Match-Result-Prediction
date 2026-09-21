@@ -2,7 +2,7 @@
   "league": "eredivise",
   "protocol": "Untouched season 2025/2026; 3 expanding validation folds in preceding 2 seasons",
   "selection_metric": "validation 1X2 log loss",
-  "created_at": "2026-09-20T18:21:44.067828+00:00",
+  "created_at": "2026-09-21T08:00:37.136000+00:00",
   "data": {
     "from": "2018-08-10",
     "to": "2026-09-15",
@@ -19,7 +19,7 @@
     2025,
     2026
   ],
-  "data_sha256": "8a39bdb68bd8f8999cbc59d5a0612a6f00fbbab52e6f66f5e00dabbd39829695",
+  "data_sha256": "2486aa6022f7a1ed6e26eb09c3652006e0cff0f4105ac6c5e976dfc09389b095",
   "feature_count": 53,
   "features": [
     "home_team",
@@ -132,16 +132,32 @@
     "logistic_0.05": 0.9378192849496539,
     "logistic_0.5": 0.9726665685123956,
     "boosted_poisson": 0.939874485629624,
-    "random_forest": 0.9358833771328818
+    "random_forest": 0.9358833771328818,
+    "catboost_4": 0.9341582426334993
   },
   "weights": {
-    "poisson_1": 0.10341876564113996,
-    "poisson_0.1": 0.21931802329159633,
-    "logistic_0.05": 0.25496313736753656,
-    "boosted_poisson": 0.2022757635252752,
-    "random_forest": 0.22002431017445195
+    "poisson_1": 0.046477409296866584,
+    "poisson_0.1": 0.1910308025704195,
+    "logistic_0.05": 0.19549378116088723,
+    "boosted_poisson": 0.1642176282635996,
+    "random_forest": 0.1623422805349437,
+    "catboost_4": 0.24043809817328343
   },
   "temperature": 1.0,
+  "market_weight": 0.9,
+  "validation_market_blend_log_loss": {
+    "0.0": 0.9291289849568842,
+    "0.1": 0.9265216391477683,
+    "0.2": 0.9242497377736434,
+    "0.30000000000000004": 0.9223019755349292,
+    "0.4": 0.920670331377365,
+    "0.5": 0.9193497318512621,
+    "0.6000000000000001": 0.9183378830689233,
+    "0.7000000000000001": 0.9176352531351616,
+    "0.8": 0.917245208730828,
+    "0.9": 0.9171743332912737,
+    "1.0": 0.9174329872580046
+  },
   "selected": {
     "matches": 306,
     "accuracy": 0.4869281045751634,
@@ -149,47 +165,98 @@
       0.43143448614611574,
       0.5427458692354729
     ],
-    "log_loss": 1.0029005416301988,
-    "brier_multiclass": 0.5984383088963113,
-    "goal_mae": 0.9134070992766735,
-    "exact_score_accuracy": 0.10784313725490197,
-    "calibration_error": 0.0749360486288605,
+    "log_loss": 0.9990482372866706,
+    "brier_multiclass": 0.5962661690702349,
+    "goal_mae": 0.9137330178448378,
+    "exact_score_accuracy": 0.1111111111111111,
+    "calibration_error": 0.08807069381351193,
     "confidence_buckets": [
       {
         "range": "0%–40%",
-        "matches": 29,
-        "mean_probability": 0.38337660495225373,
-        "accuracy": 0.3448275862068966
+        "matches": 35,
+        "mean_probability": 0.38095483090601245,
+        "accuracy": 0.2857142857142857
       },
       {
         "range": "40%–50%",
-        "matches": 89,
-        "mean_probability": 0.44818753310138326,
-        "accuracy": 0.24719101123595505
+        "matches": 87,
+        "mean_probability": 0.4516648502546531,
+        "accuracy": 0.26436781609195403
       },
       {
         "range": "50%–60%",
-        "matches": 79,
-        "mean_probability": 0.5440917097142818,
-        "accuracy": 0.5569620253164557
+        "matches": 78,
+        "mean_probability": 0.5483123627908714,
+        "accuracy": 0.5897435897435898
       },
       {
         "range": "60%–70%",
         "matches": 62,
-        "mean_probability": 0.6460795991406185,
-        "accuracy": 0.6290322580645161
+        "mean_probability": 0.6502541011063315,
+        "accuracy": 0.5967741935483871
       },
       {
         "range": "70%–80%",
-        "matches": 36,
-        "mean_probability": 0.737369659127696,
-        "accuracy": 0.6944444444444444
+        "matches": 33,
+        "mean_probability": 0.7434543480898219,
+        "accuracy": 0.7272727272727273
       },
       {
         "range": "80%–90%",
         "matches": 11,
-        "mean_probability": 0.8458928257186998,
+        "mean_probability": 0.8399988904727897,
         "accuracy": 0.8181818181818182
+      }
+    ]
+  },
+  "market_assisted": {
+    "matches": 306,
+    "accuracy": 0.5261437908496732,
+    "accuracy_95_interval": [
+      0.47022037307691805,
+      0.5814189161599049
+    ],
+    "log_loss": 0.9796460368247467,
+    "brier_multiclass": 0.5825142876702768,
+    "goal_mae": 0.9058854085205237,
+    "exact_score_accuracy": 0.13725490196078433,
+    "calibration_error": 0.01968431027933217,
+    "confidence_buckets": [
+      {
+        "range": "0%–40%",
+        "matches": 41,
+        "mean_probability": 0.3789547056170564,
+        "accuracy": 0.34146341463414637
+      },
+      {
+        "range": "40%–50%",
+        "matches": 97,
+        "mean_probability": 0.44607834451966055,
+        "accuracy": 0.4329896907216495
+      },
+      {
+        "range": "50%–60%",
+        "matches": 71,
+        "mean_probability": 0.5493563647547682,
+        "accuracy": 0.5211267605633803
+      },
+      {
+        "range": "60%–70%",
+        "matches": 49,
+        "mean_probability": 0.642389105966447,
+        "accuracy": 0.6530612244897959
+      },
+      {
+        "range": "70%–80%",
+        "matches": 40,
+        "mean_probability": 0.7346212306410781,
+        "accuracy": 0.725
+      },
+      {
+        "range": "80%–90%",
+        "matches": 8,
+        "mean_probability": 0.8369285417633128,
+        "accuracy": 0.875
       }
     ]
   },
@@ -266,14 +333,130 @@
     "Features update after each match day; model coefficients are fixed throughout the test season.",
     "Reported test results belong to the pre-test fit; production model is subsequently refitted on all available results.",
     "Rest/form reflect this competition only, not other competitions.",
-    "No comparison against bookmaker probabilities; betting profitability is not established."
+    "Market-assisted mode requires pre-match decimal odds and is evaluated with the historical source's closing/available market average.",
+    "No profitability or edge against the market is established."
   ],
   "log_loss_difference_vs_rolling": {
-    "difference": -0.02869171828698656,
+    "difference": -0.032544022630514605,
     "day_bootstrap_95_interval": [
-      -0.06011995780103496,
-      0.008145401899191313
+      -0.06446607396887458,
+      0.00374101195863816
     ],
     "negative_is_better": true
+  },
+  "latest_partial_season_audit": {
+    "period": {
+      "from": "2026-08-07",
+      "to": "2026-09-15",
+      "matches": 54
+    },
+    "stats": {
+      "matches": 54,
+      "accuracy": 0.5555555555555556,
+      "accuracy_95_interval": [
+        0.42375413911364457,
+        0.6799774312440219
+      ],
+      "log_loss": 0.971028076753356,
+      "brier_multiclass": 0.5785477422652707,
+      "goal_mae": 1.0446275555724098,
+      "exact_score_accuracy": 0.037037037037037035,
+      "calibration_error": 0.0702228828569466,
+      "confidence_buckets": [
+        {
+          "range": "0%–40%",
+          "matches": 3,
+          "mean_probability": 0.3927705152186103,
+          "accuracy": 0.3333333333333333
+        },
+        {
+          "range": "40%–50%",
+          "matches": 14,
+          "mean_probability": 0.4561991589061484,
+          "accuracy": 0.42857142857142855
+        },
+        {
+          "range": "50%–60%",
+          "matches": 20,
+          "mean_probability": 0.5525751362360024,
+          "accuracy": 0.6
+        },
+        {
+          "range": "60%–70%",
+          "matches": 9,
+          "mean_probability": 0.63915952399996,
+          "accuracy": 0.6666666666666666
+        },
+        {
+          "range": "70%–80%",
+          "matches": 6,
+          "mean_probability": 0.7742097582667705,
+          "accuracy": 0.5
+        },
+        {
+          "range": "80%–90%",
+          "matches": 2,
+          "mean_probability": 0.8071921024738635,
+          "accuracy": 1.0
+        }
+      ]
+    },
+    "market_assisted": {
+      "matches": 54,
+      "accuracy": 0.5740740740740741,
+      "accuracy_95_interval": [
+        0.44162497846346305,
+        0.6966837820134256
+      ],
+      "log_loss": 0.9596946936790588,
+      "brier_multiclass": 0.5708581546895838,
+      "goal_mae": 1.041415990395791,
+      "exact_score_accuracy": 0.09259259259259259,
+      "calibration_error": 0.05186312308578361,
+      "confidence_buckets": [
+        {
+          "range": "0%–40%",
+          "matches": 3,
+          "mean_probability": 0.37366489467795966,
+          "accuracy": 0.3333333333333333
+        },
+        {
+          "range": "40%–50%",
+          "matches": 16,
+          "mean_probability": 0.44569103974073165,
+          "accuracy": 0.4375
+        },
+        {
+          "range": "50%–60%",
+          "matches": 10,
+          "mean_probability": 0.5686331826801218,
+          "accuracy": 0.6
+        },
+        {
+          "range": "60%–70%",
+          "matches": 13,
+          "mean_probability": 0.6478543297286434,
+          "accuracy": 0.6923076923076923
+        },
+        {
+          "range": "70%–80%",
+          "matches": 9,
+          "mean_probability": 0.757267575674523,
+          "accuracy": 0.7777777777777778
+        },
+        {
+          "range": "80%–90%",
+          "matches": 3,
+          "mean_probability": 0.824134540363673,
+          "accuracy": 0.3333333333333333
+        }
+      ]
+    },
+    "training_period": {
+      "from": "2018-08-10",
+      "to": "2026-05-17",
+      "matches": 2374
+    },
+    "note": "Secondary forward audit; recipe and market weight were already frozen."
   }
 }

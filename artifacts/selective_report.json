@@ -1,0 +1,1394 @@
+{
+  "created_at": "2026-09-21T08:27:44.177084+00:00",
+  "rule": "Threshold selected from expanding validation predictions only; confirmation and audit labels are never used for selection.",
+  "modes": {
+    "stats": {
+      "policy": {
+        "target": 0.7,
+        "threshold": 0.65,
+        "require_agreement": false,
+        "status": "validation_supported",
+        "min_team_history": 10,
+        "min_validation_matches": 200,
+        "selection_bound": "One-sided Wilson, Bonferroni over the fixed threshold grid; approximate and not a guarantee",
+        "validation": {
+          "total_matches": 4116,
+          "selected_matches": 772,
+          "coverage": 0.18756073858114675,
+          "correct": 576,
+          "accuracy": 0.7461139896373057,
+          "accuracy_95_interval": [
+            0.7142450265930705,
+            0.775545672951785
+          ],
+          "threshold": 0.65,
+          "require_agreement": false,
+          "conservative_lower_bound": 0.7014286281906041
+        },
+        "threshold_search": [
+          {
+            "total_matches": 4116,
+            "selected_matches": 2202,
+            "coverage": 0.5349854227405247,
+            "correct": 1377,
+            "accuracy": 0.6253405994550408,
+            "accuracy_95_interval": [
+              0.6049214033184784,
+              0.6453232198675201
+            ],
+            "threshold": 0.5,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.5969815043251215
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 1881,
+            "coverage": 0.45699708454810495,
+            "correct": 1219,
+            "accuracy": 0.6480595427963849,
+            "accuracy_95_interval": [
+              0.6261950700958394,
+              0.6693204787969693
+            ],
+            "threshold": 0.525,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.6176602660518952
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 1612,
+            "coverage": 0.391642371234208,
+            "correct": 1079,
+            "accuracy": 0.6693548387096774,
+            "accuracy_95_interval": [
+              0.6460101204773173,
+              0.6918942879746001
+            ],
+            "threshold": 0.55,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.6368584569064085
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 1381,
+            "coverage": 0.33551992225461613,
+            "correct": 953,
+            "accuracy": 0.6900796524257784,
+            "accuracy_95_interval": [
+              0.6651892720911996,
+              0.7139154572872362
+            ],
+            "threshold": 0.575,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.6553838495628148
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 1150,
+            "coverage": 0.2793974732750243,
+            "correct": 807,
+            "accuracy": 0.7017391304347826,
+            "accuracy_95_interval": [
+              0.6746610419389022,
+              0.7274738784869171
+            ],
+            "threshold": 0.6,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.6639489332810923
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 948,
+            "coverage": 0.2303206997084548,
+            "correct": 691,
+            "accuracy": 0.7289029535864979,
+            "accuracy_95_interval": [
+              0.6997235932845441,
+              0.7562346249736199
+            ],
+            "threshold": 0.625,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.688080917673549
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 772,
+            "coverage": 0.18756073858114675,
+            "correct": 576,
+            "accuracy": 0.7461139896373057,
+            "accuracy_95_interval": [
+              0.7142450265930705,
+              0.775545672951785
+            ],
+            "threshold": 0.65,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.7014286281906041
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 618,
+            "coverage": 0.15014577259475217,
+            "correct": 466,
+            "accuracy": 0.7540453074433657,
+            "accuracy_95_interval": [
+              0.7185907703153432,
+              0.7863609730225102
+            ],
+            "threshold": 0.675,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.7042377934949371
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 474,
+            "coverage": 0.1151603498542274,
+            "correct": 368,
+            "accuracy": 0.7763713080168776,
+            "accuracy_95_interval": [
+              0.7367229216760797,
+              0.8115759288216583
+            ],
+            "threshold": 0.7,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.7204468069634222
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 363,
+            "coverage": 0.08819241982507289,
+            "correct": 284,
+            "accuracy": 0.7823691460055097,
+            "accuracy_95_interval": [
+              0.7370824560012046,
+              0.8217418430968257
+            ],
+            "threshold": 0.725,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.7183154958662772
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 268,
+            "coverage": 0.06511175898931001,
+            "correct": 217,
+            "accuracy": 0.8097014925373134,
+            "accuracy_95_interval": [
+              0.7584564673852706,
+              0.8521932639288475
+            ],
+            "threshold": 0.75,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.7367129661288561
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 190,
+            "coverage": 0.04616132167152575,
+            "correct": 161,
+            "accuracy": 0.8473684210526315,
+            "accuracy_95_interval": [
+              0.7893902685667747,
+              0.8915781097379852
+            ],
+            "threshold": 0.775,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.763762971885658
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 131,
+            "coverage": 0.03182701652089407,
+            "correct": 115,
+            "accuracy": 0.8778625954198473,
+            "accuracy_95_interval": [
+              0.8107897236522251,
+              0.9234050648996758
+            ],
+            "threshold": 0.8,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.7796064819715403
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 80,
+            "coverage": 0.019436345966958212,
+            "correct": 71,
+            "accuracy": 0.8875,
+            "accuracy_95_interval": [
+              0.7998158913432244,
+              0.9396738130517298
+            ],
+            "threshold": 0.825,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.7574937975847281
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 35,
+            "coverage": 0.008503401360544218,
+            "correct": 33,
+            "accuracy": 0.9428571428571428,
+            "accuracy_95_interval": [
+              0.8139261926062996,
+              0.984187170385956
+            ],
+            "threshold": 0.85,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.7422796421641
+          }
+        ]
+      },
+      "confirmation": {
+        "total_matches": 2058,
+        "selected_matches": 318,
+        "coverage": 0.15451895043731778,
+        "correct": 231,
+        "accuracy": 0.7264150943396226,
+        "accuracy_95_interval": [
+          0.6749326194643626,
+          0.7724924492650993
+        ]
+      },
+      "confirmation_by_league": {
+        "bundesliga": {
+          "total_matches": 306,
+          "selected_matches": 31,
+          "coverage": 0.10130718954248366,
+          "correct": 23,
+          "accuracy": 0.7419354838709677,
+          "accuracy_95_interval": [
+            0.5675352757228489,
+            0.8629845626313024
+          ]
+        },
+        "eredivise": {
+          "total_matches": 306,
+          "selected_matches": 71,
+          "coverage": 0.23202614379084968,
+          "correct": 45,
+          "accuracy": 0.6338028169014085,
+          "accuracy_95_interval": [
+            0.5175700445451693,
+            0.7362994611842647
+          ]
+        },
+        "laliga": {
+          "total_matches": 380,
+          "selected_matches": 91,
+          "coverage": 0.2394736842105263,
+          "correct": 68,
+          "accuracy": 0.7472527472527473,
+          "accuracy_95_interval": [
+            0.6492012891565241,
+            0.8252740465611358
+          ]
+        },
+        "ligue1": {
+          "total_matches": 306,
+          "selected_matches": 33,
+          "coverage": 0.10784313725490197,
+          "correct": 25,
+          "accuracy": 0.7575757575757576,
+          "accuracy_95_interval": [
+            0.5897505131450971,
+            0.8716843865335271
+          ]
+        },
+        "premier_league": {
+          "total_matches": 380,
+          "selected_matches": 33,
+          "coverage": 0.0868421052631579,
+          "correct": 23,
+          "accuracy": 0.696969696969697,
+          "accuracy_95_interval": [
+            0.5266154602526555,
+            0.8262465218545277
+          ]
+        },
+        "seriea": {
+          "total_matches": 380,
+          "selected_matches": 59,
+          "coverage": 0.15526315789473685,
+          "correct": 47,
+          "accuracy": 0.7966101694915254,
+          "accuracy_95_interval": [
+            0.6773174503671768,
+            0.8796384514558193
+          ]
+        }
+      },
+      "all_match_double_chance": {
+        "total_matches": 2058,
+        "selected_matches": 2058,
+        "coverage": 1.0,
+        "correct": 1591,
+        "accuracy": 0.7730806608357629,
+        "accuracy_95_interval": [
+          0.7544856112017784,
+          0.7906581088589673
+        ],
+        "pick_counts": {
+          "1X": 848,
+          "12": 850,
+          "X2": 360
+        },
+        "constant_baselines": {
+          "X2": 0.5592808551992225,
+          "12": 0.7444120505344995,
+          "1X": 0.6963070942662779
+        },
+        "best_constant_accuracy": 0.7444120505344995,
+        "improvement_vs_best_constant": 0.02866861030126333,
+        "rule": "Exclude the least likely result and keep the other two; no outcome labels are used to choose the pick."
+      },
+      "all_match_double_chance_by_league": {
+        "bundesliga": {
+          "total_matches": 306,
+          "selected_matches": 306,
+          "coverage": 1.0,
+          "correct": 244,
+          "accuracy": 0.7973856209150327,
+          "accuracy_95_interval": [
+            0.7487903943510779,
+            0.8386065207177833
+          ],
+          "pick_counts": {
+            "1X": 106,
+            "12": 165,
+            "X2": 35
+          },
+          "constant_baselines": {
+            "X2": 0.5620915032679739,
+            "12": 0.7549019607843137,
+            "1X": 0.6830065359477124
+          },
+          "best_constant_accuracy": 0.7549019607843137,
+          "improvement_vs_best_constant": 0.042483660130719025,
+          "rule": "Exclude the least likely result and keep the other two; no outcome labels are used to choose the pick."
+        },
+        "eredivise": {
+          "total_matches": 306,
+          "selected_matches": 306,
+          "coverage": 1.0,
+          "correct": 236,
+          "accuracy": 0.7712418300653595,
+          "accuracy_95_interval": [
+            0.72098779784214,
+            0.8147698279898983
+          ],
+          "pick_counts": {
+            "1X": 142,
+            "12": 108,
+            "X2": 56
+          },
+          "constant_baselines": {
+            "X2": 0.5555555555555556,
+            "12": 0.738562091503268,
+            "1X": 0.7058823529411765
+          },
+          "best_constant_accuracy": 0.738562091503268,
+          "improvement_vs_best_constant": 0.0326797385620915,
+          "rule": "Exclude the least likely result and keep the other two; no outcome labels are used to choose the pick."
+        },
+        "laliga": {
+          "total_matches": 380,
+          "selected_matches": 380,
+          "coverage": 1.0,
+          "correct": 291,
+          "accuracy": 0.7657894736842106,
+          "accuracy_95_interval": [
+            0.7206779494943307,
+            0.8055807989060513
+          ],
+          "pick_counts": {
+            "1X": 193,
+            "12": 115,
+            "X2": 72
+          },
+          "constant_baselines": {
+            "X2": 0.5105263157894737,
+            "12": 0.7552631578947369,
+            "1X": 0.7342105263157894
+          },
+          "best_constant_accuracy": 0.7552631578947369,
+          "improvement_vs_best_constant": 0.010526315789473717,
+          "rule": "Exclude the least likely result and keep the other two; no outcome labels are used to choose the pick."
+        },
+        "ligue1": {
+          "total_matches": 306,
+          "selected_matches": 306,
+          "coverage": 1.0,
+          "correct": 234,
+          "accuracy": 0.7647058823529411,
+          "accuracy_95_interval": [
+            0.7140777280543615,
+            0.8087700754684708
+          ],
+          "pick_counts": {
+            "1X": 91,
+            "12": 192,
+            "X2": 23
+          },
+          "constant_baselines": {
+            "X2": 0.5392156862745098,
+            "12": 0.7549019607843137,
+            "1X": 0.7058823529411765
+          },
+          "best_constant_accuracy": 0.7549019607843137,
+          "improvement_vs_best_constant": 0.009803921568627416,
+          "rule": "Exclude the least likely result and keep the other two; no outcome labels are used to choose the pick."
+        },
+        "premier_league": {
+          "total_matches": 380,
+          "selected_matches": 380,
+          "coverage": 1.0,
+          "correct": 290,
+          "accuracy": 0.7631578947368421,
+          "accuracy_95_interval": [
+            0.7179105758041153,
+            0.8031376899388372
+          ],
+          "pick_counts": {
+            "1X": 112,
+            "12": 209,
+            "X2": 59
+          },
+          "constant_baselines": {
+            "X2": 0.5736842105263158,
+            "12": 0.7263157894736842,
+            "1X": 0.7
+          },
+          "best_constant_accuracy": 0.7263157894736842,
+          "improvement_vs_best_constant": 0.0368421052631579,
+          "rule": "Exclude the least likely result and keep the other two; no outcome labels are used to choose the pick."
+        },
+        "seriea": {
+          "total_matches": 380,
+          "selected_matches": 380,
+          "coverage": 1.0,
+          "correct": 296,
+          "accuracy": 0.7789473684210526,
+          "accuracy_95_interval": [
+            0.7345490182352132,
+            0.8177621434523161
+          ],
+          "pick_counts": {
+            "1X": 204,
+            "12": 61,
+            "X2": 115
+          },
+          "constant_baselines": {
+            "X2": 0.6105263157894737,
+            "12": 0.7394736842105263,
+            "1X": 0.65
+          },
+          "best_constant_accuracy": 0.7394736842105263,
+          "improvement_vs_best_constant": 0.03947368421052633,
+          "rule": "Exclude the least likely result and keep the other two; no outcome labels are used to choose the pick."
+        }
+      },
+      "latest_partial_season_audit": {
+        "total_matches": 256,
+        "selected_matches": 31,
+        "coverage": 0.12109375,
+        "correct": 26,
+        "accuracy": 0.8387096774193549,
+        "accuracy_95_interval": [
+          0.6736529727502113,
+          0.9290748009456006
+        ]
+      },
+      "audit_by_league": {
+        "bundesliga": {
+          "total_matches": 27,
+          "selected_matches": 4,
+          "coverage": 0.14814814814814814,
+          "correct": 3,
+          "accuracy": 0.75,
+          "accuracy_95_interval": [
+            0.3006360524426366,
+            0.9544139373553637
+          ]
+        },
+        "eredivise": {
+          "total_matches": 54,
+          "selected_matches": 10,
+          "coverage": 0.18518518518518517,
+          "correct": 6,
+          "accuracy": 0.6,
+          "accuracy_95_interval": [
+            0.3126695474501864,
+            0.8318224187964902
+          ]
+        },
+        "laliga": {
+          "total_matches": 59,
+          "selected_matches": 6,
+          "coverage": 0.1016949152542373,
+          "correct": 6,
+          "accuracy": 1.0,
+          "accuracy_95_interval": [
+            0.6096569663469354,
+            0.9999999999999999
+          ]
+        },
+        "ligue1": {
+          "total_matches": 36,
+          "selected_matches": 1,
+          "coverage": 0.027777777777777776,
+          "correct": 1,
+          "accuracy": 1.0,
+          "accuracy_95_interval": [
+            0.20654329147389294,
+            1.0
+          ]
+        },
+        "premier_league": {
+          "total_matches": 40,
+          "selected_matches": 3,
+          "coverage": 0.075,
+          "correct": 3,
+          "accuracy": 1.0,
+          "accuracy_95_interval": [
+            0.43849391955098227,
+            1.0
+          ]
+        },
+        "seriea": {
+          "total_matches": 40,
+          "selected_matches": 7,
+          "coverage": 0.175,
+          "correct": 7,
+          "accuracy": 1.0,
+          "accuracy_95_interval": [
+            0.6456611570247934,
+            1.0
+          ]
+        }
+      },
+      "all_match_double_chance_audit": {
+        "total_matches": 256,
+        "selected_matches": 256,
+        "coverage": 1.0,
+        "correct": 194,
+        "accuracy": 0.7578125,
+        "accuracy_95_interval": [
+          0.7017711387942602,
+          0.806230659224225
+        ],
+        "pick_counts": {
+          "1X": 104,
+          "12": 112,
+          "X2": 40
+        },
+        "constant_baselines": {
+          "X2": 0.625,
+          "12": 0.7421875,
+          "1X": 0.6328125
+        },
+        "best_constant_accuracy": 0.7421875,
+        "improvement_vs_best_constant": 0.015625,
+        "rule": "Exclude the least likely result and keep the other two; no outcome labels are used to choose the pick."
+      }
+    },
+    "assisted": {
+      "policy": {
+        "target": 0.7,
+        "threshold": 0.625,
+        "require_agreement": false,
+        "status": "validation_supported",
+        "min_team_history": 10,
+        "min_validation_matches": 200,
+        "selection_bound": "One-sided Wilson, Bonferroni over the fixed threshold grid; approximate and not a guarantee",
+        "validation": {
+          "total_matches": 4116,
+          "selected_matches": 1014,
+          "coverage": 0.24635568513119532,
+          "correct": 757,
+          "accuracy": 0.7465483234714004,
+          "accuracy_95_interval": [
+            0.7188781398266557,
+            0.7723574316021404
+          ],
+          "threshold": 0.625,
+          "require_agreement": false,
+          "conservative_lower_bound": 0.7044909906346732
+        },
+        "threshold_search": [
+          {
+            "total_matches": 4116,
+            "selected_matches": 2125,
+            "coverage": 0.5162779397473275,
+            "correct": 1407,
+            "accuracy": 0.6621176470588235,
+            "accuracy_95_interval": [
+              0.6417304330744765,
+              0.6819197624121204
+            ],
+            "threshold": 0.5,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.6313999884058176
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 1871,
+            "coverage": 0.4545675413022352,
+            "correct": 1261,
+            "accuracy": 0.6739711384286478,
+            "accuracy_95_interval": [
+              0.6523927929997232,
+              0.6948365409344074
+            ],
+            "threshold": 0.525,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.6414277372183281
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 1629,
+            "coverage": 0.39577259475218657,
+            "correct": 1120,
+            "accuracy": 0.6875383670963782,
+            "accuracy_95_interval": [
+              0.6646110260780062,
+              0.7095832619656105
+            ],
+            "threshold": 0.55,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.6529187528923843
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 1367,
+            "coverage": 0.33211856171039844,
+            "correct": 958,
+            "accuracy": 0.7008046817849305,
+            "accuracy_95_interval": [
+              0.6759951038642679,
+              0.7244888032479763
+            ],
+            "threshold": 0.575,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.6632871730104709
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 1158,
+            "coverage": 0.2813411078717201,
+            "correct": 839,
+            "accuracy": 0.7245250431778929,
+            "accuracy_95_interval": [
+              0.6980827442367143,
+              0.749482569313773
+            ],
+            "threshold": 0.6,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.684439077757279
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 1014,
+            "coverage": 0.24635568513119532,
+            "correct": 757,
+            "accuracy": 0.7465483234714004,
+            "accuracy_95_interval": [
+              0.7188781398266557,
+              0.7723574316021404
+            ],
+            "threshold": 0.625,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.7044909906346732
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 833,
+            "coverage": 0.20238095238095238,
+            "correct": 640,
+            "accuracy": 0.7683073229291717,
+            "accuracy_95_interval": [
+              0.7384628017172634,
+              0.7956884641853879
+            ],
+            "threshold": 0.65,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.722784598917122
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 681,
+            "coverage": 0.16545189504373178,
+            "correct": 534,
+            "accuracy": 0.7841409691629956,
+            "accuracy_95_interval": [
+              0.751692239816248,
+              0.813401936705739
+            ],
+            "threshold": 0.675,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.7344693603454062
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 547,
+            "coverage": 0.13289601554907676,
+            "correct": 440,
+            "accuracy": 0.8043875685557587,
+            "accuracy_95_interval": [
+              0.7690704532671829,
+              0.8354590521296498
+            ],
+            "threshold": 0.7,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.7500479180034619
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 412,
+            "coverage": 0.1000971817298348,
+            "correct": 340,
+            "accuracy": 0.8252427184466019,
+            "accuracy_95_interval": [
+              0.7856139752338704,
+              0.8588621906908469
+            ],
+            "threshold": 0.725,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.7638235659666732
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 312,
+            "coverage": 0.07580174927113703,
+            "correct": 259,
+            "accuracy": 0.8301282051282052,
+            "accuracy_95_interval": [
+              0.7845039259287975,
+              0.8677217466868429
+            ],
+            "threshold": 0.75,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.7590640972009416
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 230,
+            "coverage": 0.05587949465500486,
+            "correct": 198,
+            "accuracy": 0.8608695652173913,
+            "accuracy_95_interval": [
+              0.8101884068208473,
+              0.8996938382544516
+            ],
+            "threshold": 0.775,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.7808007621584354
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 152,
+            "coverage": 0.0369290573372206,
+            "correct": 133,
+            "accuracy": 0.875,
+            "accuracy_95_interval": [
+              0.813014945134161,
+              0.9184970516625864
+            ],
+            "threshold": 0.8,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.7756923722098623
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 96,
+            "coverage": 0.023323615160349854,
+            "correct": 87,
+            "accuracy": 0.90625,
+            "accuracy_95_interval": [
+              0.8313450206379773,
+              0.9498924595306097
+            ],
+            "threshold": 0.825,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.7827047312911153
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 56,
+            "coverage": 0.013605442176870748,
+            "correct": 52,
+            "accuracy": 0.9285714285714286,
+            "accuracy_95_interval": [
+              0.830243171685138,
+              0.9718744187536204
+            ],
+            "threshold": 0.85,
+            "require_agreement": false,
+            "conservative_lower_bound": 0.7613882364244482
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 2101,
+            "coverage": 0.5104470359572401,
+            "correct": 1391,
+            "accuracy": 0.6620656830080914,
+            "accuracy_95_interval": [
+              0.6415602066092112,
+              0.6819795789974588
+            ],
+            "threshold": 0.5,
+            "require_agreement": true,
+            "conservative_lower_bound": 0.6311690524928745
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 1858,
+            "coverage": 0.4514091350826045,
+            "correct": 1252,
+            "accuracy": 0.673842841765339,
+            "accuracy_95_interval": [
+              0.6521861336611757,
+              0.694782158378276
+            ],
+            "threshold": 0.525,
+            "require_agreement": true,
+            "conservative_lower_bound": 0.641180836313197
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 1619,
+            "coverage": 0.3933430515063168,
+            "correct": 1114,
+            "accuracy": 0.6880790611488573,
+            "accuracy_95_interval": [
+              0.6650891556875277,
+              0.710178522932493
+            ],
+            "threshold": 0.55,
+            "require_agreement": true,
+            "conservative_lower_bound": 0.6533631245780076
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 1363,
+            "coverage": 0.33114674441205055,
+            "correct": 956,
+            "accuracy": 0.7013939838591343,
+            "accuracy_95_interval": [
+              0.6765593130827452,
+              0.7250965920345707
+            ],
+            "threshold": 0.575,
+            "require_agreement": true,
+            "conservative_lower_bound": 0.6638365849093883
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 1158,
+            "coverage": 0.2813411078717201,
+            "correct": 839,
+            "accuracy": 0.7245250431778929,
+            "accuracy_95_interval": [
+              0.6980827442367143,
+              0.749482569313773
+            ],
+            "threshold": 0.6,
+            "require_agreement": true,
+            "conservative_lower_bound": 0.684439077757279
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 1014,
+            "coverage": 0.24635568513119532,
+            "correct": 757,
+            "accuracy": 0.7465483234714004,
+            "accuracy_95_interval": [
+              0.7188781398266557,
+              0.7723574316021404
+            ],
+            "threshold": 0.625,
+            "require_agreement": true,
+            "conservative_lower_bound": 0.7044909906346732
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 833,
+            "coverage": 0.20238095238095238,
+            "correct": 640,
+            "accuracy": 0.7683073229291717,
+            "accuracy_95_interval": [
+              0.7384628017172634,
+              0.7956884641853879
+            ],
+            "threshold": 0.65,
+            "require_agreement": true,
+            "conservative_lower_bound": 0.722784598917122
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 681,
+            "coverage": 0.16545189504373178,
+            "correct": 534,
+            "accuracy": 0.7841409691629956,
+            "accuracy_95_interval": [
+              0.751692239816248,
+              0.813401936705739
+            ],
+            "threshold": 0.675,
+            "require_agreement": true,
+            "conservative_lower_bound": 0.7344693603454062
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 547,
+            "coverage": 0.13289601554907676,
+            "correct": 440,
+            "accuracy": 0.8043875685557587,
+            "accuracy_95_interval": [
+              0.7690704532671829,
+              0.8354590521296498
+            ],
+            "threshold": 0.7,
+            "require_agreement": true,
+            "conservative_lower_bound": 0.7500479180034619
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 412,
+            "coverage": 0.1000971817298348,
+            "correct": 340,
+            "accuracy": 0.8252427184466019,
+            "accuracy_95_interval": [
+              0.7856139752338704,
+              0.8588621906908469
+            ],
+            "threshold": 0.725,
+            "require_agreement": true,
+            "conservative_lower_bound": 0.7638235659666732
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 312,
+            "coverage": 0.07580174927113703,
+            "correct": 259,
+            "accuracy": 0.8301282051282052,
+            "accuracy_95_interval": [
+              0.7845039259287975,
+              0.8677217466868429
+            ],
+            "threshold": 0.75,
+            "require_agreement": true,
+            "conservative_lower_bound": 0.7590640972009416
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 230,
+            "coverage": 0.05587949465500486,
+            "correct": 198,
+            "accuracy": 0.8608695652173913,
+            "accuracy_95_interval": [
+              0.8101884068208473,
+              0.8996938382544516
+            ],
+            "threshold": 0.775,
+            "require_agreement": true,
+            "conservative_lower_bound": 0.7808007621584354
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 152,
+            "coverage": 0.0369290573372206,
+            "correct": 133,
+            "accuracy": 0.875,
+            "accuracy_95_interval": [
+              0.813014945134161,
+              0.9184970516625864
+            ],
+            "threshold": 0.8,
+            "require_agreement": true,
+            "conservative_lower_bound": 0.7756923722098623
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 96,
+            "coverage": 0.023323615160349854,
+            "correct": 87,
+            "accuracy": 0.90625,
+            "accuracy_95_interval": [
+              0.8313450206379773,
+              0.9498924595306097
+            ],
+            "threshold": 0.825,
+            "require_agreement": true,
+            "conservative_lower_bound": 0.7827047312911153
+          },
+          {
+            "total_matches": 4116,
+            "selected_matches": 56,
+            "coverage": 0.013605442176870748,
+            "correct": 52,
+            "accuracy": 0.9285714285714286,
+            "accuracy_95_interval": [
+              0.830243171685138,
+              0.9718744187536204
+            ],
+            "threshold": 0.85,
+            "require_agreement": true,
+            "conservative_lower_bound": 0.7613882364244482
+          }
+        ]
+      },
+      "confirmation": {
+        "total_matches": 2058,
+        "selected_matches": 404,
+        "coverage": 0.19630709426627793,
+        "correct": 296,
+        "accuracy": 0.7326732673267327,
+        "accuracy_95_interval": [
+          0.6874734355554954,
+          0.7734898403830062
+        ]
+      },
+      "confirmation_by_league": {
+        "bundesliga": {
+          "total_matches": 306,
+          "selected_matches": 49,
+          "coverage": 0.16013071895424835,
+          "correct": 41,
+          "accuracy": 0.8367346938775511,
+          "accuracy_95_interval": [
+            0.7096339333048477,
+            0.9148740301179102
+          ]
+        },
+        "eredivise": {
+          "total_matches": 306,
+          "selected_matches": 77,
+          "coverage": 0.25163398692810457,
+          "correct": 53,
+          "accuracy": 0.6883116883116883,
+          "accuracy_95_interval": [
+            0.5779975455912919,
+            0.7807286547807938
+          ]
+        },
+        "laliga": {
+          "total_matches": 380,
+          "selected_matches": 63,
+          "coverage": 0.16578947368421051,
+          "correct": 50,
+          "accuracy": 0.7936507936507936,
+          "accuracy_95_interval": [
+            0.6782995165388411,
+            0.8752479748437708
+          ]
+        },
+        "ligue1": {
+          "total_matches": 306,
+          "selected_matches": 62,
+          "coverage": 0.20261437908496732,
+          "correct": 47,
+          "accuracy": 0.7580645161290323,
+          "accuracy_95_interval": [
+            0.6384725574675495,
+            0.8475423631905147
+          ]
+        },
+        "premier_league": {
+          "total_matches": 380,
+          "selected_matches": 70,
+          "coverage": 0.18421052631578946,
+          "correct": 47,
+          "accuracy": 0.6714285714285714,
+          "accuracy_95_interval": [
+            0.5550071611698237,
+            0.7700128817328218
+          ]
+        },
+        "seriea": {
+          "total_matches": 380,
+          "selected_matches": 83,
+          "coverage": 0.21842105263157896,
+          "correct": 58,
+          "accuracy": 0.6987951807228916,
+          "accuracy_95_interval": [
+            0.5931077009464831,
+            0.7868945099754714
+          ]
+        }
+      },
+      "all_match_double_chance": {
+        "total_matches": 2058,
+        "selected_matches": 2058,
+        "coverage": 1.0,
+        "correct": 1631,
+        "accuracy": 0.7925170068027211,
+        "accuracy_95_interval": [
+          0.7744600467091894,
+          0.809483938124563
+        ],
+        "pick_counts": {
+          "1X": 966,
+          "12": 707,
+          "X2": 385
+        },
+        "constant_baselines": {
+          "X2": 0.5592808551992225,
+          "12": 0.7444120505344995,
+          "1X": 0.6963070942662779
+        },
+        "best_constant_accuracy": 0.7444120505344995,
+        "improvement_vs_best_constant": 0.04810495626822153,
+        "rule": "Exclude the least likely result and keep the other two; no outcome labels are used to choose the pick."
+      },
+      "all_match_double_chance_by_league": {
+        "bundesliga": {
+          "total_matches": 306,
+          "selected_matches": 306,
+          "coverage": 1.0,
+          "correct": 242,
+          "accuracy": 0.7908496732026143,
+          "accuracy_95_interval": [
+            0.7418143522512982,
+            0.832672740508357
+          ],
+          "pick_counts": {
+            "1X": 113,
+            "12": 164,
+            "X2": 29
+          },
+          "constant_baselines": {
+            "X2": 0.5620915032679739,
+            "12": 0.7549019607843137,
+            "1X": 0.6830065359477124
+          },
+          "best_constant_accuracy": 0.7549019607843137,
+          "improvement_vs_best_constant": 0.03594771241830064,
+          "rule": "Exclude the least likely result and keep the other two; no outcome labels are used to choose the pick."
+        },
+        "eredivise": {
+          "total_matches": 306,
+          "selected_matches": 306,
+          "coverage": 1.0,
+          "correct": 240,
+          "accuracy": 0.7843137254901961,
+          "accuracy_95_interval": [
+            0.7348556073270633,
+            0.8267216631233862
+          ],
+          "pick_counts": {
+            "1X": 123,
+            "12": 142,
+            "X2": 41
+          },
+          "constant_baselines": {
+            "X2": 0.5555555555555556,
+            "12": 0.738562091503268,
+            "1X": 0.7058823529411765
+          },
+          "best_constant_accuracy": 0.738562091503268,
+          "improvement_vs_best_constant": 0.04575163398692805,
+          "rule": "Exclude the least likely result and keep the other two; no outcome labels are used to choose the pick."
+        },
+        "laliga": {
+          "total_matches": 380,
+          "selected_matches": 380,
+          "coverage": 1.0,
+          "correct": 300,
+          "accuracy": 0.7894736842105263,
+          "accuracy_95_interval": [
+            0.745688626727101,
+            0.8274644655901466
+          ],
+          "pick_counts": {
+            "1X": 220,
+            "12": 104,
+            "X2": 56
+          },
+          "constant_baselines": {
+            "X2": 0.5105263157894737,
+            "12": 0.7552631578947369,
+            "1X": 0.7342105263157894
+          },
+          "best_constant_accuracy": 0.7552631578947369,
+          "improvement_vs_best_constant": 0.03421052631578947,
+          "rule": "Exclude the least likely result and keep the other two; no outcome labels are used to choose the pick."
+        },
+        "ligue1": {
+          "total_matches": 306,
+          "selected_matches": 306,
+          "coverage": 1.0,
+          "correct": 244,
+          "accuracy": 0.7973856209150327,
+          "accuracy_95_interval": [
+            0.7487903943510779,
+            0.8386065207177833
+          ],
+          "pick_counts": {
+            "1X": 135,
+            "12": 101,
+            "X2": 70
+          },
+          "constant_baselines": {
+            "X2": 0.5392156862745098,
+            "12": 0.7549019607843137,
+            "1X": 0.7058823529411765
+          },
+          "best_constant_accuracy": 0.7549019607843137,
+          "improvement_vs_best_constant": 0.042483660130719025,
+          "rule": "Exclude the least likely result and keep the other two; no outcome labels are used to choose the pick."
+        },
+        "premier_league": {
+          "total_matches": 380,
+          "selected_matches": 380,
+          "coverage": 1.0,
+          "correct": 299,
+          "accuracy": 0.7868421052631579,
+          "accuracy_95_interval": [
+            0.7429000396051597,
+            0.8250425700546584
+          ],
+          "pick_counts": {
+            "1X": 163,
+            "12": 145,
+            "X2": 72
+          },
+          "constant_baselines": {
+            "X2": 0.5736842105263158,
+            "12": 0.7263157894736842,
+            "1X": 0.7
+          },
+          "best_constant_accuracy": 0.7263157894736842,
+          "improvement_vs_best_constant": 0.06052631578947365,
+          "rule": "Exclude the least likely result and keep the other two; no outcome labels are used to choose the pick."
+        },
+        "seriea": {
+          "total_matches": 380,
+          "selected_matches": 380,
+          "coverage": 1.0,
+          "correct": 306,
+          "accuracy": 0.8052631578947368,
+          "accuracy_95_interval": [
+            0.7624741438355935,
+            0.841941844426231
+          ],
+          "pick_counts": {
+            "1X": 212,
+            "12": 51,
+            "X2": 117
+          },
+          "constant_baselines": {
+            "X2": 0.6105263157894737,
+            "12": 0.7394736842105263,
+            "1X": 0.65
+          },
+          "best_constant_accuracy": 0.7394736842105263,
+          "improvement_vs_best_constant": 0.06578947368421051,
+          "rule": "Exclude the least likely result and keep the other two; no outcome labels are used to choose the pick."
+        }
+      },
+      "latest_partial_season_audit": {
+        "total_matches": 256,
+        "selected_matches": 63,
+        "coverage": 0.24609375,
+        "correct": 47,
+        "accuracy": 0.746031746031746,
+        "accuracy_95_interval": [
+          0.6265857791515483,
+          0.8371972541690185
+        ]
+      },
+      "audit_by_league": {
+        "bundesliga": {
+          "total_matches": 27,
+          "selected_matches": 7,
+          "coverage": 0.25925925925925924,
+          "correct": 6,
+          "accuracy": 0.8571428571428571,
+          "accuracy_95_interval": [
+            0.48686549668097007,
+            0.9743210440510253
+          ]
+        },
+        "eredivise": {
+          "total_matches": 54,
+          "selected_matches": 23,
+          "coverage": 0.42592592592592593,
+          "correct": 15,
+          "accuracy": 0.6521739130434783,
+          "accuracy_95_interval": [
+            0.4488997690689164,
+            0.8118894536301776
+          ]
+        },
+        "laliga": {
+          "total_matches": 59,
+          "selected_matches": 13,
+          "coverage": 0.22033898305084745,
+          "correct": 11,
+          "accuracy": 0.8461538461538461,
+          "accuracy_95_interval": [
+            0.5776482949136899,
+            0.9567427368172621
+          ]
+        },
+        "ligue1": {
+          "total_matches": 36,
+          "selected_matches": 7,
+          "coverage": 0.19444444444444445,
+          "correct": 4,
+          "accuracy": 0.5714285714285714,
+          "accuracy_95_interval": [
+            0.2504542304090258,
+            0.8417830777373732
+          ]
+        },
+        "premier_league": {
+          "total_matches": 40,
+          "selected_matches": 5,
+          "coverage": 0.125,
+          "correct": 3,
+          "accuracy": 0.6,
+          "accuracy_95_interval": [
+            0.23071993220883708,
+            0.8823817688407467
+          ]
+        },
+        "seriea": {
+          "total_matches": 40,
+          "selected_matches": 8,
+          "coverage": 0.2,
+          "correct": 8,
+          "accuracy": 1.0,
+          "accuracy_95_interval": [
+            0.6755843804891231,
+            1.0
+          ]
+        }
+      },
+      "all_match_double_chance_audit": {
+        "total_matches": 256,
+        "selected_matches": 256,
+        "coverage": 1.0,
+        "correct": 198,
+        "accuracy": 0.7734375,
+        "accuracy_95_interval": [
+          0.7183357093790331,
+          0.8204540763981482
+        ],
+        "pick_counts": {
+          "1X": 114,
+          "12": 94,
+          "X2": 48
+        },
+        "constant_baselines": {
+          "X2": 0.625,
+          "12": 0.7421875,
+          "1X": 0.6328125
+        },
+        "best_constant_accuracy": 0.7421875,
+        "improvement_vs_best_constant": 0.03125,
+        "rule": "Exclude the least likely result and keep the other two; no outcome labels are used to choose the pick."
+      }
+    }
+  }
+}

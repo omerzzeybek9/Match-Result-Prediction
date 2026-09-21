@@ -23,6 +23,9 @@ def main():
     prediction.add_argument("--home", required=True)
     prediction.add_argument("--away", required=True)
     prediction.add_argument("--date")
+    prediction.add_argument("--home-odds", type=float)
+    prediction.add_argument("--draw-odds", type=float)
+    prediction.add_argument("--away-odds", type=float)
     prediction.add_argument("--model-dir", type=Path, default=ROOT/"artifacts")
     report = commands.add_parser("report")
     report.add_argument("--model-dir", type=Path, default=ROOT/"artifacts")
@@ -35,11 +38,12 @@ def main():
             raise SystemExit("Some seasons failed; see messages above. Existing files were retained.")
     elif args.command == "train":
         from threadpoolctl import threadpool_limits
-        from .training import train_league
+        from .training import finalize_selective_policies, train_league
         # Avoid excessive OpenMP/BLAS thread creation on laptops and hosted runners.
         with threadpool_limits(limits=1):
             for league in args.leagues:
                 train_league(league, args.output_dir, args.data_dir)
+            finalize_selective_policies(args.output_dir,args.leagues)
     elif args.command == "report":
         from .reporting import write_benchmark
         print(write_benchmark(args.model_dir, args.output))
@@ -50,7 +54,11 @@ def main():
         if not path.exists():
             parser.error(f"Missing {path}; run the train command first")
         bundle = joblib.load(path)
-        print(json.dumps(predict_match(bundle,args.home,args.away,args.date),indent=2,ensure_ascii=False))
+        odds=[args.home_odds,args.draw_odds,args.away_odds]
+        if any(value is not None for value in odds) and not all(value is not None for value in odds):
+            parser.error("Provide all three odds or none")
+        print(json.dumps(predict_match(bundle,args.home,args.away,args.date,
+              odds if all(value is not None for value in odds) else None),indent=2,ensure_ascii=False))
 
 
 if __name__ == "__main__":

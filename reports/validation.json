@@ -1,5 +1,6 @@
 {
-  "unit_tests_passed": 11,
+  "release": "3.0.0",
+  "unit_tests_passed": 14,
   "ui_and_production_inference_passed": [
     "premier_league",
     "bundesliga",
@@ -9,11 +10,35 @@
     "eredivise",
     "cl"
   ],
-  "credential_literals_scan": "No remaining hard-coded long API-key assignments found in text/code files",
+  "cli_market_assisted_prediction_passed": true,
+  "hardcoded_credential_scan": "No remaining long API-key assignment found in current text/code files.",
+  "data_last_dates": {
+    "premier_league": "2026-09-14",
+    "bundesliga": "2026-09-13",
+    "laliga": "2026-09-17",
+    "seriea": "2026-09-14",
+    "ligue1": "2026-09-13",
+    "eredivise": "2026-09-15"
+  },
+  "confirmation": {
+    "matches": 2058,
+    "stats_selected": 318,
+    "stats_accuracy": 0.7264150943396226,
+    "assisted_selected": 404,
+    "assisted_accuracy": 0.7326732673267327
+  },
+  "latest_partial_season_audit": {
+    "matches": 256,
+    "stats_selected": 31,
+    "stats_accuracy": 0.8387096774193549,
+    "assisted_selected": 63,
+    "assisted_accuracy": 0.746031746031746
+  },
   "github_pushed": false,
-  "notes": [
-    "CL remains experimental: legacy history and only 16 test matches.",
-    "Source-level leakage and chronological invariants are covered by unit tests.",
-    "CLI training, report generation, serialized model loading and UI predictions were executed."
+  "limitations": [
+    "The 70% figures are pooled selective point estimates with limited coverage.",
+    "Per-league selected samples are smaller and some point estimates are below 70%.",
+    "No profitability or market edge has been established.",
+    "Champions League remains experimental and is excluded from the selective policy."
   ]
 }

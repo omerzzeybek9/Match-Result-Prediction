@@ -1,91 +1,102 @@
-# Match Result Prediction — v2
+# Match Result Prediction — v3.1
 
-A reproducible pre-match football forecasting application. Predicts **home win / draw / away win probabilities**, expected goals and the five most likely scores. Includes dated match history, causal features, chronological model selection and an independent test season.
+A reproducible pre-match football forecasting application for six European domestic leagues. It produces home/draw/away probabilities, expected goals and likely scores. It now also emits a **double-chance pick for every fixture** by excluding the least likely 1-X-2 result; the stricter exact-result mode can still abstain when a fixture does not meet a validation-selected confidence rule.
 
-## Start here
+Two modes are available:
 
-Python **3.11 or 3.12** is recommended. Run commands from the repository root.
+- **Statistics only:** causal form, Elo, venue history, rest, shots and ensemble models.
+- **Market assisted:** the statistical forecast plus three contemporaneous decimal 1-X-2 odds. Historical validation often assigned 90–100% of the outcome blend to normalized market consensus, so this mode should be understood as a market-informed forecast with the statistical model retained for score shape and comparison.
+
+## Run the prepared package
+
+Python **3.11 or 3.12** is recommended. From the repository root:
 
 ```bash
 python -m venv .venv
 # Windows: .venv\Scripts\activate
 # macOS/Linux: source .venv/bin/activate
-python -m pip install -r requirements.txt
-python -m match_predictor download --start 2018
-python -m match_predictor train
+python -m pip install -r requirements-tested.txt
 python -m streamlit run streamlit/user_interface.py
 ```
 
-The download command includes the current season by default. It uses public CSVs and requires no API key. A prepared release ZIP includes the downloaded history and trained artifacts, so **download/train can be skipped** to inspect that snapshot. The Git repository excludes binary artifacts and downloaded data; a fresh clone needs those steps. Only load joblib files you trust. To use bundled artifacts, install the exact tested versions in `requirements-tested.txt`, or retrain with your installed scikit-learn version.
-
-Train one league or request a prediction:
+The prepared release includes trained artifacts. A fresh Git clone excludes downloaded history and binary artifacts; build them with:
 
 ```bash
-python -m match_predictor train --leagues premier_league
-python -m match_predictor predict --league premier_league --home Arsenal --away Chelsea --date 2026-09-21
+python -m pip install -r requirements.txt
+python -m match_predictor download --start 2018
+python -m match_predictor train
+python -m match_predictor report
+```
+
+CLI prediction with optional odds:
+
+```bash
+python -m match_predictor predict \
+  --league premier_league --home Arsenal --away Chelsea --date 2026-09-26 \
+  --home-odds 2.10 --draw-odds 3.50 --away-odds 3.40
+```
+
+Supply all three odds from the same source and snapshot, or supply none. Odds must be decimal and greater than 1.00. Exact provider team names are available in the UI dropdowns. Historical forecasts require a pre-date refit; the application rejects dates already included in the artifact.
+
+## Recorded result
+
+Six domestic leagues were pooled only for the global strong-forecast rule. The recipe and threshold used older expanding validation windows. They were then frozen before two later periods were scored.
+
+| Mode | Full confirmation accuracy | Strong threshold | Strong confirmation | Coverage | Latest partial-season audit |
+|---|---:|---:|---:|---:|---:|
+| Statistics only | 51.2% | 65.0% | **72.6% (231/318)** | 15.5% | **83.9% (26/31)** |
+| Market assisted | 53.4% | 62.5% | **73.3% (296/404)** | 19.6% | **74.6% (47/63)** |
+
+For a useful output on every match, the separate double-chance task reached **77.3%** statistics-only and **79.3%** market-assisted accuracy on all 2,058 confirmation fixtures, with 100% coverage. The strongest constant double-chance baseline scored 74.4%, while the six market-assisted league results ranged from 78.4% to 80.5%. Double chance covers two of the three possible outcomes, so this number is deliberately not presented as exact 1-X-2 accuracy.
+
+The confirmation set contains 2,058 matches from 2025/26. The later audit contains the first 256 matches available from 2026/27. Confirmation 95% intervals are 67.5–77.2% for statistics only and 68.7–77.3% for market assisted, so the point estimates exceed 70% but do not prove that the long-run rate is above 70%. The result is pooled; individual league samples are smaller and some league point estimates are below 70%.
+
+The filter predicts only about one in five fixtures in the stronger market-assisted mode. Reporting 73.3% without its 19.6% coverage would be misleading. A green decision means the fixture matches the historical selection rule; it does not mean the individual outcome has a 73.3% chance or is guaranteed.
+
+Full evidence is in `reports/benchmark.md`, `artifacts/selective_report.json`, and the per-match validation, confirmation and audit CSV files.
+
+## Modeling and leakage controls
+
+- Features are snapshotted before a match day and results from that date are observed only afterwards.
+- Features include 5/10/20-match form, home/away history, exponentially weighted scoring, Elo, rest within the competition, experience, league scoring levels and lagged shots/on-target shots.
+- Candidates include league/rolling Poisson references, two regularized Poisson regressions, two multinomial logistic models, Poisson gradient boosting, Random Forest and CatBoost.
+- Ensemble weights, calibration temperature and market weight are selected on three expanding validation folds.
+- The strong threshold is selected from pooled validation predictions with a multiple-search-adjusted one-sided Wilson lower bound. Confirmation and audit labels never change it.
+- The final confirmation season stays outside model, ensemble, calibration and threshold selection. A newer partial season is reported as a secondary forward audit.
+- Joint score probabilities are reconciled to 1-X-2 probabilities, keeping likely scores and outcome probabilities mathematically consistent.
+- Production artifacts are refitted on all available results only after evaluation.
+
+Run the meaningful invariance and probability checks with:
+
+```bash
 python -m unittest discover -s tests -v
 ```
 
-Use exact provider team names (the UI supplies dropdowns). A forecast date must be later than the last completed result included in its artifact. Historic predictions require retraining with an earlier data cutoff; using a current artifact for an old match is rejected.
+## Data and files
 
-## What changed
+Historical source: [Football-Data CSVs](https://www.football-data.co.uk/data.php). The normalized files retain completed results, laggable match statistics and a complete market-average closing price triplet when available, with fallbacks to earlier market-average or one-provider prices. Odds are converted to normalized implied probabilities, removing the overround.
 
-- Replaced season-end standings joined to every old fixture with **match-day snapshots** built only from previously completed dates.
-- Added 5/10/20-match form, venue history, exponentially weighted goals, Elo ratings, rest within the competition, experience, league scoring levels, and lagged shots/shots on target when supplied by the source.
-- A whole day's features are computed **before** any of that day's results are observed. Dates are intentionally normalized to days; same-day result reuse is conservatively excluded.
-- Added eight candidates: league-average Poisson, rolling-goal Poisson, two regularized Poisson regressions, two regularized multinomial logistic regressions, Poisson gradient boosting, and Random Forest goal regression.
-- Team categories are one-hot encoded with unseen-category handling for linear models. Tree models use numeric pre-match strength/form features.
-- Weights and probability temperature are selected from three expanding validation folds. The final test period never enters model selection, encoding fit, weight fitting or calibration.
-- Score distributions and 1X2 probabilities remain consistent. Logistic candidates reweight within-outcome score distributions; top scores and totals all come from the resulting joint grid.
-- Replaced machine-specific Windows paths and free-text teams with portable paths and dropdowns. Both teams feed the **same requested fixture**.
-- Added measured-performance and confidence-bucket views, stale-data notices and small-history notices.
-- Removed embedded API credentials from legacy scripts; they now require `FOOTBALL_DATA_API_KEY` in the environment. The new CSV downloader does not need it.
+The source page states that its free data is intended for private individuals and restricts commercial/data-training uses. Review its current terms before publishing, redistributing, commercializing or automating this project; use a licensed feed where required. Source files can be revised. The manifest records URL, retrieval time, source and normalized SHA-256 hashes, match count and last match date.
 
-## Data and reproducibility
+Supported domestic leagues: Premier League (`E0`), Bundesliga (`D1`), La Liga (`SP1`), Serie A (`I1`), Ligue 1 (`F1`) and Eredivisie (`N1`). Internal `eredivise` spelling remains for compatibility. Champions League uses only a small legacy 2024/25 sample, is excluded from the 70% system and remains experimental.
 
-Source: [Football-Data historical CSVs](https://www.football-data.co.uk/data.php). The downloader uses paths such as `https://www.football-data.co.uk/mmz4281/2425/E0.csv`. Source files may be revised; the local manifest records URL, retrieval time, original-content and normalized-content SHA-256 hashes, match count and last match date. Consult the source's terms before redistributing or using its data commercially.
+- `match_predictor/`: data, features, models, selective policy, training, prediction and CLI.
+- `artifacts/<league>.joblib`: production model and feature state.
+- `artifacts/*_validation_predictions.csv`: policy-development predictions.
+- `artifacts/*_test_predictions.csv`: untouched full-season confirmation predictions.
+- `artifacts/*_audit_predictions.csv`: latest partial-season forward audit.
+- `artifacts/selective_report.json`: threshold search, coverage, pooled and league results.
+- `reports/benchmark.md`: readable benchmark and limitations.
+- `tests/`: leakage, temporal split, probability, input and selection checks.
 
-Supported historical leagues: Premier League (`E0`), Bundesliga (`D1`), La Liga (`SP1`), Serie A (`I1`), Ligue 1 (`F1`), Eredivisie (`N1`). Internal `eredivise` spelling is kept for compatibility. The CSV history replaces, rather than mixes with, legacy provider data to avoid inconsistent team names.
+Legacy notebooks and models remain as project history and are not used by v3. Their random-split scores are not comparable because their feature construction contains future information.
 
-Champions League (`cl`) still uses the repository's limited 2024/25 fixture data and is **experimental**. It can be trained explicitly with `--leagues cl`. Six domestic leagues are trained by default. No domestic-to-European team identity mapping is assumed.
+## Active-use limits
 
-- `data/history/`: normalized dated results and download manifest.
-- `match_predictor/`: loading, causal features, models, training, prediction and CLI.
-- `artifacts/<league>.joblib`: production model and historical feature state.
-- `artifacts/<league>_report.json`: validation and held-out test metrics, dates, versions, dataset hash and caveats.
-- `artifacts/<league>_test_predictions.csv`: each held-out fixture and its predicted probabilities.
-- `reports/benchmark.md`: human-readable measured results for this release.
-- `tests/`: leakage, temporal separation, input validation and probability consistency checks.
+Refresh and retrain before use. The application blocks the strong signal when the latest result is more than 14 days before the selected fixture. It also blocks teams with fewer than ten historical matches and rejects unknown teams.
 
-Legacy notebooks and models remain as historical work; they are **not** used by v2. Their old random-split MSE figures are not comparable with the new out-of-time results.
+The inputs do not contain dated starting lineups, injuries, transfers, coaching changes, travel or a consistent xG feed. Rest reflects this competition only. Totals and both-teams-to-score values are derived from the goal grid and have not received a separate confirmation study. No betting edge, expected value or profitability after bookmaker margin has been established.
 
-## Evaluation protocol
+A legacy source file contained an API credential. It has been removed from this snapshot, but an earlier public Git history may retain it. Revoke or rotate that credential with its provider. The new CSV flow does not use it.
 
-For multi-season data, the latest season containing at least 200 completed matches is held out. This is a **substantial season**, not necessarily a finished one: the report gives its exact dates and count. The preceding two seasons supply three expanding-window validation folds; older matches form the initial training history. A newer season with fewer than 200 matches is excluded from this test but included in the subsequent production refit.
-
-Candidate selection minimizes **1X2 log loss**, not raw accuracy. Non-negative ensemble weights are fitted with a small regularizer on validation predictions, compared with the best individual candidate, and followed by a coarse probability-temperature search on the same validation predictions. None of these choices use final-test results.
-
-For the test season, models are trained on all prior seasons and held fixed. Feature state advances after each match day, so this tests sequential upcoming-match forecasts, not predictions for an entire season made on opening day. After evaluation, the chosen recipe is refitted on every available result for the UI. Reported test scores are therefore **not** scores of the all-data production fit.
-
-Reports include accuracy, approximate 95% Wilson interval, log loss, multiclass Brier score (sum over classes), expected-goal MAE, exact-score accuracy, confidence buckets and a paired day-block bootstrap for the log-loss difference against rolling-goal Poisson. These quantify different aspects of performance; a method can improve log loss without improving accuracy. The small-data fallback uses the last 20% of distinct dates as test and the preceding 30% for expanding validation.
-
-## Practical limits
-
-This is a working statistical forecasting system, not a promise of highly accurate individual scores. Inputs do not include current injuries, starting lineups, transfers or xG. Form and rest are competition-specific; cross-competition congestion is missing. Unknown teams are rejected rather than assigned fabricated evidence. Shot fields are used only after their match date, but historical vendor corrections cannot be reconstructed as originally published.
-
-Goal distributions use a bounded independent-Poisson starting model; outcome reweighting adds flexibility but does not remove all score-distribution assumptions. The optional low-score correction is disabled in this release. Totals and both-teams-to-score probabilities are derived outputs; they have not undergone separate calibration/evaluation. There is no bookmaker-odds benchmark or demonstrated betting profitability.
-
-Refreshing results regularly and adding dated lineup/injury/xG data are the next substantive extensions. Future experiments should use new validation periods and preserve a fresh final holdout rather than repeatedly tuning against this release's test season.
-
-**Credential follow-up:** a legacy source file contained a hard-coded API credential. It has been removed from this snapshot, but the repository's earlier public history may still contain it. Revoke/rotate the old credential with its provider; this update does not rewrite GitHub history or revoke keys.
-
-## Updating
-
-```bash
-python -m match_predictor download --start 2026 --end 2026
-python -m match_predictor train
-```
-
-Use the actual season start year. Download failures are reported with a nonzero exit code; existing successful files are retained. Duplicate fixture identities and partial/invalid scores fail validation. The app visibly flags stale results. No external publication or GitHub push is performed by these commands.
-
-MIT license applies to project code. Data remains subject to its provider's terms.
+MIT license applies to project code. External data remains subject to its provider's terms.

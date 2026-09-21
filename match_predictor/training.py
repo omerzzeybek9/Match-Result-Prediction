@@ -16,10 +16,12 @@ from sklearn.metrics import log_loss
 
 from .data import ROOT, load_matches
 from .features import build_features, feature_columns, result_labels
-from .models import GOALS, MatchModel, outcomes, temperature_scale
+from .models import GOALS, MatchModel, blend_market, market_probabilities, outcomes, temperature_scale
+from .selection import apply_policy, double_chance_metrics, fit_policy, selection_metrics
 
 CANDIDATES = ["league_mean", "rolling_poisson", "poisson_1", "poisson_0.1",
-              "logistic_0.05", "logistic_0.5", "boosted_poisson", "random_forest"]
+              "logistic_0.05", "logistic_0.5", "boosted_poisson", "random_forest",
+              "catboost_4"]
 
 
 def chronological_partitions(frame):
@@ -113,6 +115,29 @@ def select_ensemble(grids, y):
     return {name: float(w) for name, w in zip(names, weights) if w > 0}, temperature, losses
 
 
+def select_market_weight(grid, frame):
+    """Select a coarse, stable blend on validation data only."""
+    y = result_labels(frame)
+    weights = np.linspace(0, 1, 11)
+    losses = {float(weight): float(log_loss(y, outcomes(blend_market(grid, frame, weight)), labels=[0,1,2]))
+              for weight in weights}
+    weight = min(losses, key=losses.get)
+    return float(weight), losses
+
+
+def _prediction_table(frame, statistical_grid, assisted_grid):
+    table = frame[["date","season","home_team","away_team","home_goals","away_goals",
+                   "home_experience","away_experience"]].copy()
+    table["actual_class"] = result_labels(frame)
+    table["market_available"] = np.isfinite(market_probabilities(frame)).all(axis=1)
+    for prefix, grid in [("stats",statistical_grid),("assisted",assisted_grid)]:
+        p=outcomes(grid)
+        table[[f"p_{prefix}_home",f"p_{prefix}_draw",f"p_{prefix}_away"]]=p
+        table[f"predicted_{prefix}"]=p.argmax(axis=1)
+        table[f"confidence_{prefix}"]=p.max(axis=1)
+    return table
+
+
 def _period(frame):
     return {"from": str(frame.date.min().date()), "to": str(frame.date.max().date()), "matches": len(frame)}
 
@@ -138,11 +163,17 @@ def train_league(league, output_dir=None, data_dir=None):
     grids = {name: np.concatenate(values) for name, values in predictions.items()}
     validation = pd.concat(validations)
     weights, temperature, losses = select_ensemble(grids, result_labels(validation))
-    print(f"{league}: selected {weights}; temperature={temperature}", flush=True)
+    validation_statistical = temperature_scale(sum(weights[name]*grids[name] for name in weights), temperature)
+    market_weight, market_losses = select_market_weight(validation_statistical, validation)
+    validation_assisted = blend_market(validation_statistical, validation, market_weight)
+    validation_predictions = _prediction_table(validation, validation_statistical, validation_assisted)
+    validation_predictions.to_csv(output_dir/f"{league}_validation_predictions.csv",index=False)
+    print(f"{league}: selected {weights}; temperature={temperature}; market_weight={market_weight}", flush=True)
     test = frame.loc[test_indices]
     # Freeze selection before evaluating the test season. Features update only with earlier results.
     fitted = {name: MatchModel(name, columns).fit(frame.loc[development]) for name in set(weights) | {"league_mean", "rolling_poisson"}}
     selected_grid = temperature_scale(sum(w*fitted[name].predict_grid(test) for name,w in weights.items()), temperature)
+    assisted_grid = blend_market(selected_grid, test, market_weight)
     baseline_grids = {name: fitted[name].predict_grid(test) for name in ["league_mean", "rolling_poisson"]}
     report = {"league": league, "protocol": protocol, "selection_metric": "validation 1X2 log loss",
         "created_at": datetime.now(timezone.utc).isoformat(),
@@ -151,14 +182,17 @@ def train_league(league, output_dir=None, data_dir=None):
         "feature_count": len(columns), "features": columns, "folds": fold_details,
         "test_period": _period(test), "test_model_training_period": _period(frame.loc[development]),
         "validation_log_loss": losses, "weights": weights, "temperature": temperature,
+        "market_weight": market_weight, "validation_market_blend_log_loss": market_losses,
         "selected": metrics(test, selected_grid),
+        "market_assisted": metrics(test, assisted_grid),
         "baselines": {name: metrics(test, grid) for name,grid in baseline_grids.items()},
         "versions": {"python": platform.python_version(), "sklearn": sklearn.__version__, "numpy": np.__version__, "pandas": pd.__version__},
         "limitations": ["No lineups, injuries, transfers or xG inputs.",
             "Features update after each match day; model coefficients are fixed throughout the test season.",
             "Reported test results belong to the pre-test fit; production model is subsequently refitted on all available results.",
             "Rest/form reflect this competition only, not other competitions.",
-            "No comparison against bookmaker probabilities; betting profitability is not established."]}
+            "Market-assisted mode requires pre-match decimal odds and is evaluated with the historical source's closing/available market average.",
+            "No profitability or edge against the market is established."]}
     # Paired day-block bootstrap against the stronger rolling reference.
     y = result_labels(test)
     p = outcomes(selected_grid)
@@ -174,15 +208,26 @@ def train_league(league, output_dir=None, data_dir=None):
         report["limitations"].append("Small historical sample: exploratory results, not strong evidence of generalization.")
     report_path = output_dir / f"{league}_report.json"
     report_path.write_text(json.dumps(report, indent=2, ensure_ascii=False)+"\n")
-    prediction_frame = test[["date","home_team","away_team","home_goals","away_goals"]].copy()
-    prediction_frame[["p_home","p_draw","p_away"]] = p
-    prediction_frame["actual_class"] = y
-    prediction_frame["predicted_class"] = p.argmax(axis=1)
+    prediction_frame = _prediction_table(test, selected_grid, assisted_grid)
     prediction_frame.to_csv(output_dir / f"{league}_test_predictions.csv",index=False)
+    audit = frame.loc[frame.season > test.season.max()]
+    if len(audit):
+        audit_training = frame.loc[frame.date < audit.date.min()]
+        audit_models = {name: MatchModel(name, columns).fit(audit_training) for name in weights}
+        audit_stats = temperature_scale(sum(w*audit_models[name].predict_grid(audit) for name,w in weights.items()),temperature)
+        audit_assisted = blend_market(audit_stats,audit,market_weight)
+        audit_frame = _prediction_table(audit,audit_stats,audit_assisted)
+        audit_frame.to_csv(output_dir/f"{league}_audit_predictions.csv",index=False)
+        report["latest_partial_season_audit"]={"period":_period(audit),"stats":metrics(audit,audit_stats),
+            "market_assisted":metrics(audit,audit_assisted),
+            "training_period":_period(audit_training),
+            "note":"Secondary forward audit; recipe and market weight were already frozen."}
+        report_path.write_text(json.dumps(report, indent=2, ensure_ascii=False)+"\n")
     print(f"{league}: test accuracy={report['selected']['accuracy']:.3f}, log loss={report['selected']['log_loss']:.3f}; production refit", flush=True)
     production = {name: MatchModel(name, columns).fit(frame) for name in weights}
-    bundle = {"schema_version": 2, "league": league, "models": production, "weights": weights,
-              "temperature": temperature, "engine": engine, "columns": columns, "report": report,
+    bundle = {"schema_version": 3, "league": league, "models": production, "weights": weights,
+              "temperature": temperature, "market_weight":market_weight,
+              "engine": engine, "columns": columns, "report": report,
               "last_match_date": str(matches.date.max().date()),
               "teams": sorted(set(matches.home_team) | set(matches.away_team)),
               "recent_teams": sorted(set(matches.loc[matches.season == matches.season.max(),"home_team"]) |
@@ -191,4 +236,59 @@ def train_league(league, output_dir=None, data_dir=None):
     temp = path.with_suffix(".joblib.tmp")
     joblib.dump(bundle, temp, compress=3)
     temp.replace(path)
+    return report
+
+
+def finalize_selective_policies(output_dir=None, leagues=None):
+    """Fit one domestic policy on old validation data; test it only afterwards."""
+    output_dir=Path(output_dir or ROOT/"artifacts")
+    leagues=list(leagues or [])
+    domestic=[league for league in leagues if league != "cl"]
+    validation=[]; confirmation=[]; audit=[]
+    for league in domestic:
+        for collection,suffix in [(validation,"validation"),(confirmation,"test"),(audit,"audit")]:
+            path=output_dir/f"{league}_{suffix}_predictions.csv"
+            if path.exists():
+                frame=pd.read_csv(path);frame["league"]=league;collection.append(frame)
+    if not validation or not confirmation:
+        return None
+    validation=pd.concat(validation,ignore_index=True)
+    confirmation=pd.concat(confirmation,ignore_index=True)
+    audit=pd.concat(audit,ignore_index=True) if audit else pd.DataFrame()
+    report={"created_at":datetime.now(timezone.utc).isoformat(),
+            "rule":"Threshold selected from expanding validation predictions only; confirmation and audit labels are never used for selection.",
+            "modes":{}}
+    policies={}
+    for mode in ["stats","assisted"]:
+        def view(frame):
+            result=frame[["league","actual_class","home_experience","away_experience"]].copy()
+            result["predicted_class"]=frame[f"predicted_{mode}"]
+            result["confidence"]=frame[f"confidence_{mode}"]
+            result["eligible"]=frame.market_available if mode=="assisted" else True
+            result["agreement"]=(frame.predicted_assisted == frame.predicted_stats) if mode=="assisted" else True
+            return result
+        policy=fit_policy(view(validation),target=.70,min_matches=min(200,max(80,len(validation)//10)))
+        policies[mode]=policy
+        mode_report={"policy":policy,"confirmation":selection_metrics(view(confirmation),apply_policy(view(confirmation),policy)),
+                     "confirmation_by_league":{},
+                     "all_match_double_chance":double_chance_metrics(confirmation,mode),
+                     "all_match_double_chance_by_league":{}}
+        for league,group in view(confirmation).groupby("league"):
+            mode_report["confirmation_by_league"][league]=selection_metrics(group,apply_policy(group,policy))
+        for league,group in confirmation.groupby("league"):
+            mode_report["all_match_double_chance_by_league"][league]=double_chance_metrics(group,mode)
+        if len(audit):
+            mode_report["latest_partial_season_audit"]=selection_metrics(view(audit),apply_policy(view(audit),policy))
+            mode_report["audit_by_league"]={league:selection_metrics(group,apply_policy(group,policy))
+                                            for league,group in view(audit).groupby("league")}
+            mode_report["all_match_double_chance_audit"]=double_chance_metrics(audit,mode)
+        report["modes"][mode]=mode_report
+    (output_dir/"selective_report.json").write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n")
+    for league in leagues:
+        path=output_dir/f"{league}.joblib"
+        if not path.exists(): continue
+        bundle=joblib.load(path)
+        bundle["selective_policies"] = policies if league != "cl" else {}
+        bundle["selective_report"] = report if league != "cl" else None
+        temp=path.with_suffix(".joblib.tmp");joblib.dump(bundle,temp,compress=3);temp.replace(path)
     return report

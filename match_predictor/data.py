@@ -25,6 +25,13 @@ LEAGUES = {
 }
 OPTIONAL_STATS = {"HS": "home_shots", "AS": "away_shots",
                   "HST": "home_sot", "AST": "away_sot"}
+MARKET_ODDS = ["market_home_odds", "market_draw_odds", "market_away_odds"]
+ODDS_TRIPLETS = [
+    ("AvgCH", "AvgCD", "AvgCA"),  # market-average closing prices
+    ("AvgH", "AvgD", "AvgA"),     # market-average earlier prices
+    ("B365CH", "B365CD", "B365CA"),
+    ("B365H", "B365D", "B365A"),
+]
 
 
 def validate_matches(frame: pd.DataFrame) -> pd.DataFrame:
@@ -59,6 +66,12 @@ def validate_matches(frame: pd.DataFrame) -> pd.DataFrame:
         df[column] = pd.to_numeric(df[column], errors="coerce")
         if (df[column].dropna() < 0).any():
             raise ValueError(f"Negative count in {column}")
+    for column in MARKET_ODDS:
+        if column not in df:
+            df[column] = np.nan
+        df[column] = pd.to_numeric(df[column], errors="coerce")
+    valid_odds = df[MARKET_ODDS].notna().all(axis=1) & df[MARKET_ODDS].gt(1.0).all(axis=1)
+    df.loc[~valid_odds, MARKET_ODDS] = np.nan
     key = ["date", "home_team", "away_team"]
     if df.duplicated(key).any():
         raise ValueError("Duplicate match identities; resolve source conflicts before training")
@@ -77,9 +90,21 @@ def parse_football_data(payload: bytes, season: int) -> pd.DataFrame:
     source = source.loc[~source[["FTHG", "FTAG"]].isna().all(axis=1)].copy()
     source["date"] = pd.to_datetime(source["Date"], dayfirst=True, format="mixed", utc=True)
     source["season"] = season
+    source[MARKET_ODDS] = np.nan
+    # Take a complete price set from one snapshot/provider. Mixing individual
+    # columns would create probabilities that never coexisted in the market.
+    remaining = pd.Series(True, index=source.index)
+    for columns in ODDS_TRIPLETS:
+        if not all(column in source for column in columns):
+            continue
+        values = source[list(columns)].apply(pd.to_numeric, errors="coerce")
+        usable = remaining & values.notna().all(axis=1) & values.gt(1.0).all(axis=1)
+        source.loc[usable, MARKET_ODDS] = values.loc[usable].to_numpy()
+        remaining &= ~usable
     source = source.rename(columns=rename)
     keep = ["date", "season", "home_team", "away_team", "home_goals", "away_goals"]
     keep += [c for c in OPTIONAL_STATS.values() if c in source]
+    keep += MARKET_ODDS
     return validate_matches(source[keep])
 
 
@@ -98,7 +123,7 @@ def download_history(leagues, start=2018, end=2025, directory=None):
         error = None
         for attempt in range(2):
             try:
-                request = urllib.request.Request(url, headers={"User-Agent": "MatchResultResearch/2.0"})
+                request = urllib.request.Request(url, headers={"User-Agent": "MatchResultResearch/3.0"})
                 with urllib.request.urlopen(request, timeout=35) as response:
                     payload = response.read()
                 df = parse_football_data(payload, year)

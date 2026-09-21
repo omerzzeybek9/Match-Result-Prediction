@@ -1,8 +1,8 @@
-# Match Result Prediction v2 — Başlangıç
+# Match Result Prediction v3.1 — Başlangıç
 
-Bu pakette yeni kod, indirilen maç geçmişi, eğitilmiş modeller ve bağımsız test raporları var. ZIP'i açın ve terminalde proje klasörüne geçin. Python 3.11 veya 3.12 kullanın.
+Bu paket kodu, güncel maç geçmişini, eğitilmiş modelleri ve ölçüm raporlarını içerir. Python 3.11 veya 3.12 kullan.
 
-## Çalıştırma
+## Uygulamayı aç
 
 ```bash
 python -m venv .venv
@@ -27,19 +27,17 @@ python -m pip install -r requirements-tested.txt
 python -m streamlit run streamlit/user_interface.py
 ```
 
-Terminalde gösterilen yerel adresi tarayıcıda açın. Lig ve iki takım seçip “Tahmin et” düğmesine basın. Paket eğitilmiş modelleri içerdiği için ilk açılışta tekrar eğitim gerekmez. Daha farklı kütüphane sürümleriyle çalışacaksanız modelleri yeniden eğitin.
+Tarayıcıdaki uygulamada ligi ve takımları seç. En güçlü kullanım için aynı anda, aynı kaynaktan alınmış üç decimal oranı gir: ev sahibi, beraberlik ve deplasman. Örneğin `2.10 / 3.50 / 3.40`. Sistem oran marjını temizler.
 
-## Neler gösteriliyor?
+## Aktif kullanım kuralı
 
-- Ev sahibi / beraberlik / deplasman olasılıkları.
-- En olası beş skor ve ayrı ayrı olasılıkları.
-- Modelin beklediği gol sayıları, toplam gol ve iki takımın gol atma olasılıkları.
-- Takım formu ve Elo güç özeti.
-- Eğitimden ayrı tutulan dönemde ölçülen başarı ve basit modellerle karşılaştırma.
+1. Önce veriyi güncelle ve modeli yeniden eğit.
+2. Güncel 1-X-2 oranlarını gir.
+3. Her maçta gösterilen **“Tüm maçlar modu”** çifte şans sonucunu incele. Bu çıktı en düşük olasılıklı sonucu eler ve 1X, X2 veya 12 verir.
+4. Exact 1-X-2 bölümünde **“Seçim ölçütlerini karşılıyor”** görünürse model bu maçı güçlü exact tahmin grubuna almıştır.
+5. Exact bölümünde **“PAS”** görünürse çifte şans yine üretilir; ancak tek sonuç için güçlü iddia yoktur.
 
-En olası skor, kesinleşmiş sonuç değildir. Galibiyet olasılığı %60 olan bir takımın yaklaşık %40 kazanamama olasılığı vardır. Modelin beklediği gol sayısı, şutlardan hesaplanan xG ölçümü değildir.
-
-## Güncelleme ve eğitim
+Güncelleme:
 
 ```bash
 python -m match_predictor download --start 2026 --end 2026
@@ -47,25 +45,37 @@ python -m match_predictor train
 python -m match_predictor report
 ```
 
-Sezon kodu başlangıç yılıdır: 2026, 2026/27 sezonunu ifade eder. Farklı sezonda komutu buna göre değiştirin. Daha eski bütün veriyi almak için `--start 2018` kullanın. Yeni modeller üretildikten sonra uygulamayı yeniden açın.
+`2026`, 2026/27 sezon başlangıç yılıdır. Yeni sezonda yılı değiştir. Kaynak henüz en son hafta sonuçlarını yayımlamadıysa modelin veri tarihi ekranda görünür; güçlü filtre 14 günden eski veride otomatik PAS verir.
 
-Altı ulusal lig varsayılan olarak eğitilir. Şampiyonlar Ligi, eski ve çok az verili deneysel modeldir; güncel tahmin için yeterli değildir. Bu modelin son test bölümü sadece 16 maçtır. İsteğe bağlı eğitim: `python -m match_predictor train --leagues cl`.
+## Her maçta %70 üzeri ne demek?
 
-## Bu sürümün sonucu
+2025/26 bağımsız test sezonundaki 2.058 maçın tamamında çifte şans doğruluğu sadece istatistikle **%77,3**, güncel oran desteğiyle **%79,3** oldu. Her maça aynı `12` seçimini veren en güçlü sabit yöntem %74,4'te kaldı; modele göre değişen seçim 4,8 puan ekledi. Oran destekli altı lig sonucu %78,4–80,5 aralığındadır. Çifte şans üç olası sonuçtan ikisini kapsadığı için bu rakam exact 1-X-2 doğruluğu değildir.
 
-Altı ulusal ligde toplam **2.058 bağımsız test maçında %51,2 maç sonucu doğruluğu** ölçüldü. Geçmiş gol ortalamalarını kullanan referans model %48,8 aldı. Olasılık kalitesini ölçen log loss 1,031'den 0,996'ya düştü (daha düşük daha iyi). Eski notebook'un geleceğe ait bilgi içeren sonuçlarıyla bu rakamlar doğrudan karşılaştırılamaz.
+## Exact %70 sonucu tam olarak ne demek?
 
-Bunlar bir iyileşme, ancak “çok yüksek başarı” veya gelecekte aynı performans garantisi değildir. Lig bazındaki farkların belirsizlik aralıkları `reports/benchmark.md` dosyasında bulunur. Kadro, sakatlık, transfer ve xG verisi henüz dahil değil.
+Eşik yalnız eski doğrulama döneminde seçildi. Sonraki 2025/26 sezonundaki 2.058 maçta:
 
-Test dönemi model seçimine katılmadı. Test raporu, test dönemi öncesinde eğitilmiş modelin sonuçlarıdır. Uygulamadaki model sonrasında mevcut bütün maçlarla yeniden eğitildi. Eski bir maçı bu güncel modele sorarak geçmişe dönük başarı ölçülmesi engellendi.
+| Mod | Seçilen maç | Kapsama | Doğruluk |
+|---|---:|---:|---:|
+| Sadece istatistik | 318 | %15,5 | **%72,6** |
+| Güncel oran destekli | 404 | %19,6 | **%73,3** |
 
-## Dosyalar
+Bunun ardından 2026/27 sezonunun mevcut ilk 256 maçında oran destekli filtre 63 maç seçti ve **%74,6** doğru çıktı. Bu ikinci örnek daha küçüktür.
 
-- `reports/benchmark.md`: ölçülen sonuçlar ve sınırlar.
-- `artifacts/*_report.json`: ayrıntılı metrikler, kullanılan dönemler ve model karışımları.
-- `artifacts/*_test_predictions.csv`: her test maçı için olasılıklar ve gerçek sonuç.
-- `match_predictor/`: yeni tahmin altyapısı.
-- `tests/`: veri sızıntısı ve tutarlılık testleri.
-- `README.md`: yöntem, veri kaynağı ve teknik ayrıntılar.
+Bu rakam tek bir maçın %73 kesinlikle doğru olduğu anlamına gelmez. Oran destekli sistem yaklaşık her beş maçtan birini seçiyor. Sonuç altı lig toplamıdır; bazı liglerin tek başına küçük örnek sonucu %70'in altında kalmıştır. 2025/26 oran destekli sonuç için yaklaşık %95 belirsizlik aralığı %68,7–77,3'tür. Uzun dönem başarısının kesin olarak %70 üstünde olduğu henüz kanıtlanmış değildir.
 
-GitHub'a gönderim yapılmadı. Eski kodda bulunan API anahtarı bu paketten kaldırıldı; sağlayıcı üzerinden eski anahtarı iptal edin, önceki GitHub kayıtlarında kalmış olabilir. Yeni veri indirme akışı API anahtarı istemiyor.
+## Uygulamada neler var?
+
+- Ev sahibi / beraberlik / deplasman olasılıkları.
+- Her maç için 1X, X2 veya 12 çifte şans çıktısı.
+- İstatistik modeli, oranlardan çıkarılan piyasa olasılığı ve birleşik sonuç karşılaştırması.
+- Güçlü tahmin veya PAS kararı.
+- En olası beş skor, beklenen gol, 2,5 üst ve iki takım gol atar çıktıları.
+- Form ve Elo özeti.
+- Eski doğrulama, bağımsız sezon ve güncel sezon denetimi.
+
+Skor, 2,5 üst ve iki takım gol atar çıktıları ayrıca %70 hedefiyle doğrulanmadı. Kadro, sakatlık, transfer ve xG akışı henüz doğrudan dahil değildir. Sistem için kârlılık veya bahis piyasasına üstünlük gösterilmemiştir.
+
+Ayrıntılar `reports/benchmark.md` dosyasındadır. Football-Data ücretsiz verisinin özel kullanım ve ticari/otomatik kullanım şartlarını güncel kaynaktan kontrol et; ticari kullanım için lisanslı veri kullan.
+
+GitHub'a otomatik gönderim yapılmadı. Eski koddaki API anahtarı kaldırıldı; önceki GitHub geçmişinde kalabileceği için sağlayıcı üzerinden iptal edilmelidir.

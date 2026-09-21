@@ -4,8 +4,9 @@ import numpy as np
 import pandas as pd
 from match_predictor.data import validate_matches
 from match_predictor.features import build_features, feature_columns
-from match_predictor.models import MatchModel, goal_grid, outcomes, reconcile_outcomes, temperature_scale
+from match_predictor.models import MatchModel, blend_market, goal_grid, outcomes, reconcile_outcomes, temperature_scale
 from match_predictor.predict import predict_match
+from match_predictor.selection import apply_policy, double_chance_metrics, double_chance_pick, fit_policy
 from match_predictor.training import chronological_partitions
 
 def sample_matches(n=160):
@@ -83,6 +84,40 @@ class ProbabilityTests(unittest.TestCase):
         np.testing.assert_allclose(outcomes(updated),p)
         np.testing.assert_allclose(temperature_scale(updated,1),updated)
         self.assertLess(outcomes(temperature_scale(updated,1.5)).max(),p.max())
+    def test_market_blend_preserves_score_outcome_consistency(self):
+        grid=goal_grid([[2,1]])
+        frame=pd.DataFrame({"market_home":[.7],"market_draw":[.2],"market_away":[.1]})
+        original=outcomes(grid)[0]
+        updated=blend_market(grid,frame,.5)
+        np.testing.assert_allclose(outcomes(updated)[0],.5*original+.5*np.array([.7,.2,.1]))
+        np.testing.assert_allclose(updated.sum(),1)
+
+class SelectionTests(unittest.TestCase):
+    def test_double_chance_excludes_only_the_least_likely_outcome(self):
+        pick=double_chance_pick([.52,.29,.19])
+        self.assertEqual(pick["code"],"1X")
+        self.assertEqual(pick["included_classes"],[0,1])
+        self.assertAlmostEqual(pick["probability"],.81)
+        frame=pd.DataFrame({"actual_class":[0,1,0],"p_stats_home":[.6,.5,.6],
+            "p_stats_draw":[.3,.2,.3],"p_stats_away":[.1,.3,.1]})
+        measured=double_chance_metrics(frame,"stats")
+        self.assertEqual(measured["selected_matches"],3)
+        self.assertEqual(measured["correct"],2)
+        self.assertEqual(measured["coverage"],1.0)
+
+    def test_policy_abstains_below_threshold_and_without_market(self):
+        policy={"threshold":.625,"min_team_history":10,"require_agreement":True}
+        frame=pd.DataFrame({"confidence":[.7,.6,.8],"home_experience":[20,20,20],
+                            "away_experience":[20,20,20],"eligible":[True,True,False],
+                            "agreement":[True,True,True]})
+        np.testing.assert_array_equal(apply_policy(frame,policy),[True,False,False])
+    def test_threshold_is_fit_from_supplied_development_rows(self):
+        frame=pd.DataFrame({"confidence":np.r_[np.repeat(.65,240),np.repeat(.55,160)],
+            "predicted_class":0,"actual_class":np.r_[np.zeros(200),np.ones(40),np.zeros(80),np.ones(80)],
+            "home_experience":30,"away_experience":30,"eligible":True})
+        policy=fit_policy(frame,target=.70,min_matches=120)
+        self.assertIsNotNone(policy["threshold"])
+        self.assertGreater(policy["threshold"],.55)
 
 class DataAndPredictionTests(unittest.TestCase):
     def test_unplayed_knockout_placeholders_are_omitted(self):
@@ -101,15 +136,21 @@ class DataAndPredictionTests(unittest.TestCase):
         frame,engine=build_features(sample_matches())
         cols=feature_columns(frame)
         model=MatchModel('rolling_poisson',cols).fit(frame)
-        bundle={'schema_version':2,'teams':['A','B','C','D'],'recent_teams':['A','B','C','D'],'columns':cols,'engine':engine,'models':{'rolling_poisson':model},'weights':{'rolling_poisson':1.0},'temperature':1.,'last_match_date':str(frame.date.max().date())}
+        bundle={'schema_version':3,'teams':['A','B','C','D'],'recent_teams':['A','B','C','D'],'columns':cols,'engine':engine,'models':{'rolling_poisson':model},'weights':{'rolling_poisson':1.0},'temperature':1.,'market_weight':.8,'selective_policies':{},'league':'test','last_match_date':str(frame.date.max().date())}
         date=frame.date.max()+pd.Timedelta(days=3)
         before=copy.deepcopy(engine.teams['A'])
         result=predict_match(bundle,'A','B',date)
         second=predict_match(bundle,'A','C',date)
         self.assertAlmostEqual(sum(result['probabilities'].values()),1)
+        self.assertAlmostEqual(result['double_chance']['probability'],
+                               1-min(result['probabilities'].values()))
         self.assertNotEqual(result['probabilities'],second['probabilities'])
         self.assertEqual(engine.teams['A'].elo,before.elo)
         self.assertEqual(engine.teams['A'].matches,before.matches)
+        assisted=predict_match(bundle,'A','B',date,[1.5,4.5,7])
+        self.assertEqual(assisted['prediction_mode'],'assisted')
+        self.assertIsNotNone(assisted['market_probabilities'])
+        with self.assertRaises(ValueError): predict_match(bundle,'A','B',date,[1.0,4,5])
         with self.assertRaises(ValueError): predict_match(bundle,'A','A',date)
         with self.assertRaises(ValueError): predict_match(bundle,'A','Unknown',date)
         with self.assertRaises(ValueError): predict_match(bundle,'A','B',frame.date.max())

@@ -2,7 +2,7 @@
   "league": "cl",
   "protocol": "Small-data fallback: final 20% of dates held out; 3 expanding folds over preceding 30%",
   "selection_metric": "validation 1X2 log loss",
-  "created_at": "2026-09-20T18:23:31.928210+00:00",
+  "created_at": "2026-09-21T08:08:23.973612+00:00",
   "data": {
     "from": "2024-09-17",
     "to": "2025-02-19",
@@ -11,7 +11,7 @@
   "seasons": [
     2024
   ],
-  "data_sha256": "b76bac615e68934840f95abfb60084a59c5596bb34c9305446bdef1f99581b50",
+  "data_sha256": "340094323f2229eaa18cb3965a8d1ce55c83013423691af4e81fb6c07ab7495c",
   "feature_count": 53,
   "features": [
     "home_team",
@@ -124,51 +124,106 @@
     "logistic_0.05": 0.9458116250495099,
     "logistic_0.5": 1.1609218392213696,
     "boosted_poisson": 0.9996299089704989,
-    "random_forest": 0.957215267597236
+    "random_forest": 0.957215267597236,
+    "catboost_4": 0.886874443981912
   },
   "weights": {
-    "league_mean": 0.012696090985097545,
-    "rolling_poisson": 0.45495196398113885,
-    "logistic_0.05": 0.5127013644979626,
-    "random_forest": 0.019650580535801095
+    "league_mean": 0.032240223314321755,
+    "rolling_poisson": 0.11797904199446901,
+    "logistic_0.05": 0.16427613173924557,
+    "logistic_0.5": 0.006184130520707808,
+    "catboost_4": 0.6793204724312558
   },
   "temperature": 0.85,
+  "market_weight": 0.0,
+  "validation_market_blend_log_loss": {
+    "0.0": 0.8770394727448373,
+    "0.1": 0.8770394727448373,
+    "0.2": 0.8770394727448373,
+    "0.30000000000000004": 0.8770394727448373,
+    "0.4": 0.8770394727448373,
+    "0.5": 0.8770394727448373,
+    "0.6000000000000001": 0.8770394727448373,
+    "0.7000000000000001": 0.8770394727448373,
+    "0.8": 0.8770394727448373,
+    "0.9": 0.8770394727448373,
+    "1.0": 0.8770394727448373
+  },
   "selected": {
     "matches": 16,
-    "accuracy": 0.375,
+    "accuracy": 0.4375,
     "accuracy_95_interval": [
-      0.18480982554752806,
-      0.613593529020652
+      0.2309836333518552,
+      0.6682180439322347
     ],
-    "log_loss": 1.1732383486603866,
-    "brier_multiclass": 0.7327294943561508,
-    "goal_mae": 1.1246748431756028,
-    "exact_score_accuracy": 0.0625,
-    "calibration_error": 0.2352740614380949,
+    "log_loss": 1.1993747479152947,
+    "brier_multiclass": 0.7451236240109678,
+    "goal_mae": 1.124869799627892,
+    "exact_score_accuracy": 0.125,
+    "calibration_error": 0.3069658819506584,
     "confidence_buckets": [
       {
         "range": "40%–50%",
-        "matches": 4,
-        "mean_probability": 0.4624236985984411,
-        "accuracy": 0.5
+        "matches": 2,
+        "mean_probability": 0.46264314135130624,
+        "accuracy": 1.0
       },
       {
         "range": "50%–60%",
-        "matches": 5,
-        "mean_probability": 0.5497056970071141,
-        "accuracy": 0.2
+        "matches": 4,
+        "mean_probability": 0.5378726743580404,
+        "accuracy": 0.5
       },
       {
         "range": "60%–70%",
-        "matches": 3,
-        "mean_probability": 0.6597816732691414,
-        "accuracy": 0.3333333333333333
+        "matches": 7,
+        "mean_probability": 0.6450746434922794,
+        "accuracy": 0.2857142857142857
       },
       {
         "range": "70%–80%",
+        "matches": 3,
+        "mean_probability": 0.7232423973450096,
+        "accuracy": 0.3333333333333333
+      }
+    ]
+  },
+  "market_assisted": {
+    "matches": 16,
+    "accuracy": 0.4375,
+    "accuracy_95_interval": [
+      0.2309836333518552,
+      0.6682180439322347
+    ],
+    "log_loss": 1.1993747479152947,
+    "brier_multiclass": 0.7451236240109678,
+    "goal_mae": 1.124869799627892,
+    "exact_score_accuracy": 0.125,
+    "calibration_error": 0.3069658819506584,
+    "confidence_buckets": [
+      {
+        "range": "40%–50%",
+        "matches": 2,
+        "mean_probability": 0.46264314135130624,
+        "accuracy": 1.0
+      },
+      {
+        "range": "50%–60%",
         "matches": 4,
-        "mean_probability": 0.721551568140072,
+        "mean_probability": 0.5378726743580404,
         "accuracy": 0.5
+      },
+      {
+        "range": "60%–70%",
+        "matches": 7,
+        "mean_probability": 0.6450746434922794,
+        "accuracy": 0.2857142857142857
+      },
+      {
+        "range": "70%–80%",
+        "matches": 3,
+        "mean_probability": 0.7232423973450096,
+        "accuracy": 0.3333333333333333
       }
     ]
   },
@@ -245,14 +300,15 @@
     "Features update after each match day; model coefficients are fixed throughout the test season.",
     "Reported test results belong to the pre-test fit; production model is subsequently refitted on all available results.",
     "Rest/form reflect this competition only, not other competitions.",
-    "No comparison against bookmaker probabilities; betting profitability is not established.",
+    "Market-assisted mode requires pre-match decimal odds and is evaluated with the historical source's closing/available market average.",
+    "No profitability or edge against the market is established.",
     "Small historical sample: exploratory results, not strong evidence of generalization."
   ],
   "log_loss_difference_vs_rolling": {
-    "difference": 0.015085858233268433,
+    "difference": 0.04122225748817673,
     "day_bootstrap_95_interval": [
-      -0.135898183379615,
-      0.2900667482789775
+      -0.12786067471749363,
+      0.31688145215560326
     ],
     "negative_is_better": true
   }

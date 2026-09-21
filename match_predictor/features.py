@@ -7,6 +7,8 @@ from dataclasses import dataclass, field
 import numpy as np
 import pandas as pd
 
+from .data import MARKET_ODDS
+
 
 @dataclass
 class TeamState:
@@ -106,8 +108,14 @@ def build_features(matches):
             raise ValueError("Mixed seasons on a single date")
         engine.prepare_season(int(group.season.iloc[0]))
         for row in group.itertuples(index=False):
+            odds = np.array([getattr(row, column) for column in MARKET_ODDS], dtype=float)
+            market = np.full(3, np.nan)
+            if np.isfinite(odds).all() and (odds > 1).all():
+                market = 1 / odds
+                market /= market.sum()
             rows.append({"date": date, "season": row.season,
                          "home_goals": row.home_goals, "away_goals": row.away_goals,
+                         "market_home": market[0], "market_draw": market[1], "market_away": market[2],
                          **engine.snapshot(row.home_team, row.away_team, date)})
         for row in group.itertuples(index=False):
             engine.observe(row)
@@ -115,7 +123,9 @@ def build_features(matches):
 
 
 def feature_columns(frame):
-    return [c for c in frame.columns if c not in ["date", "season", "home_goals", "away_goals"]]
+    metadata = ["date", "season", "home_goals", "away_goals",
+                "market_home", "market_draw", "market_away"]
+    return [c for c in frame.columns if c not in metadata]
 
 
 def result_labels(frame):

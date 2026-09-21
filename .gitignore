@@ -3,6 +3,8 @@ __pycache__/
 .venv/
 .pytest_cache/
 artifacts/*.joblib
+artifacts/*_predictions.csv
+artifacts_smoke_*/
 data/history/*.csv
 data/history/manifest.json
 .streamlit/secrets.toml

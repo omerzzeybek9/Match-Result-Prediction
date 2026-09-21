@@ -51,6 +51,30 @@ def temperature_scale(grid, temperature):
     return reconcile_outcomes(grid, p)
 
 
+def market_probabilities(frame):
+    columns = ["market_home", "market_draw", "market_away"]
+    if not all(column in frame for column in columns):
+        return np.full((len(frame), 3), np.nan)
+    p = frame[columns].to_numpy(dtype=float)
+    valid = np.isfinite(p).all(axis=1) & (p > 0).all(axis=1)
+    p[valid] /= p[valid].sum(axis=1, keepdims=True)
+    p[~valid] = np.nan
+    return p
+
+
+def blend_market(grid, frame, weight):
+    """Blend pre-match market consensus when supplied; preserve score coherence."""
+    if not 0 <= weight <= 1:
+        raise ValueError("market weight must be between zero and one")
+    statistical = outcomes(grid)
+    market = market_probabilities(frame)
+    valid = np.isfinite(market).all(axis=1)
+    combined = statistical.copy()
+    combined[valid] = (1-weight)*statistical[valid] + weight*market[valid]
+    combined /= combined.sum(axis=1, keepdims=True)
+    return reconcile_outcomes(grid, combined)
+
+
 def _transformer(columns, categorical=True):
     numeric = [c for c in columns if c not in ["home_team", "away_team"]]
     transforms = [("numbers", StandardScaler(), numeric)]
@@ -75,7 +99,7 @@ class MatchModel:
         if self.name in ["league_mean", "rolling_poisson"]:
             return self
         for side in range(2):
-            if self.name.startswith("poisson") or self.name.startswith("logistic"):
+            if self.name.startswith(("poisson", "logistic", "catboost")):
                 alpha = 0.1 if self.name == "poisson_0.1" else 1.0
                 estimator = PoissonRegressor(alpha=alpha, max_iter=500, tol=1e-6)
                 categorical = True
@@ -98,6 +122,12 @@ class MatchModel:
             self.classifier = make_pipeline(_transformer(self.columns),
                 LogisticRegression(C=c, max_iter=1000, random_state=42))
             self.classifier.fit(x, result_labels(frame), logisticregression__sample_weight=weights)
+        elif self.name.startswith("catboost"):
+            from catboost import CatBoostClassifier
+            self.classifier = CatBoostClassifier(iterations=350, depth=int(self.name.split("_")[1]),
+                learning_rate=0.035, loss_function="MultiClass", l2_leaf_reg=10,
+                random_seed=42, thread_count=1, verbose=False, allow_writing_files=False)
+            self.classifier.fit(x, result_labels(frame), cat_features=["home_team", "away_team"], sample_weight=weights)
         return self
 
     def means(self, x):
@@ -112,7 +142,7 @@ class MatchModel:
 
     def predict_grid(self, frame, rho=0.0):
         grid = goal_grid(self.means(frame), rho)
-        if self.name.startswith("logistic"):
+        if self.name.startswith(("logistic", "catboost")):
             raw = self.classifier.predict_proba(frame[self.columns])
             p = np.full((len(frame), 3), 1e-9)
             p[:, self.classifier.classes_.astype(int)] = raw

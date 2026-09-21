@@ -6,3 +6,4 @@ scikit-learn==1.8.0
 joblib==1.5.3
 streamlit==1.64.0
 threadpoolctl==3.6.0
+catboost==1.2.10

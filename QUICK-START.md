@@ -1,4 +1,4 @@
-# Match Result Prediction v3.1 — Başlangıç
+# Match Result Prediction v3.2 — Başlangıç
 
 Bu paket kodu, güncel maç geçmişini, eğitilmiş modelleri ve ölçüm raporlarını içerir. Python 3.11 veya 3.12 kullan.
 
@@ -46,6 +46,24 @@ python -m match_predictor report
 ```
 
 `2026`, 2026/27 sezon başlangıç yılıdır. Yeni sezonda yılı değiştir. Kaynak henüz en son hafta sonuçlarını yayımlamadıysa modelin veri tarihi ekranda görünür; güçlü filtre 14 günden eski veride otomatik PAS verir.
+
+## Kadro, sakatlık ve oran snapshot'ı toplama
+
+API-Football anahtarını kaynak koda yazmadan ortam değişkenine koy:
+
+```bash
+export API_FOOTBALL_KEY="..."
+python -m match_predictor collect --fixture 123456
+```
+
+Bir ligdeki yaklaşan maçları bulup bütün detayları çekmek için:
+
+```bash
+python -m match_predictor collect --league premier_league --season 2026 \
+  --from-date 2026-09-25 --to-date 2026-09-27 --details
+```
+
+Ham API yanıtları ve normalize edilmiş veriler `data/api_football/` altında zaman damgasıyla saklanır. Bu kayıtlar şu anda veri toplama katmanıdır; model bunları hemen tahmine katmaz. Önce aynı zaman pencerelerinden yeterli geçmiş birikmeli, ardından sadece ileri tarihli testte doğrulanan özellikler modele alınmalıdır. API-Football'dan gelen maç içi istatistikler pre-match tahmine eklenmez.
 
 ## Her maçta %70 üzeri ne demek?
 

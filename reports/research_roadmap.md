@@ -69,7 +69,7 @@ StatsBomb Open Data is useful for event-model prototyping, but it contains selec
 ## Implementation sequence
 
 1. Use the new double-chance output for every fixture and retain exact probabilities without claiming a 70% exact hit rate.
-2. Add an API-Football snapshot collector and immutable raw store. Run it at scheduled pre-match offsets so training and live inference see information from comparable times.
+2. **Implemented in v3.2:** add an API-Football snapshot collector and immutable raw store. Run it at scheduled pre-match offsets so training and live inference see information from comparable times.
 3. Resolve team and player identities across seasons, then calculate availability-weighted squad strength and expected-lineup uncertainty.
 4. Train a market baseline, Dixon-Coles/Poisson score model and calibrated tree model. Blend them using only expanding historical validation windows.
 5. Reforecast when the confirmed lineup arrives. Keep the earlier forecast so the improvement can be measured honestly.

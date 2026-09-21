@@ -1,8 +1,11 @@
 import copy
+import json
+import tempfile
 import unittest
 import numpy as np
 import pandas as pd
 from match_predictor.data import validate_matches
+from match_predictor.api_football import ApiFootballClient, SnapshotStore, normalize_fixture_snapshot
 from match_predictor.features import build_features, feature_columns
 from match_predictor.models import MatchModel, blend_market, goal_grid, outcomes, reconcile_outcomes, temperature_scale
 from match_predictor.predict import predict_match
@@ -118,6 +121,53 @@ class SelectionTests(unittest.TestCase):
         policy=fit_policy(frame,target=.70,min_matches=120)
         self.assertIsNotNone(policy["threshold"])
         self.assertGreater(policy["threshold"],.55)
+
+class ApiFootballTests(unittest.TestCase):
+    class Response:
+        def __init__(self, payload):
+            self.payload = json.dumps(payload).encode()
+        def __enter__(self): return self
+        def __exit__(self, *args): return False
+        def read(self): return self.payload
+
+    def test_snapshot_normalization_is_prematch_safe_and_keeps_context(self):
+        fixture = {"response": [{"fixture": {"id": 123, "date": "2026-09-26T15:00:00+00:00"},
+            "league": {"id": 39, "season": 2026},
+            "teams": {"home": {"id": 1, "name": "Home FC"}, "away": {"id": 2, "name": "Away FC"}}}]}
+        lineups = {"response": [
+            {"team": {"id": 1}, "formation": "4-3-3", "startXI": [{"player": {"id": 10, "name": "H"}}], "substitutes": []},
+            {"team": {"id": 2}, "formation": "4-4-2", "startXI": [{"player": {"id": 20, "name": "A"}}], "substitutes": []}]}
+        injuries = {"response": [
+            {"team": {"id": 1}, "player": {"id": 11, "name": "Injured H", "type": "Muscle", "reason": "Hamstring"}},
+            {"team": {"id": 2}, "player": {"id": 21, "name": "Injured A", "type": "Illness", "reason": "Flu"}}]}
+        odds = {"response": [{"bookmakers": [{"bets": [{"name": "Match Winner", "values": [
+            {"value": "Home", "odd": "2.00"}, {"value": "Draw", "odd": "3.50"}, {"value": "Away", "odd": "4.00"}]}]}]}]}
+        payloads = {"/fixtures?": fixture, "/fixtures/lineups?": lineups,
+                    "/injuries?": injuries, "/odds?": odds}
+        def opener(request, timeout):
+            url = request.full_url
+            for fragment, payload in payloads.items():
+                if fragment in url:
+                    return self.Response(payload)
+            raise AssertionError(url)
+        client = ApiFootballClient("test-key", base_url="https://example.test", opener=opener)
+        snapshot = client.fixture_snapshot(123, requested_at="2026-09-21T10:00:00Z")
+        record = normalize_fixture_snapshot(snapshot)
+        self.assertTrue(record["prematch_safe"])
+        self.assertEqual(record["home_team"], "Home FC")
+        self.assertEqual(record["lineups"]["home"]["starting_xi_count"], 1)
+        self.assertEqual(record["injuries"]["home_count"], 1)
+        self.assertEqual(record["injuries"]["away_count"], 1)
+        self.assertAlmostEqual(sum(record["odds"]["normalized_probability"].values()), 1.0)
+        self.assertIsNone(record["xg"]["home"])
+        with tempfile.TemporaryDirectory() as directory:
+            store = SnapshotStore(directory)
+            raw_path = store.save(snapshot)
+            normalized_path = store.save_normalized(record)
+            self.assertTrue(raw_path.exists())
+            self.assertTrue(normalized_path.exists())
+            self.assertEqual(len((raw_path.parent.parent / "index.jsonl").read_text().splitlines()), 1)
+
 
 class DataAndPredictionTests(unittest.TestCase):
     def test_unplayed_knockout_placeholders_are_omitted(self):

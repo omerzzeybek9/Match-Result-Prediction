@@ -1,4 +1,4 @@
-# Match Result Prediction — v3.1
+# Match Result Prediction — v3.2
 
 A reproducible pre-match football forecasting application for six European domestic leagues. It produces home/draw/away probabilities, expected goals and likely scores. It now also emits a **double-chance pick for every fixture** by excluding the least likely 1-X-2 result; the stricter exact-result mode can still abstain when a fixture does not meet a validation-selected confidence rule.
 
@@ -35,6 +35,18 @@ python -m match_predictor predict \
   --league premier_league --home Arsenal --away Chelsea --date 2026-09-26 \
   --home-odds 2.10 --draw-odds 3.50 --away-odds 3.40
 ```
+
+Capture timestamped pre-match context from API-Football. Keep the key in the environment, never in source control:
+
+```bash
+# Windows PowerShell: $env:API_FOOTBALL_KEY="..."
+export API_FOOTBALL_KEY="..."
+python -m match_predictor collect --fixture 123456
+python -m match_predictor collect --league premier_league --season 2026 \
+  --from-date 2026-09-25 --to-date 2026-09-27 --details
+```
+
+Raw responses and normalized context are stored under `data/api_football/`. The collector requests fixture metadata, lineups, injuries and pre-match odds; it deliberately does not request post-match statistics. Re-run at a fixed offset such as T-24h and T-1h so later model training can compare equivalent information windows.
 
 Supply all three odds from the same source and snapshot, or supply none. Odds must be decimal and greater than 1.00. Exact provider team names are available in the UI dropdowns. Historical forecasts require a pre-date refit; the application rejects dates already included in the artifact.
 
@@ -95,7 +107,7 @@ Legacy notebooks and models remain as project history and are not used by v3. Th
 
 Refresh and retrain before use. The application blocks the strong signal when the latest result is more than 14 days before the selected fixture. It also blocks teams with fewer than ten historical matches and rejects unknown teams.
 
-The inputs do not contain dated starting lineups, injuries, transfers, coaching changes, travel or a consistent xG feed. Rest reflects this competition only. Totals and both-teams-to-score values are derived from the goal grid and have not received a separate confirmation study. No betting edge, expected value or profitability after bookmaker margin has been established.
+The v3.2 collector now records dated lineups, injuries and odds snapshots, but the production probability model does not consume those new context fields until enough historical snapshots exist for a leakage-safe forward evaluation. API-Football is not treated as a consistent historical xG feed; the normalized schema leaves xG empty unless a licensed provider supplies it. Rest reflects this competition only. Totals and both-teams-to-score values are derived from the goal grid and have not received a separate confirmation study. No betting edge, expected value or profitability after bookmaker margin has been established.
 
 A legacy source file contained an API credential. It has been removed from this snapshot, but an earlier public Git history may retain it. Revoke or rotate that credential with its provider. The new CSV flow does not use it.
 

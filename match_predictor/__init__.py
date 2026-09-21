@@ -1,3 +1,3 @@
 """Pre-match football prediction with chronological evaluation."""
 
-__version__ = "3.1.0"
+__version__ = "3.2.0"

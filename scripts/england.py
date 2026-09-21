@@ -1,7 +1,8 @@
+import os
 import requests
 import pandas as pd
 
-api_key = '5c941910aa9347c89d1bde6f3fc673bb'
+api_key = os.environ["FOOTBALL_DATA_API_KEY"]
 standings_url = 'http://api.football-data.org/v4/competitions/PL/standings'
 matches_url = 'http://api.football-data.org/v4/competitions/PL/matches'
 headers = {'X-Auth-Token': api_key}

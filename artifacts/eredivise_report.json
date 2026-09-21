@@ -1,0 +1,279 @@
+{
+  "league": "eredivise",
+  "protocol": "Untouched season 2025/2026; 3 expanding validation folds in preceding 2 seasons",
+  "selection_metric": "validation 1X2 log loss",
+  "created_at": "2026-09-20T18:21:44.067828+00:00",
+  "data": {
+    "from": "2018-08-10",
+    "to": "2026-09-15",
+    "matches": 2428
+  },
+  "seasons": [
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "data_sha256": "8a39bdb68bd8f8999cbc59d5a0612a6f00fbbab52e6f66f5e00dabbd39829695",
+  "feature_count": 53,
+  "features": [
+    "home_team",
+    "away_team",
+    "home_elo",
+    "home_experience",
+    "home_rest_days",
+    "home_ew_gf",
+    "home_ew_ga",
+    "home_gf_5",
+    "home_ga_5",
+    "home_points_5",
+    "home_gf_10",
+    "home_ga_10",
+    "home_points_10",
+    "home_gf_20",
+    "home_ga_20",
+    "home_points_20",
+    "home_venue_gf",
+    "home_venue_ga",
+    "home_venue_points",
+    "home_shots_10",
+    "home_sot_10",
+    "home_sot_against_10",
+    "home_shot_history_count",
+    "away_elo",
+    "away_experience",
+    "away_rest_days",
+    "away_ew_gf",
+    "away_ew_ga",
+    "away_gf_5",
+    "away_ga_5",
+    "away_points_5",
+    "away_gf_10",
+    "away_ga_10",
+    "away_points_10",
+    "away_gf_20",
+    "away_ga_20",
+    "away_points_20",
+    "away_venue_gf",
+    "away_venue_ga",
+    "away_venue_points",
+    "away_shots_10",
+    "away_sot_10",
+    "away_sot_against_10",
+    "away_shot_history_count",
+    "diff_elo",
+    "diff_points_5",
+    "diff_points_10",
+    "diff_gf_10",
+    "diff_ga_10",
+    "diff_rest_days",
+    "diff_sot_10",
+    "league_home_goals",
+    "league_away_goals"
+  ],
+  "folds": [
+    {
+      "train": {
+        "from": "2018-08-10",
+        "to": "2023-05-28",
+        "matches": 1456
+      },
+      "validation": {
+        "from": "2023-08-11",
+        "to": "2024-02-18",
+        "matches": 198
+      }
+    },
+    {
+      "train": {
+        "from": "2018-08-10",
+        "to": "2024-02-18",
+        "matches": 1654
+      },
+      "validation": {
+        "from": "2024-02-23",
+        "to": "2024-11-23",
+        "matches": 220
+      }
+    },
+    {
+      "train": {
+        "from": "2018-08-10",
+        "to": "2024-11-23",
+        "matches": 1874
+      },
+      "validation": {
+        "from": "2024-11-24",
+        "to": "2025-05-18",
+        "matches": 194
+      }
+    }
+  ],
+  "test_period": {
+    "from": "2025-08-08",
+    "to": "2026-05-17",
+    "matches": 306
+  },
+  "test_model_training_period": {
+    "from": "2018-08-10",
+    "to": "2025-05-18",
+    "matches": 2068
+  },
+  "validation_log_loss": {
+    "league_mean": 1.0709449712499015,
+    "rolling_poisson": 0.991763497928448,
+    "poisson_1": 0.9365796324716481,
+    "poisson_0.1": 0.9335029034603949,
+    "logistic_0.05": 0.9378192849496539,
+    "logistic_0.5": 0.9726665685123956,
+    "boosted_poisson": 0.939874485629624,
+    "random_forest": 0.9358833771328818
+  },
+  "weights": {
+    "poisson_1": 0.10341876564113996,
+    "poisson_0.1": 0.21931802329159633,
+    "logistic_0.05": 0.25496313736753656,
+    "boosted_poisson": 0.2022757635252752,
+    "random_forest": 0.22002431017445195
+  },
+  "temperature": 1.0,
+  "selected": {
+    "matches": 306,
+    "accuracy": 0.4869281045751634,
+    "accuracy_95_interval": [
+      0.43143448614611574,
+      0.5427458692354729
+    ],
+    "log_loss": 1.0029005416301988,
+    "brier_multiclass": 0.5984383088963113,
+    "goal_mae": 0.9134070992766735,
+    "exact_score_accuracy": 0.10784313725490197,
+    "calibration_error": 0.0749360486288605,
+    "confidence_buckets": [
+      {
+        "range": "0%–40%",
+        "matches": 29,
+        "mean_probability": 0.38337660495225373,
+        "accuracy": 0.3448275862068966
+      },
+      {
+        "range": "40%–50%",
+        "matches": 89,
+        "mean_probability": 0.44818753310138326,
+        "accuracy": 0.24719101123595505
+      },
+      {
+        "range": "50%–60%",
+        "matches": 79,
+        "mean_probability": 0.5440917097142818,
+        "accuracy": 0.5569620253164557
+      },
+      {
+        "range": "60%–70%",
+        "matches": 62,
+        "mean_probability": 0.6460795991406185,
+        "accuracy": 0.6290322580645161
+      },
+      {
+        "range": "70%–80%",
+        "matches": 36,
+        "mean_probability": 0.737369659127696,
+        "accuracy": 0.6944444444444444
+      },
+      {
+        "range": "80%–90%",
+        "matches": 11,
+        "mean_probability": 0.8458928257186998,
+        "accuracy": 0.8181818181818182
+      }
+    ]
+  },
+  "baselines": {
+    "league_mean": {
+      "matches": 306,
+      "accuracy": 0.4444444444444444,
+      "accuracy_95_interval": [
+        0.38979921924717903,
+        0.5004672911245722
+      ],
+      "log_loss": 1.072881075670854,
+      "brier_multiclass": 0.648643421961969,
+      "goal_mae": 0.9881089913447246,
+      "exact_score_accuracy": 0.1111111111111111,
+      "calibration_error": 0.01717974466949157,
+      "confidence_buckets": [
+        {
+          "range": "40%–50%",
+          "matches": 306,
+          "mean_probability": 0.461624189113936,
+          "accuracy": 0.4444444444444444
+        }
+      ]
+    },
+    "rolling_poisson": {
+      "matches": 306,
+      "accuracy": 0.48366013071895425,
+      "accuracy_95_interval": [
+        0.42821760496194744,
+        0.5395078392650382
+      ],
+      "log_loss": 1.0315922599171854,
+      "brier_multiclass": 0.6180788287455539,
+      "goal_mae": 0.9491043172132023,
+      "exact_score_accuracy": 0.10784313725490197,
+      "calibration_error": 0.08580831758149104,
+      "confidence_buckets": [
+        {
+          "range": "0%–40%",
+          "matches": 31,
+          "mean_probability": 0.39013014486185466,
+          "accuracy": 0.5806451612903226
+        },
+        {
+          "range": "40%–50%",
+          "matches": 150,
+          "mean_probability": 0.45141276938228847,
+          "accuracy": 0.38
+        },
+        {
+          "range": "50%–60%",
+          "matches": 95,
+          "mean_probability": 0.5440544079871682,
+          "accuracy": 0.5052631578947369
+        },
+        {
+          "range": "60%–70%",
+          "matches": 30,
+          "mean_probability": 0.6348568165156833,
+          "accuracy": 0.8333333333333334
+        }
+      ]
+    }
+  },
+  "versions": {
+    "python": "3.12.14",
+    "sklearn": "1.8.0",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "limitations": [
+    "No lineups, injuries, transfers or xG inputs.",
+    "Features update after each match day; model coefficients are fixed throughout the test season.",
+    "Reported test results belong to the pre-test fit; production model is subsequently refitted on all available results.",
+    "Rest/form reflect this competition only, not other competitions.",
+    "No comparison against bookmaker probabilities; betting profitability is not established."
+  ],
+  "log_loss_difference_vs_rolling": {
+    "difference": -0.02869171828698656,
+    "day_bootstrap_95_interval": [
+      -0.06011995780103496,
+      0.008145401899191313
+    ],
+    "negative_is_better": true
+  }
+}

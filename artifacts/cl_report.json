@@ -1,0 +1,259 @@
+{
+  "league": "cl",
+  "protocol": "Small-data fallback: final 20% of dates held out; 3 expanding folds over preceding 30%",
+  "selection_metric": "validation 1X2 log loss",
+  "created_at": "2026-09-20T18:23:31.928210+00:00",
+  "data": {
+    "from": "2024-09-17",
+    "to": "2025-02-19",
+    "matches": 160
+  },
+  "seasons": [
+    2024
+  ],
+  "data_sha256": "b76bac615e68934840f95abfb60084a59c5596bb34c9305446bdef1f99581b50",
+  "feature_count": 53,
+  "features": [
+    "home_team",
+    "away_team",
+    "home_elo",
+    "home_experience",
+    "home_rest_days",
+    "home_ew_gf",
+    "home_ew_ga",
+    "home_gf_5",
+    "home_ga_5",
+    "home_points_5",
+    "home_gf_10",
+    "home_ga_10",
+    "home_points_10",
+    "home_gf_20",
+    "home_ga_20",
+    "home_points_20",
+    "home_venue_gf",
+    "home_venue_ga",
+    "home_venue_points",
+    "home_shots_10",
+    "home_sot_10",
+    "home_sot_against_10",
+    "home_shot_history_count",
+    "away_elo",
+    "away_experience",
+    "away_rest_days",
+    "away_ew_gf",
+    "away_ew_ga",
+    "away_gf_5",
+    "away_ga_5",
+    "away_points_5",
+    "away_gf_10",
+    "away_ga_10",
+    "away_points_10",
+    "away_gf_20",
+    "away_ga_20",
+    "away_points_20",
+    "away_venue_gf",
+    "away_venue_ga",
+    "away_venue_points",
+    "away_shots_10",
+    "away_sot_10",
+    "away_sot_against_10",
+    "away_shot_history_count",
+    "diff_elo",
+    "diff_points_5",
+    "diff_points_10",
+    "diff_gf_10",
+    "diff_ga_10",
+    "diff_rest_days",
+    "diff_sot_10",
+    "league_home_goals",
+    "league_away_goals"
+  ],
+  "folds": [
+    {
+      "train": {
+        "from": "2024-09-17",
+        "to": "2024-11-26",
+        "matches": 81
+      },
+      "validation": {
+        "from": "2024-11-27",
+        "to": "2024-12-10",
+        "matches": 18
+      }
+    },
+    {
+      "train": {
+        "from": "2024-09-17",
+        "to": "2024-12-10",
+        "matches": 99
+      },
+      "validation": {
+        "from": "2024-12-11",
+        "to": "2025-01-21",
+        "matches": 18
+      }
+    },
+    {
+      "train": {
+        "from": "2024-09-17",
+        "to": "2025-01-21",
+        "matches": 117
+      },
+      "validation": {
+        "from": "2025-01-22",
+        "to": "2025-01-29",
+        "matches": 27
+      }
+    }
+  ],
+  "test_period": {
+    "from": "2025-02-11",
+    "to": "2025-02-19",
+    "matches": 16
+  },
+  "test_model_training_period": {
+    "from": "2024-09-17",
+    "to": "2025-01-29",
+    "matches": 144
+  },
+  "validation_log_loss": {
+    "league_mean": 0.9755124335858446,
+    "rolling_poisson": 0.9375032694380511,
+    "poisson_1": 0.9878274523174372,
+    "poisson_0.1": 1.1061607033074299,
+    "logistic_0.05": 0.9458116250495099,
+    "logistic_0.5": 1.1609218392213696,
+    "boosted_poisson": 0.9996299089704989,
+    "random_forest": 0.957215267597236
+  },
+  "weights": {
+    "league_mean": 0.012696090985097545,
+    "rolling_poisson": 0.45495196398113885,
+    "logistic_0.05": 0.5127013644979626,
+    "random_forest": 0.019650580535801095
+  },
+  "temperature": 0.85,
+  "selected": {
+    "matches": 16,
+    "accuracy": 0.375,
+    "accuracy_95_interval": [
+      0.18480982554752806,
+      0.613593529020652
+    ],
+    "log_loss": 1.1732383486603866,
+    "brier_multiclass": 0.7327294943561508,
+    "goal_mae": 1.1246748431756028,
+    "exact_score_accuracy": 0.0625,
+    "calibration_error": 0.2352740614380949,
+    "confidence_buckets": [
+      {
+        "range": "40%–50%",
+        "matches": 4,
+        "mean_probability": 0.4624236985984411,
+        "accuracy": 0.5
+      },
+      {
+        "range": "50%–60%",
+        "matches": 5,
+        "mean_probability": 0.5497056970071141,
+        "accuracy": 0.2
+      },
+      {
+        "range": "60%–70%",
+        "matches": 3,
+        "mean_probability": 0.6597816732691414,
+        "accuracy": 0.3333333333333333
+      },
+      {
+        "range": "70%–80%",
+        "matches": 4,
+        "mean_probability": 0.721551568140072,
+        "accuracy": 0.5
+      }
+    ]
+  },
+  "baselines": {
+    "league_mean": {
+      "matches": 16,
+      "accuracy": 0.375,
+      "accuracy_95_interval": [
+        0.18480982554752806,
+        0.613593529020652
+      ],
+      "log_loss": 1.111131558837193,
+      "brier_multiclass": 0.6782003264358125,
+      "goal_mae": 1.1350006683866756,
+      "exact_score_accuracy": 0.125,
+      "calibration_error": 0.11514642898210609,
+      "confidence_buckets": [
+        {
+          "range": "40%–50%",
+          "matches": 16,
+          "mean_probability": 0.4901464289821061,
+          "accuracy": 0.375
+        }
+      ]
+    },
+    "rolling_poisson": {
+      "matches": 16,
+      "accuracy": 0.375,
+      "accuracy_95_interval": [
+        0.18480982554752806,
+        0.613593529020652
+      ],
+      "log_loss": 1.158152490427118,
+      "brier_multiclass": 0.714517635580449,
+      "goal_mae": 1.1756132274416093,
+      "exact_score_accuracy": 0.0,
+      "calibration_error": 0.1884462245873097,
+      "confidence_buckets": [
+        {
+          "range": "0%–40%",
+          "matches": 1,
+          "mean_probability": 0.3864898195803716,
+          "accuracy": 1.0
+        },
+        {
+          "range": "40%–50%",
+          "matches": 9,
+          "mean_probability": 0.45742329062337617,
+          "accuracy": 0.4444444444444444
+        },
+        {
+          "range": "50%–60%",
+          "matches": 5,
+          "mean_probability": 0.5263705516788985,
+          "accuracy": 0.2
+        },
+        {
+          "range": "60%–70%",
+          "matches": 1,
+          "mean_probability": 0.6529670389724486,
+          "accuracy": 0.0
+        }
+      ]
+    }
+  },
+  "versions": {
+    "python": "3.12.14",
+    "sklearn": "1.8.0",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "limitations": [
+    "No lineups, injuries, transfers or xG inputs.",
+    "Features update after each match day; model coefficients are fixed throughout the test season.",
+    "Reported test results belong to the pre-test fit; production model is subsequently refitted on all available results.",
+    "Rest/form reflect this competition only, not other competitions.",
+    "No comparison against bookmaker probabilities; betting profitability is not established.",
+    "Small historical sample: exploratory results, not strong evidence of generalization."
+  ],
+  "log_loss_difference_vs_rolling": {
+    "difference": 0.015085858233268433,
+    "day_bootstrap_95_interval": [
+      -0.135898183379615,
+      0.2900667482789775
+    ],
+    "negative_is_better": true
+  }
+}

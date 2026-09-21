@@ -1,9 +1,9 @@
+import os
 import requests
 import pandas as pd
 
 
-API_KEY = "api_key"
-
+API_KEY = os.environ["FOOTBALL_DATA_API_KEY"]
 LEAGUE_ID = 2001
 
 url = f"https://api.football-data.org/v4/competitions/{LEAGUE_ID}/matches"

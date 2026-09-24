@@ -1,14 +1,16 @@
 import copy
 import json
 import tempfile
+from pathlib import Path
 import unittest
 import numpy as np
 import pandas as pd
-from match_predictor.data import validate_matches
+from match_predictor.data import API_LEAGUES, validate_matches
 from match_predictor.api_football import ApiFootballClient, SnapshotStore, normalize_fixture_snapshot
 from match_predictor.features import build_features, feature_columns
 from match_predictor.models import MatchModel, blend_market, goal_grid, outcomes, reconcile_outcomes, temperature_scale
 from match_predictor.predict import predict_match
+from match_predictor.dashboard import league_table, player_dashboard, team_history, team_summary
 from match_predictor.selection import apply_policy, double_chance_metrics, double_chance_pick, fit_policy
 from match_predictor.training import chronological_partitions
 
@@ -123,6 +125,10 @@ class SelectionTests(unittest.TestCase):
         self.assertGreater(policy["threshold"],.55)
 
 class ApiFootballTests(unittest.TestCase):
+    def test_api_catalog_contains_ten_domestic_leagues(self):
+        self.assertEqual(len(API_LEAGUES), 10)
+        self.assertEqual(API_LEAGUES["super_lig"], ("Süper Lig", 203))
+
     class Response:
         def __init__(self, payload):
             self.payload = json.dumps(payload).encode()
@@ -131,7 +137,7 @@ class ApiFootballTests(unittest.TestCase):
         def read(self): return self.payload
 
     def test_snapshot_normalization_is_prematch_safe_and_keeps_context(self):
-        fixture = {"response": [{"fixture": {"id": 123, "date": "2026-09-26T15:00:00+00:00"},
+        fixture = {"response": [{"fixture": {"id": 123, "date": "2026-09-26T15:00:00+00:00", "status": {"short": "NS"}},
             "league": {"id": 39, "season": 2026},
             "teams": {"home": {"id": 1, "name": "Home FC"}, "away": {"id": 2, "name": "Away FC"}}}]}
         lineups = {"response": [
@@ -142,8 +148,11 @@ class ApiFootballTests(unittest.TestCase):
             {"team": {"id": 2}, "player": {"id": 21, "name": "Injured A", "type": "Illness", "reason": "Flu"}}]}
         odds = {"response": [{"bookmakers": [{"bets": [{"name": "Match Winner", "values": [
             {"value": "Home", "odd": "2.00"}, {"value": "Draw", "odd": "3.50"}, {"value": "Away", "odd": "4.00"}]}]}]}]}
+        player_stats = {"response": [{"team": {"id": 1}, "players": [{"player": {"id": 10, "name": "H"},
+            "statistics": [{"games": {"position": "M", "minutes": 90, "appearences": 1, "lineups": 1, "rating": "8.1"},
+            "goals": {"total": 1, "assists": 0}, "shots": {"total": 2, "on": 1}, "passes": {"key": 3}, "cards": {}}]}]}]}
         payloads = {"/fixtures?": fixture, "/fixtures/lineups?": lineups,
-                    "/injuries?": injuries, "/odds?": odds}
+                    "/injuries?": injuries, "/odds?": odds, "/fixtures/players?": player_stats}
         def opener(request, timeout):
             url = request.full_url
             for fragment, payload in payloads.items():
@@ -160,6 +169,10 @@ class ApiFootballTests(unittest.TestCase):
         self.assertEqual(record["injuries"]["away_count"], 1)
         self.assertAlmostEqual(sum(record["odds"]["normalized_probability"].values()), 1.0)
         self.assertIsNone(record["xg"]["home"])
+        stats_snapshot = client.fixture_snapshot(123, requested_at="2026-09-21T10:00:00Z", include_player_stats=True)
+        stats_record = normalize_fixture_snapshot(stats_snapshot)
+        self.assertFalse(stats_record["prematch_safe"])
+        self.assertEqual(stats_record["player_stats"]["home"][0]["minutes"], 90)
         with tempfile.TemporaryDirectory() as directory:
             store = SnapshotStore(directory)
             raw_path = store.save(snapshot)
@@ -167,6 +180,42 @@ class ApiFootballTests(unittest.TestCase):
             self.assertTrue(raw_path.exists())
             self.assertTrue(normalized_path.exists())
             self.assertEqual(len((raw_path.parent.parent / "index.jsonl").read_text().splitlines()), 1)
+
+
+class DashboardTests(unittest.TestCase):
+    def test_team_history_summary_and_table_are_result_only(self):
+        with tempfile.TemporaryDirectory() as directory:
+            rows = pd.DataFrame([
+                {"date": "2026-09-01", "season": 2026, "home_team": "Home FC", "away_team": "Away FC", "home_goals": 2, "away_goals": 0},
+                {"date": "2026-09-08", "season": 2026, "home_team": "Other FC", "away_team": "Home FC", "home_goals": 1, "away_goals": 1},
+                {"date": "2026-09-15", "season": 2026, "home_team": "Home FC", "away_team": "Third FC", "home_goals": 0, "away_goals": 1},
+            ])
+            rows.to_csv(f"{directory}/premier_league_2026.csv", index=False)
+            history = team_history("premier_league", "Home FC", data_dir=directory)
+            summary = team_summary(history)
+            table = league_table("premier_league", 2026, data_dir=directory)
+            self.assertEqual(history.iloc[0].result, "L")
+            self.assertEqual(summary["record"], "1-1-1")
+            self.assertEqual(summary["points"], 4)
+            self.assertEqual(table.iloc[0].team, "Home FC")
+            self.assertEqual(int(table.iloc[0].points), 4)
+
+    def test_player_dashboard_aggregates_completed_stats_and_snapshots(self):
+        with tempfile.TemporaryDirectory() as directory:
+            record = {"fixture_id": 99, "captured_at": "2026-09-20T12:00:00Z", "home_team": "Home FC",
+                      "away_team": "Away FC", "player_stats": {"home": [{"player_id": 7, "player_name": "Alex",
+                      "position": "Midfielder", "minutes": 90, "appearances": 1, "starts": 1, "goals": 1,
+                      "assists": 0, "shots": 3, "shots_on": 2, "key_passes": 4, "rating": 8.2}], "away": []},
+                      "lineups": {"home": {"players": []}, "away": {"players": []}},
+                      "injuries": {"players": [{"team": "home", "player_id": 7, "player_name": "Alex"}]}}
+            path = Path(directory) / "fixture_99.normalized.json"
+            path.write_text(json.dumps(record), encoding="utf-8")
+            players, info = player_dashboard("Home FC", directory)
+            self.assertTrue(info["stats_available"])
+            self.assertEqual(info["snapshots"], 1)
+            self.assertEqual(players.iloc[0]["minutes"], 90)
+            self.assertEqual(players.iloc[0]["position"], "Midfielder")
+            self.assertEqual(players.iloc[0]["injury_mentions"], 1)
 
 
 class DataAndPredictionTests(unittest.TestCase):
@@ -200,6 +249,13 @@ class DataAndPredictionTests(unittest.TestCase):
         assisted=predict_match(bundle,'A','B',date,[1.5,4.5,7])
         self.assertEqual(assisted['prediction_mode'],'assisted')
         self.assertIsNotNone(assisted['market_probabilities'])
+        gated=predict_match(bundle,'A','B',date,require_context=True)
+        self.assertFalse(gated['selection']['selected'])
+        self.assertFalse(gated['context_quality']['ready'])
+        self.assertEqual(gated['probabilities'],result['probabilities'])
+        self.assertIn('No fixture context collected.',gated['selection']['reasons'])
+        with self.assertRaises(ValueError):
+            predict_match(bundle,'A','B',date,context={'home_team':'Wrong','away_team':'B','kickoff_utc':str(date)})
         with self.assertRaises(ValueError): predict_match(bundle,'A','B',date,[1.0,4,5])
         with self.assertRaises(ValueError): predict_match(bundle,'A','A',date)
         with self.assertRaises(ValueError): predict_match(bundle,'A','Unknown',date)

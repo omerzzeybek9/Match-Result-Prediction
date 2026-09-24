@@ -7,9 +7,12 @@ import pandas as pd
 
 from .models import GOALS, blend_market, outcomes, temperature_scale
 from .selection import double_chance_pick, policy_verdict
+from .context import assess_context
+from .data import API_LEAGUES
 
 
-def predict_match(bundle, home, away, date=None, decimal_odds=None):
+def predict_match(bundle, home, away, date=None, decimal_odds=None, context=None,
+                  require_context=False, as_of=None):
     if bundle.get("schema_version") != 3:
         raise ValueError("Unsupported model artifact; retrain with the current version")
     if home == away:
@@ -48,7 +51,7 @@ def predict_match(bundle, home, away, date=None, decimal_odds=None):
     scores = [{"home": int(i//len(GOALS)), "away": int(i%len(GOALS)), "probability": float(grid.ravel()[i])} for i in positions]
     warnings = []
     age = (date - latest).days
-    if age > 30:
+    if age > 14:
         warnings.append(f"Latest result is {age} days before this match date. Refresh data and retrain.")
     for team in [home, away]:
         if engine.teams[team].matches < 10:
@@ -60,12 +63,24 @@ def predict_match(bundle, home, away, date=None, decimal_odds=None):
     verdict=policy_verdict(policies.get(mode),float(p.max()),engine.teams[home].matches,
                            engine.teams[away].matches,age,agreement=int(p.argmax())==int(statistical_p.argmax()),
                            experimental=bundle["league"]=="cl")
-    labels=[home,"Beraberlik",away]
+    context_check = assess_context(context, as_of=as_of)
+    if context is not None:
+        context_date = pd.Timestamp(context.get("kickoff_utc"))
+        if (context.get("home_team") != home or context.get("away_team") != away
+                or context_date.tzinfo is None or context_date.tz_convert("UTC").date() != date.date()
+                or context.get("league_id") != API_LEAGUES.get(bundle["league"], (None, None))[1]):
+            raise ValueError("Context fixture does not match the model league, teams and UTC date. Resolve provider names explicitly.")
+    if require_context and not context_check["ready"]:
+        verdict["selected"] = False
+        verdict["label"] = "Abstain"
+        verdict["reasons"].extend(context_check["issues"])
+    warnings.append("Lineup and injury context is displayed and quality-checked, not yet used to adjust model probabilities.")
+    labels=[home,"Draw",away]
     double_chance=double_chance_pick(p)
     double_chance["label"]={
-        "1X":f"{home} veya Beraberlik",
-        "X2":f"Beraberlik veya {away}",
-        "12":f"{home} veya {away} (beraberlik yok)",
+        "1X":f"{home} or Draw",
+        "X2":f"Draw or {away}",
+        "12":f"{home} or {away} (no draw)",
     }[double_chance["code"]]
     return {"home_team":home,"away_team":away,"date":str(date.date()),
             "probabilities":{"home":float(p[0]),"draw":float(p[1]),"away":float(p[2])},
@@ -73,6 +88,7 @@ def predict_match(bundle, home, away, date=None, decimal_odds=None):
             "market_probabilities":None if market_p is None else {"home":float(market_p[0]),"draw":float(market_p[1]),"away":float(market_p[2])},
             "prediction_mode":mode,"predicted_outcome":labels[int(p.argmax())],"selection":verdict,
             "double_chance":double_chance,
+            "context_quality":context_check,
             "expected_goals":{"home":float((grid.sum(axis=1)*GOALS).sum()),
                               "away":float((grid.sum(axis=0)*GOALS).sum())},
             "top_scores":scores,"over_2_5":float(grid[total>=3].sum()),

@@ -20,19 +20,13 @@ from typing import Any, Callable, Mapping
 
 import numpy as np
 
+from .data import API_LEAGUES
+
 
 API_BASE_URL = "https://v3.football.api-sports.io"
 
-# API-Football's stable league IDs for the six domestic competitions already
-# supported by this repository.
-LEAGUE_IDS = {
-    "premier_league": 39,
-    "bundesliga": 78,
-    "laliga": 140,
-    "seriea": 135,
-    "ligue1": 61,
-    "eredivise": 88,
-}
+# API-Football's stable league IDs for the dashboard's ten-league catalog.
+LEAGUE_IDS = {key: value[1] for key, value in API_LEAGUES.items()}
 
 SNAPSHOT_ENDPOINTS = {
     "fixture": "fixtures",
@@ -100,7 +94,7 @@ class ApiFootballClient:
         request = urllib.request.Request(url, headers={
             "x-apisports-key": self.api_key,
             "Accept": "application/json",
-            "User-Agent": "MatchResultPrediction/3.2",
+            "User-Agent": "MatchResultPrediction/3.4",
         })
         opener = self.opener or urllib.request.urlopen
         try:
@@ -123,15 +117,15 @@ class ApiFootballClient:
         return payload
 
     def fixture_snapshot(self, fixture_id: int, requested_at: str | None = None,
-                         include_odds: bool = True) -> dict[str, Any]:
-        """Fetch only pre-match-safe context for one fixture.
+                         include_odds: bool = True, include_player_stats: bool = False) -> dict[str, Any]:
+        """Fetch a timestamped context snapshot for one fixture.
 
         Fixture metadata, lineups, injuries and odds are kept as separate raw
-        responses. No post-match fixture statistics are requested here.
+        responses. Player statistics are optional because they are post-match
+        data and must never enter a pre-match model feature set.
         """
         if int(fixture_id) <= 0:
             raise ValueError("fixture_id must be a positive integer")
-        captured_at = requested_at or _utc_now()
         requests = {
             "fixture": (SNAPSHOT_ENDPOINTS["fixture"], {"id": int(fixture_id)}),
             "lineups": (SNAPSHOT_ENDPOINTS["lineups"], {"fixture": int(fixture_id)}),
@@ -139,9 +133,23 @@ class ApiFootballClient:
         }
         if include_odds:
             requests["odds"] = (SNAPSHOT_ENDPOINTS["odds"], {"fixture": int(fixture_id)} )
-        responses = {name: self.get(endpoint, params) for name, (endpoint, params) in requests.items()}
+        if include_player_stats:
+            requests["player_stats"] = ("fixtures/players", {"fixture": int(fixture_id)})
+        responses = {}
+        endpoint_errors = {}
+        for name, (endpoint, params) in requests.items():
+            try:
+                responses[name] = self.get(endpoint, params)
+            except RuntimeError:
+                if name == "fixture":
+                    raise
+                endpoint_errors[name] = "Endpoint unavailable; check coverage, quota and access."
+        # Timestamp when all responses are available, not before slow requests.
+        captured_at = requested_at or _utc_now()
         return {"provider": "api-football", "fixture_id": int(fixture_id),
-                "captured_at": captured_at, "responses": responses}
+                "captured_at": captured_at, "responses": responses,
+                "endpoint_errors": endpoint_errors,
+                "player_stats_requested": include_player_stats}
 
     def fixtures(self, league: str | int, season: int, date_from: str | None = None,
                  date_to: str | None = None) -> dict[str, Any]:
@@ -227,7 +235,9 @@ def _lineup_summary(payload: Mapping[str, Any], team_id: int | None) -> dict[str
             continue
         starters = row.get("startXI") if isinstance(row.get("startXI"), list) else []
         substitutes = row.get("substitutes") if isinstance(row.get("substitutes"), list) else []
-        return {"confirmed": bool(starters), "starting_xi_count": len(starters),
+        starter_ids = [entry.get("player", {}).get("id") for entry in starters if isinstance(entry, Mapping)]
+        return {"confirmed": len(starter_ids) == 11 and None not in starter_ids and len(set(starter_ids)) == 11,
+                "starting_xi_count": len(starters),
                 "substitute_count": len(substitutes), "formation": row.get("formation"),
                 "coach_id": _team_id(row.get("coach")),
                 "players": [entry.get("player", {}) for entry in starters if isinstance(entry, Mapping)]}
@@ -280,18 +290,69 @@ def _odds_summary(payload: Mapping[str, Any]) -> dict[str, Any]:
             "median_decimal": medians, "normalized_probability": probabilities}
 
 
+def _player_stats_summary(payload: Mapping[str, Any], home_id: int | None,
+                          away_id: int | None) -> dict[str, list[dict[str, Any]]]:
+    result = {"home": [], "away": []}
+    for team_row in payload.get("response", []) if isinstance(payload, Mapping) else []:
+        if not isinstance(team_row, Mapping):
+            continue
+        team = _team_id(team_row.get("team"))
+        side = "home" if team == home_id else "away" if team == away_id else None
+        if side is None:
+            continue
+        for row in team_row.get("players", []) if isinstance(team_row.get("players"), list) else []:
+            if not isinstance(row, Mapping):
+                continue
+            player = row.get("player") if isinstance(row.get("player"), Mapping) else {}
+            statistics = row.get("statistics") if isinstance(row.get("statistics"), list) else []
+            stats = statistics[0] if statistics and isinstance(statistics[0], Mapping) else {}
+            games = stats.get("games") if isinstance(stats.get("games"), Mapping) else {}
+            goals = stats.get("goals") if isinstance(stats.get("goals"), Mapping) else {}
+            shots = stats.get("shots") if isinstance(stats.get("shots"), Mapping) else {}
+            passes = stats.get("passes") if isinstance(stats.get("passes"), Mapping) else {}
+            cards = stats.get("cards") if isinstance(stats.get("cards"), Mapping) else {}
+            result[side].append({"player_id": player.get("id"), "player_name": player.get("name"),
+                "position": games.get("position"), "minutes": games.get("minutes") or 0,
+                "appearances": int((_as_float(games.get("minutes")) or 0) > 0),
+                "starts": int(games.get("substitute") is False),
+                "rating": _as_float(games.get("rating")), "goals": goals.get("total") or 0,
+                "assists": goals.get("assists") or 0, "shots": shots.get("total") or 0,
+                "shots_on": shots.get("on") or 0, "key_passes": passes.get("key") or 0,
+                "passes": passes.get("total") or 0, "yellow": cards.get("yellow") or 0,
+                "red": cards.get("red") or 0})
+    return result
+
+
 def normalize_fixture_snapshot(snapshot: Mapping[str, Any]) -> dict[str, Any]:
-    """Convert a stored raw snapshot to one safe, model-ready context record."""
+    """Normalize context with conservative temporal and endpoint provenance."""
     responses = snapshot.get("responses", {})
     fixture = _first_response(responses.get("fixture", {}))
     teams = fixture.get("teams", {}) if isinstance(fixture, Mapping) else {}
     home = teams.get("home", {}) if isinstance(teams, Mapping) else {}
     away = teams.get("away", {}) if isinstance(teams, Mapping) else {}
     home_id, away_id = _team_id(home), _team_id(away)
+    if (fixture.get("fixture", {}).get("id") != int(snapshot["fixture_id"])
+            or home_id is None or away_id is None or home_id == away_id):
+        raise ValueError("Missing or mismatched fixture/team identities in provider response")
     kickoff = fixture.get("fixture", {}).get("date") if isinstance(fixture.get("fixture"), Mapping) else None
+    status = fixture.get("fixture", {}).get("status", {}).get("short")
+    before_kickoff = False
+    try:
+        captured = datetime.fromisoformat(str(snapshot.get("captured_at")).replace("Z", "+00:00"))
+        starts = datetime.fromisoformat(str(kickoff).replace("Z", "+00:00"))
+        before_kickoff = captured.tzinfo is not None and starts.tzinfo is not None and captured < starts
+    except (ValueError, TypeError):
+        pass
+    endpoint_errors = snapshot.get("endpoint_errors", {})
+    endpoint_status = {name: "error" if name in endpoint_errors else
+                       "available" if responses.get(name, {}).get("response") else
+                       "empty" if name in responses else "not_requested"
+                       for name in ["fixture", "lineups", "injuries", "odds", "player_stats"]}
     result = {"provider": snapshot.get("provider", "api-football"),
               "fixture_id": int(snapshot["fixture_id"]), "captured_at": snapshot.get("captured_at"),
               "kickoff_utc": kickoff, "league_id": fixture.get("league", {}).get("id") if isinstance(fixture.get("league"), Mapping) else None,
+              "fixture_status": status, "endpoint_status": endpoint_status,
+              "endpoint_errors": endpoint_errors,
               "season": fixture.get("league", {}).get("season") if isinstance(fixture.get("league"), Mapping) else None,
               "home_team_id": home_id, "home_team": home.get("name"),
               "away_team_id": away_id, "away_team": away.get("name"),
@@ -300,12 +361,17 @@ def normalize_fixture_snapshot(snapshot: Mapping[str, Any]) -> dict[str, Any]:
               "injuries": _injury_summary(responses.get("injuries", {}), home_id, away_id),
               "odds": _odds_summary(responses.get("odds", {})),
               "xg": {"home": None, "away": None, "source": None},
-              "prematch_safe": True}
+              "player_stats": _player_stats_summary(responses.get("player_stats", {}), home_id, away_id),
+              "prematch_safe": bool(before_kickoff and status == "NS"
+                                    and not snapshot.get("player_stats_requested") and "player_stats" not in responses)}
     return result
 
 
 def collect_fixture(client: ApiFootballClient, fixture_id: int, store: SnapshotStore,
-                    requested_at: str | None = None, include_odds: bool = True) -> tuple[Path, dict[str, Any]]:
-    snapshot = client.fixture_snapshot(fixture_id, requested_at=requested_at, include_odds=include_odds)
+                    requested_at: str | None = None, include_odds: bool = True,
+                    include_player_stats: bool = False) -> tuple[Path, dict[str, Any]]:
+    snapshot = client.fixture_snapshot(fixture_id, requested_at=requested_at,
+                                       include_odds=include_odds,
+                                       include_player_stats=include_player_stats)
     path = store.save(snapshot)
     return path, normalize_fixture_snapshot(snapshot)

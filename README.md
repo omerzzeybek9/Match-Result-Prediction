@@ -1,6 +1,18 @@
-# Match Result Prediction — v3.2
+# Match Result Prediction — v3.4
 
-A reproducible pre-match football forecasting application for six European domestic leagues. It produces home/draw/away probabilities, expected goals and likely scores. It now also emits a **double-chance pick for every fixture** by excluding the least likely 1-X-2 result; the stricter exact-result mode can still abstain when a fixture does not meet a validation-selected confidence rule.
+## v3.4 readiness and availability update
+
+- English **Injuries & Lineups** view across the ten-league API catalog, with fixture-specific reasons, timestamps, endpoint status and starting XIs.
+- Partial API failures preserve successful endpoints; empty injury responses remain unknown, not proof of a healthy squad.
+- Snapshots captured at/after kickoff, live fixtures, missing timestamps and optional player-statistics payloads cannot be marked pre-match safe.
+- The UI's optional context gate is on by default. Missing, stale or incomplete context makes the selective signal abstain, without changing baseline probabilities. This new gated subset has **not** been backtested; older accuracy/coverage figures below describe the old policy only.
+- Player statistics use provider league/team names, stable player IDs and a recent-fixture window. Later context-only refreshes do not erase completed stats. Historical injury mentions are not current injury status.
+- All ten league keys now work with the history importer and training CLI. Four new league models still require licensed historical results and forward evaluation.
+- `python -m match_predictor doctor` checks local readiness without exposing the API key or making network requests.
+
+See [LIVE_USE.md](LIVE_USE.md) for setup, import commands and explicit release blockers. Injury/lineup information is included in the dashboard and quality gates, **not in learned probability adjustments**. No new accuracy or profitability result is claimed by this release.
+
+A reproducible pre-match football forecasting application with an English Streamlit dashboard. It produces home/draw/away probabilities, expected goals and likely scores, then adds team history, league tables and player form from timestamped context snapshots. It also emits a **double-chance pick for every fixture** by excluding the least likely 1-X-2 result; the stricter exact-result mode can still abstain when a fixture does not meet a validation-selected confidence rule.
 
 Two modes are available:
 
@@ -18,6 +30,8 @@ python -m venv .venv
 python -m pip install -r requirements-tested.txt
 python -m streamlit run streamlit/user_interface.py
 ```
+
+The dashboard has five views: **Match Forecast**, **Team Dashboard**, **Player Dashboard**, **Injuries & Lineups** and **Model Evaluation**. Six domestic league model artifacts are included in prepared packages; the other four need historical data and evaluation.
 
 The prepared release includes trained artifacts. A fresh Git clone excludes downloaded history and binary artifacts; build them with:
 
@@ -46,7 +60,13 @@ python -m match_predictor collect --league premier_league --season 2026 \
   --from-date 2026-09-25 --to-date 2026-09-27 --details
 ```
 
-Raw responses and normalized context are stored under `data/api_football/`. The collector requests fixture metadata, lineups, injuries and pre-match odds; it deliberately does not request post-match statistics. Re-run at a fixed offset such as T-24h and T-1h so later model training can compare equivalent information windows.
+For completed fixtures, add player-level appearances, minutes, ratings, goals and assists to the dashboard snapshot:
+
+```bash
+python -m match_predictor collect --fixture 123456 --include-player-stats
+```
+
+Raw responses and normalized context are stored under `data/api_football/`. The default collector requests fixture metadata, lineups, injuries and pre-match odds; the opt-in player-statistics flag is reserved for completed fixtures and is marked unsafe for pre-match modeling. Re-run pre-match collection at fixed offsets such as T-24h and T-1h so later model training can compare equivalent information windows.
 
 Supply all three odds from the same source and snapshot, or supply none. Odds must be decimal and greater than 1.00. Exact provider team names are available in the UI dropdowns. Historical forecasts require a pre-date refit; the application rejects dates already included in the artifact.
 
@@ -90,7 +110,7 @@ Historical source: [Football-Data CSVs](https://www.football-data.co.uk/data.php
 
 The source page states that its free data is intended for private individuals and restricts commercial/data-training uses. Review its current terms before publishing, redistributing, commercializing or automating this project; use a licensed feed where required. Source files can be revised. The manifest records URL, retrieval time, source and normalized SHA-256 hashes, match count and last match date.
 
-Supported domestic leagues: Premier League (`E0`), Bundesliga (`D1`), La Liga (`SP1`), Serie A (`I1`), Ligue 1 (`F1`) and Eredivisie (`N1`). Internal `eredivise` spelling remains for compatibility. Champions League uses only a small legacy 2024/25 sample, is excluded from the 70% system and remains experimental.
+The trained Football-Data models currently cover Premier League (`E0`), Bundesliga (`D1`), La Liga (`SP1`), Serie A (`I1`), Ligue 1 (`F1`) and Eredivisie (`N1`). The API-Football dashboard catalog additionally includes Primeira Liga, Belgian Pro League, Süper Lig and Scottish Premiership; those four are marked as data-collection pending until their history has passed the same forward evaluation. Internal `eredivise` spelling remains for compatibility. Champions League uses only a small legacy 2024/25 sample, is excluded from the 70% system and remains experimental.
 
 - `match_predictor/`: data, features, models, selective policy, training, prediction and CLI.
 - `artifacts/<league>.joblib`: production model and feature state.
@@ -107,7 +127,7 @@ Legacy notebooks and models remain as project history and are not used by v3. Th
 
 Refresh and retrain before use. The application blocks the strong signal when the latest result is more than 14 days before the selected fixture. It also blocks teams with fewer than ten historical matches and rejects unknown teams.
 
-The v3.2 collector now records dated lineups, injuries and odds snapshots, but the production probability model does not consume those new context fields until enough historical snapshots exist for a leakage-safe forward evaluation. API-Football is not treated as a consistent historical xG feed; the normalized schema leaves xG empty unless a licensed provider supplies it. Rest reflects this competition only. Totals and both-teams-to-score values are derived from the goal grid and have not received a separate confirmation study. No betting edge, expected value or profitability after bookmaker margin has been established.
+The v3.3 collector now records dated lineups, injuries, odds and optional completed-match player snapshots, but the production probability model does not consume those new context fields until enough historical snapshots exist for a leakage-safe forward evaluation. API-Football is not treated as a consistent historical xG feed; the normalized schema leaves xG empty unless a licensed provider supplies it. Rest reflects this competition only. Totals and both-teams-to-score values are derived from the goal grid and have not received a separate confirmation study. No betting edge, expected value or profitability after bookmaker margin has been established.
 
 A legacy source file contained an API credential. It has been removed from this snapshot, but an earlier public Git history may retain it. Revoke or rotate that credential with its provider. The new CSV flow does not use it.
 

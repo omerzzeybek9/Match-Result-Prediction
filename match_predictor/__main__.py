@@ -3,12 +3,13 @@ import json
 from datetime import date, datetime, timezone
 from pathlib import Path
 
-from .data import LEAGUES, ROOT
+from .data import API_LEAGUES, LEAGUES, ROOT
 
 
 def main():
     parser = argparse.ArgumentParser(description="Football forecasting: download, train, predict")
     commands = parser.add_subparsers(dest="command", required=True)
+    commands.add_parser("doctor", help="Read-only model, credential and context readiness report")
     download = commands.add_parser("download")
     download.add_argument("--leagues", nargs="+", choices=LEAGUES, default=[x for x in LEAGUES if x != "cl"])
     download.add_argument("--start", type=int, default=2018)
@@ -27,13 +28,19 @@ def main():
     prediction.add_argument("--draw-odds", type=float)
     prediction.add_argument("--away-odds", type=float)
     prediction.add_argument("--model-dir", type=Path, default=ROOT/"artifacts")
+    prediction.add_argument("--context-file", type=Path, help="Normalized snapshot matching the fixture")
+    prediction.add_argument("--require-context", action="store_true", help="Abstain if context quality checks fail")
+    history = commands.add_parser("import-api-history", help="Import licensed API fixture lists for training")
+    history.add_argument("--input", type=Path, required=True)
+    history.add_argument("--league", choices=API_LEAGUES, required=True)
+    history.add_argument("--output-dir", type=Path, required=True)
     report = commands.add_parser("report")
     report.add_argument("--model-dir", type=Path, default=ROOT/"artifacts")
     report.add_argument("--output", type=Path, default=ROOT/"reports/benchmark.md")
     collect = commands.add_parser("collect", help="Capture pre-match API-Football context snapshots")
     collect.add_argument("--fixture", type=int, action="append",
                          help="API-Football fixture ID; repeat for several fixtures")
-    collect.add_argument("--league", choices=[name for name in LEAGUES if name != "cl"],
+    collect.add_argument("--league", choices=list(API_LEAGUES),
                          help="Repository league key used to discover fixtures")
     collect.add_argument("--season", type=int,
                          help="API-Football season start year, for example 2026")
@@ -43,9 +50,17 @@ def main():
                          help="After discovery, fetch lineups, injuries and odds for every fixture")
     collect.add_argument("--without-odds", action="store_true",
                          help="Skip the odds endpoint when capturing fixture details")
+    collect.add_argument("--include-player-stats", action="store_true",
+                         help="Fetch completed-match player statistics; never used as pre-match model input")
     collect.add_argument("--output-dir", type=Path, default=ROOT/"data/api_football")
     args = parser.parse_args()
-    if args.command == "download":
+    if args.command == "doctor":
+        from .health import readiness_report
+        print(json.dumps(readiness_report(), indent=2))
+    elif args.command == "import-api-history":
+        from .history_import import import_fixture_history
+        print(json.dumps(import_fixture_history(args.input, args.league, args.output_dir), indent=2))
+    elif args.command == "download":
         from .data import download_history
         errors = download_history(args.leagues, args.start, args.end, args.data_dir)
         if errors:
@@ -67,6 +82,8 @@ def main():
             parser.error("Use --fixture or both --league and --season")
         if args.league and args.season is None:
             parser.error("--season is required when --league is used")
+        if args.include_player_stats and not (args.fixture or args.details):
+            parser.error("--include-player-stats requires --fixture or --details")
         try:
             client = ApiFootballClient.from_environment()
         except ValueError as error:
@@ -89,7 +106,9 @@ def main():
                 print("Discovery only. Re-run with --details to fetch lineups, injuries and odds.", flush=True)
         if args.details or args.fixture:
             for fixture_id in fixture_ids:
-                path, record = collect_fixture(client, fixture_id, store, include_odds=not args.without_odds)
+                path, record = collect_fixture(client, fixture_id, store,
+                                               include_odds=not args.without_odds,
+                                               include_player_stats=args.include_player_stats)
                 normalized = store.save_normalized(record)
                 print(json.dumps({"fixture_id": fixture_id, "raw": str(path),
                                   "normalized": str(normalized),
@@ -107,7 +126,9 @@ def main():
         if any(value is not None for value in odds) and not all(value is not None for value in odds):
             parser.error("Provide all three odds or none")
         print(json.dumps(predict_match(bundle,args.home,args.away,args.date,
-              odds if all(value is not None for value in odds) else None),indent=2,ensure_ascii=False))
+              odds if all(value is not None for value in odds) else None,
+              context=json.loads(args.context_file.read_text()) if args.context_file else None,
+              require_context=args.require_context),indent=2,ensure_ascii=False))
 
 
 if __name__ == "__main__":

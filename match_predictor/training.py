@@ -226,6 +226,7 @@ def train_league(league, output_dir=None, data_dir=None):
     print(f"{league}: test accuracy={report['selected']['accuracy']:.3f}, log loss={report['selected']['log_loss']:.3f}; production refit", flush=True)
     production = {name: MatchModel(name, columns).fit(frame) for name in weights}
     bundle = {"schema_version": 3, "league": league, "models": production, "weights": weights,
+              "history_directory": str(Path(data_dir or ROOT / "data/history").resolve()),
               "temperature": temperature, "market_weight":market_weight,
               "engine": engine, "columns": columns, "report": report,
               "last_match_date": str(matches.date.max().date()),

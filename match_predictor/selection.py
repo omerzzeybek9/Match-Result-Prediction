@@ -109,17 +109,17 @@ def policy_verdict(policy, confidence, home_history, away_history, data_age,
                    agreement=True, experimental=False):
     reasons=[]
     if experimental:
-        reasons.append("Bu lig için seçim kuralı doğrulanmadı.")
+        reasons.append("The selection policy is not validated for this competition.")
     if not policy or policy.get('threshold') is None:
-        reasons.append("%70 hedefi için geliştirme döneminde yeterli kanıt bulunamadı.")
+        reasons.append("Insufficient development evidence for the 70% selective target.")
     elif confidence < policy['threshold']:
-        reasons.append(f"Tahmin güveni %{100*confidence:.1f}; seçme eşiği %{100*policy['threshold']:.1f}.")
+        reasons.append(f"Confidence {100*confidence:.1f}%; selection threshold {100*policy['threshold']:.1f}%.")
     if policy and policy.get('require_agreement') and not agreement:
-        reasons.append("İstatistik modeli ile piyasa aynı sonucu seçmiyor.")
+        reasons.append("The statistical model and market disagree on the most likely outcome.")
     if min(home_history,away_history)<10:
-        reasons.append("Takımlardan en az birinin maç geçmişi yetersiz.")
+        reasons.append("At least one team has insufficient match history.")
     if data_age>14:
-        reasons.append(f"Veri maç tarihinden {data_age} gün eski; güncelleme gerekli.")
-    return {"selected":not reasons,"label":"Seçim ölçütlerini karşılıyor" if not reasons else "Pas",
+        reasons.append(f"Latest result is {data_age} days before kickoff; refresh required.")
+    return {"selected":not reasons,"label":"Policy passed" if not reasons else "Abstain",
             "reasons":reasons,"target":.70,"threshold":policy.get('threshold') if policy else None,
-            "note":"%70 hedefi, seçilmiş maçların geçmiş toplu başarısı içindir; bu maç için garanti değildir."}
+            "note":"The 70% target concerns aggregate historical accuracy on selected matches, not a guarantee for this match."}

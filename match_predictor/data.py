@@ -21,7 +21,26 @@ LEAGUES = {
     "seriea": ("Serie A", "I1", "seriea"),
     "ligue1": ("Ligue 1", "F1", "ligue1"),
     "eredivise": ("Eredivisie", "N1", "eredivise"),
+    "primeira_liga": ("Primeira Liga", "P1", None),
+    "belgian_pro_league": ("Belgian Pro League", "B1", None),
+    "super_lig": ("Süper Lig", "T1", None),
+    "scottish_premiership": ("Scottish Premiership", "SC0", None),
     "cl": ("Champions League · legacy data", None, "cl"),
+}
+
+# Shared ten-league API catalog. All keys are also accepted by training;
+# a catalog entry does not imply a trained or validated model exists.
+API_LEAGUES = {
+    "premier_league": ("Premier League", 39),
+    "laliga": ("La Liga", 140),
+    "bundesliga": ("Bundesliga", 78),
+    "seriea": ("Serie A", 135),
+    "ligue1": ("Ligue 1", 61),
+    "eredivise": ("Eredivisie", 88),
+    "primeira_liga": ("Primeira Liga", 94),
+    "belgian_pro_league": ("Belgian Pro League", 144),
+    "super_lig": ("Süper Lig", 203),
+    "scottish_premiership": ("Scottish Premiership", 179),
 }
 OPTIONAL_STATS = {"HS": "home_shots", "AS": "away_shots",
                   "HST": "home_sot", "AST": "away_sot"}
@@ -171,6 +190,8 @@ def load_matches(league, directory=None):
     if files:
         # Do not mix provider team names with legacy aliases.
         return validate_matches(pd.concat([pd.read_csv(f) for f in files], ignore_index=True))
+    if LEAGUES[league][2] is None:
+        raise FileNotFoundError(f"No history for {league}. Import licensed results before training.")
     legacy = ROOT / "Fixture/data" / f"fixtures_{LEAGUES[league][2]}.csv"
     df = pd.read_csv(legacy).rename(columns={"Date": "date", "Home Team": "home_team",
         "Away Team": "away_team", "Home Score": "home_goals", "Away Score": "away_goals"})

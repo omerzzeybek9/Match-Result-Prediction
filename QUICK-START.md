@@ -1,4 +1,8 @@
-# Match Result Prediction v3.2 — Başlangıç
+# Match Result Prediction v3.4 — Başlangıç
+
+Yeni **Injuries & Lineups** sekmesi maç bazında sakatlık/ceza nedenlerini, ilk 11'i, veri zamanını ve eksik API yanıtlarını gösterir. Canlı bağlantı için `API_FOOTBALL_KEY` gerekir. `python -m match_predictor doctor` yerel hazırlık durumunu kontrol eder.
+
+Önemli: Sakatlık ve kadro verisi henüz öğrenilmiş tahmin olasılıklarını değiştirmiyor. Varsayılan bağlam kontrolü eski/eksik veride seçici sinyali durdurur; yeni filtrenin başarı oranı ölçülmedi. Dört yeni lig için lisanslı geçmiş veri ve eğitim hâlâ gerekir. Ayrıntılı kurulum ve kalan işler: [LIVE_USE.md](LIVE_USE.md).
 
 Bu paket kodu, güncel maç geçmişini, eğitilmiş modelleri ve ölçüm raporlarını içerir. Python 3.11 veya 3.12 kullan.
 
@@ -28,6 +32,8 @@ python -m streamlit run streamlit/user_interface.py
 ```
 
 Tarayıcıdaki uygulamada ligi ve takımları seç. En güçlü kullanım için aynı anda, aynı kaynaktan alınmış üç decimal oranı gir: ev sahibi, beraberlik ve deplasman. Örneğin `2.10 / 3.50 / 3.40`. Sistem oran marjını temizler.
+
+Arayüz artık İngilizce dört bölümden oluşur: **Match Forecast**, **Team Dashboard**, **Player Dashboard** ve **Model Evaluation**. Team Dashboard son maçları, formu ve puan tablosunu; Player Dashboard ise toplanan kadro, oyuncu istatistiği ve sakatlık snapshot'larını gösterir. Sol menüdeki Top-10 league coverage tablosu, hangi liglerin modelinin hazır olduğunu ayrıca belirtir.
 
 ## Aktif kullanım kuralı
 
@@ -61,6 +67,12 @@ Bir ligdeki yaklaşan maçları bulup bütün detayları çekmek için:
 ```bash
 python -m match_predictor collect --league premier_league --season 2026 \
   --from-date 2026-09-25 --to-date 2026-09-27 --details
+```
+
+Tamamlanmış maçlarda oyuncu dakika, rating, gol ve asist istatistiklerini de al:
+
+```bash
+python -m match_predictor collect --fixture 123456 --include-player-stats
 ```
 
 Ham API yanıtları ve normalize edilmiş veriler `data/api_football/` altında zaman damgasıyla saklanır. Bu kayıtlar şu anda veri toplama katmanıdır; model bunları hemen tahmine katmaz. Önce aynı zaman pencerelerinden yeterli geçmiş birikmeli, ardından sadece ileri tarihli testte doğrulanan özellikler modele alınmalıdır. API-Football'dan gelen maç içi istatistikler pre-match tahmine eklenmez.
